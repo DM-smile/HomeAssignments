@@ -8,11 +8,41 @@
    </head>
 
    <body>
+      <style>
+         th,
+         td {
+            border: 1px solid black;
+            padding: 8px;
+         }
+      </style>
       <h1>Рішення задачі №1</h1>
       <p>Знайти суму, добуток та частку двох дійсних чисел. Результат вивести у формі таблиці </p>
       <script>
-
+         let aNumber = parseInt(prompt('Введіть значення числа "а"'))
+         let bNumber = parseInt(prompt('Введіть значення числа "b"'))
+         document.write(`<p>Рішення:</p>`)
       </script>
+      <table>
+         <tr>
+            <td>Числа</td>
+            <th>
+               <script>document.write(`111`)</script>
+            </th>
+            <th>Число 2</th>
+         </tr>
+         <tr>
+            <td>Сума</td>
+            <td colspan="2">сума чисел</td>
+         </tr>
+         <tr>
+            <td>Добуток</td>
+            <td colspan="2">добуток чисел</td>
+         </tr>
+         <tr>
+            <td>Частка</td>
+            <td colspan="2">частка чисел</td>
+         </tr>
+      </table>
    </body>
 
 </html>
