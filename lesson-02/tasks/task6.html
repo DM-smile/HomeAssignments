@@ -11,9 +11,81 @@
       <h1>Рішення задачі №6</h1>
       <p>З клавіатури вводяться вартість товару та кількість одиниць 3 товарів. Обчислити вартість кожного товару окремо
          та загальну вартість. Вивести чек (як у супермаркеті) використовуючи елементи розмітки. </p>
-      <script>
+      <style>
+         h2{
+            text-align: center;
+         }
+         .check {
+            border: 2px solid black;
+            text-align: left;
+            max-width: 400px;
+            background-color: rgb(233, 233, 233);
+         }
 
+         table {
+            border-spacing: 15px;
+         }
+
+         .rez {
+            text-align: right;
+         }
+      </style>
+      <script>
+         let a = prompt('Вкажи назву першого товару')
+         let aPrice = parseFloat(prompt('Вкажи ціну цього товару в грн'))
+         let aNum = parseFloat(prompt('Вкажи кількість одиниць цього товару'))
+         let aSum = aPrice * aNum
+         let b = prompt('Вкажи назву другого товару')
+         let bPrice = parseFloat(prompt('Вкажи ціну цього товару в грн'))
+         let bNum = parseFloat(prompt('Вкажи кількість одиниць цього товару'))
+         let bSum = bPrice * bNum
+         let c = prompt('Вкажи назву третього товару')
+         let cPrice = parseFloat(prompt('Вкажи ціну цього товару в грн'))
+         let cNum = parseFloat(prompt('Вкажи кількість одиниць цього товару'))
+         let cSum = cPrice * cNum
+         let rez = aSum + bSum + cSum
+         document.write(`<p>Рішення:</p>`)
+         document.write(`<p>Маємо придбані товари:</p>`)
+         document.write(`<p>${a} - ${aNum} од. по ціні ${aPrice} грн (загальна сума: ${aSum} грн)</p>`)
+         document.write(`<p>${b} - ${bNum} од. по ціні ${bPrice} грн (загальна сума: ${bSum} грн)</p>`)
+         document.write(`<p>${c} - ${cNum} од. по ціні ${cPrice} грн (загальна сума: ${bSum} грн)</p>`)
+         document.write(`<p>Детальніше у чеку</p>`)
+         document.write(`<div class="check">
+         <table>
+            <h2>Ваш чек</h2>
+            <tr>
+               <th>Найменування товару</th>
+               <th>Кількість</th>
+               <th>Ціна</th>
+               <th>Сума</th>
+            </tr>
+            <tr>
+               <td>${a}</td>
+               <td>${aNum} од.</td>
+               <td>${aPrice} грн</td>
+               <td>${aSum} грн</td>
+            </tr>
+            <tr>
+               <td>${b}</td>
+               <td>${bNum} од.</td>
+               <td>${bPrice} грн</td>
+               <td>${bSum} грн</td>
+            </tr>
+            <tr>
+               <td>${c}</td>
+               <td>${cNum} од.</td>
+               <td>${cPrice} грн</td>
+               <td>${cSum} грн</td>
+            </tr>
+            <tr>
+               <th>Загальна сума всіх товарів:</th>
+               <th colspan="3" class="rez">${rez} грн</th>
+            </tr>
+         </table>
+      </div>`)
       </script>
+      <a href="../index.html">
+         <= Назад</a>
    </body>
 
 </html>

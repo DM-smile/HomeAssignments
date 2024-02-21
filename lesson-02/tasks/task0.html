@@ -12,9 +12,10 @@
       <p>Обчислити значення виразів </p> <br>
       <img src="../img/task0.png" alt="#">
       <script>
-         let a = parseInt(prompt('Введіть значення числа "а"'))
-         let b = parseInt(prompt('Введіть значення числа "b"'))
-         let c = parseInt(prompt('Введіть значення числа "c"'))
+         "use strict"
+         let a = parseFloat(prompt('Введіть значення числа "а"'))
+         let b = parseFloat(prompt('Введіть значення числа "b"'))
+         let c = parseFloat(prompt('Введіть значення числа "c"'))
          // 1)
          let firstTask = a + 12 + b
          document.write(`<p>Рішення:</p>`)
@@ -23,12 +24,14 @@
          let secondTask = Math.sqrt((a + b) / (2 * a))
          document.write(`<p>2) S2 = ${secondTask};</p>`)
          // 3)
-         let thirdTask =  Math.cbrt((a + b) * c)
+         let thirdTask = Math.cbrt((a + b) * c)
          document.write(`<p>3) S3 = ${thirdTask};</p>`)
          // 4)
          let fourthTask = Math.sin(a / -b)
          document.write(`<p>4) S4 = ${fourthTask};</p>`)
       </script>
+      <a href="../index.html">
+         <= Назад</a>
    </body>
 
 </html>

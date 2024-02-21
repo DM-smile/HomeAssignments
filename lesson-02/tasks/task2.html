@@ -11,8 +11,15 @@
       <h1>Рішення задачі №2</h1>
       <p>Дано рік народження (дата: 1 січня) та поточний рік. Знайти кількість років. </p>
       <script>
-
+         let a = parseInt(prompt('Вкажи рік народження'))
+         let b = parseInt(prompt('Вкажи який зараз рік'))
+         let rez = b - a
+         document.write(`<p>Рішення:</p>`)
+         document.write(`<p>Відомо що твій день народження 1 січня ${a} року</p>`)
+         document.write(`<p>Якщо зараз ${b} рік то тобі ${rez} років</p>`)
       </script>
+      <a href="../index.html">
+         <= Назад</a>
    </body>
 
 </html>
