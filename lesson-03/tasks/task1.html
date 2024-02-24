@@ -14,15 +14,37 @@
       <p>Рішення:</p>
       <script>
          "use strict"
-         const firstChild = prompt("'Введи ім'я першої дитини'", '')
-         const secondChild = prompt("'Введи ім'я другої дитини'", '')
-         const numberCandiesFirstChild = parseInt('Скільки було цукерок у першої дитини?', '12')
-         const numberCandiesSecondChild = parseInt('Скільки було цукерок у другої дитини?', '7')
-         document.write(`<p>Отже, нам відомо що ${firstChild} має ${numberCandiesFirstChild} цукерок, а ${secondChild} має ${numberCandiesSecondChild} цукерок</p>`)
-            
+         const nameFirstChild = prompt("Введи ім'я першої дитини", 'Кіндрат Погуляйко')
+         const nameSecondChild = prompt("Введи ім'я другої дитини", 'Кончіта Попукалова')
+         const numberCandiesFirstChild = parseInt(prompt('Скільки було цукерок у першої дитини?', '12'))
+         const numberCandiesSecondChild = parseInt(prompt('Скільки було цукерок у другої дитини?', '7'))
+         if (isNaN(numberCandiesFirstChild) || isNaN(numberCandiesSecondChild)) {
+            document.write(`<p>Виявлено некоректний ввід кількості цукерок</p>`)
+            document.write(`<p>Підсумок: Неможливо визначити результат</p>`)
+         }
+         else if (!isNaN(nameFirstChild) || !isNaN(nameSecondChild) || nameFirstChild === "" || nameSecondChild === "") {
+            document.write(`<p>Виявлено некоректний ввід імені</p>`)
+            document.write(`<p>Підсумок: Неможливо визначити результат</p>`)
+         }
+         else if (numberCandiesFirstChild > numberCandiesSecondChild) {
+            document.write(`<p>Отже, нам відомо що ${nameFirstChild} має ${numberCandiesFirstChild} цукерок, а ${nameSecondChild} має ${numberCandiesSecondChild} цукерок</p>`)
+            document.write(`<p>Підсумок: Більша кількість цукерок у ${nameFirstChild}</p>`)
+         }
+         else if (numberCandiesFirstChild < numberCandiesSecondChild) {
+            document.write(`<p>Отже, нам відомо що ${nameFirstChild} має ${numberCandiesFirstChild} цукерок, а ${nameSecondChild} має ${numberCandiesSecondChild} цукерок</p>`)
+            document.write(`<p>Підсумок: Більша кількість цукерок у ${nameSecondChild}</p>`)
+         }
+
+         else if (numberCandiesFirstChild === numberCandiesSecondChild) {
+            document.write(`<p>Отже, нам відомо що ${nameFirstChild} та ${nameSecondChild} мають по ${numberCandiesFirstChild} цукерок</p>`)
+            document.write(`<p>Підсумок: У обох дітей рівна кількість цукерок</p>`)
+         }
 
       </script>
-      <a href="../index.html"> 👈 Назад</a>
+      <a href="task1.html">
+         <p>Ввести дані ще раз</p>
+      </a>
+      <a href="../index.html">👈 Назад</a>
    </body>
 
 </html>

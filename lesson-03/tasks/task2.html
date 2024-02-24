@@ -12,7 +12,23 @@
       <p>З клавіатури вводиться ціна товару і кількість грошей. Якщо грошей не вистачає то відмовляємо у покупці,
          інакше, якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн.</p>
       <p>Рішення:</p>
-         👈 Назад</a>
+      <script>
+         const numberMoney = parseFloat(prompt('Введіть скільки Ви маєте зараз коштів'))
+         const price = parseFloat(prompt('Введіть ціну товару, який бажаєте придбати'))
+         const shortage = (numberMoney - (price + 4))
+         if (isNaN(numberMoney) || isNaN(price) || (numberMoney < 0) || (price < 0))
+            document.write('Некоректний ввід суми коштів')
+         else if ((numberMoney > price) && (shortage >= 0))
+            document.write('У Вас достатнньо коштів щоб придбати цей товар. Ще можу запропонувати Вам лотерею за 4 грн.')
+         else if ((numberMoney >= price) && (shortage < 0))
+            document.write(`У Вас достатнньо коштів щоб придбати цей товар. Якщо знайдете ще ${-shortage} грн то зможу запропонувати Вам лотерею за 4 грн.`)
+         else
+            document.write(`Вибачте, Вам не вистачає ${-shortage - 4} грн для придбання цього товару.`)
+      </script>
+      <a href="task2.html">
+         <p>Ввести дані ще раз</p>
+      </a>
+      <a href="../index.html">👈 Назад</a>
    </body>
 
 </html>

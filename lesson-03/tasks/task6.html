@@ -10,9 +10,47 @@
    <body>
       <h1>Рішення задачі №6</h1>
       <p>З клавіатури вводиться номер дня тижня. Вивести на екран назву дня.</p>
-      <a href="../index.html">
       <p>Рішення:</p>
-         👈 Назад</a>
+      <script>
+         const numberDay = parseInt(prompt('Введіть номер дня тижня для визначення'))
+         if (isNaN(numberDay) || (numberDay < 1) || (numberDay > 7))
+            document.write('Некоректно введено номер дня тижня, спробуйте ще раз')
+         let nameDay
+         switch (numberDay) {
+            case 1:
+               nameDay = 'понеділок'
+               document.write(`Ви ввели номер тижня "${numberDay}" і це є "${nameDay}"`)
+               break
+            case 2:
+               nameDay = 'вівторок'
+               document.write(`Ви ввели номер тижня "${numberDay}" і це є "${nameDay}"`)
+               break
+            case 3:
+               nameDay = 'середа'
+               document.write(`Ви ввели номер тижня "${numberDay}" і це є "${nameDay}"`)
+               break
+            case 4:
+               nameDay = 'червер'
+               document.write(`Ви ввели номер тижня "${numberDay}" і це є "${nameDay}"`)
+               break
+            case 5:
+               nameDay = "п'ятниця"
+               document.write(`Ви ввели номер тижня "${numberDay}" і це є "${nameDay}"`)
+               break
+            case 6:
+               nameDay = 'субота'
+               document.write(`Ви ввели номер тижня "${numberDay}" і це є "${nameDay}"`)
+               break
+            case 7:
+               nameDay = 'неділя'
+               document.write(`Ви ввели номер тижня "${numberDay}" і це є "${nameDay}"`)
+               break
+         }
+      </script>
+      <a href="task6.html">
+         <p>Ввести дані ще раз</p>
+      </a>
+      <a href="../index.html">👈 Назад</a>
    </body>
 
 </html>
