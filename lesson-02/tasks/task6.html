@@ -12,9 +12,10 @@
       <p>З клавіатури вводяться вартість товару та кількість одиниць 3 товарів. Обчислити вартість кожного товару окремо
          та загальну вартість. Вивести чек (як у супермаркеті) використовуючи елементи розмітки. </p>
       <style>
-         h2{
+         h2 {
             text-align: center;
          }
+
          .check {
             border: 2px solid black;
             text-align: left;
@@ -31,17 +32,17 @@
          }
       </style>
       <script>
-         let a = prompt('Вкажи назву першого товару')
-         let aPrice = parseFloat(prompt('Вкажи ціну цього товару в грн'))
-         let aNum = parseFloat(prompt('Вкажи кількість одиниць цього товару'))
+         let a = prompt('Вкажи назву першого товару', 'цукор')
+         let aPrice = parseFloat(prompt('Вкажи ціну цього товару в грн', '15'))
+         let aNum = parseFloat(prompt('Вкажи кількість одиниць цього товару', 1))
          let aSum = aPrice * aNum
-         let b = prompt('Вкажи назву другого товару')
-         let bPrice = parseFloat(prompt('Вкажи ціну цього товару в грн'))
-         let bNum = parseFloat(prompt('Вкажи кількість одиниць цього товару'))
+         let b = prompt('Вкажи назву другого товару', 'хліб')
+         let bPrice = parseFloat(prompt('Вкажи ціну цього товару в грн', '25'))
+         let bNum = parseFloat(prompt('Вкажи кількість одиниць цього товару', '2'))
          let bSum = bPrice * bNum
-         let c = prompt('Вкажи назву третього товару')
-         let cPrice = parseFloat(prompt('Вкажи ціну цього товару в грн'))
-         let cNum = parseFloat(prompt('Вкажи кількість одиниць цього товару'))
+         let c = prompt('Вкажи назву третього товару', 'молоко')
+         let cPrice = parseFloat(prompt('Вкажи ціну цього товару в грн', '60'))
+         let cNum = parseFloat(prompt('Вкажи кількість одиниць цього товару', '3'))
          let cSum = cPrice * cNum
          let rez = aSum + bSum + cSum
          document.write(`<p>Рішення:</p>`)
@@ -85,7 +86,7 @@
       </div>`)
       </script>
       <a href="../index.html">
-         <= Назад</a>
+         👈 Назад</a>
    </body>
 
 </html>
