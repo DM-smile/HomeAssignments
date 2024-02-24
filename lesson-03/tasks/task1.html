@@ -16,8 +16,8 @@
          "use strict"
          const nameFirstChild = prompt("Введи ім'я першої дитини", 'Кіндрат Погуляйко')
          const nameSecondChild = prompt("Введи ім'я другої дитини", 'Кончіта Попукалова')
-         const numberCandiesFirstChild = parseInt(prompt(`Скільки було цукерок у ${nameFirstChild}?`, '12'))
-         const numberCandiesSecondChild = parseInt(prompt(`Скільки було цукерок у ${nameSecondChild}?`, '7'))
+         const numberCandiesFirstChild = parseInt(prompt(`Скільки цукерок має ${nameFirstChild}?`, '12'))
+         const numberCandiesSecondChild = parseInt(prompt(`Скільки цукерок має ${nameSecondChild}?`, '7'))
          if (isNaN(numberCandiesFirstChild) || isNaN(numberCandiesSecondChild)) {
             document.write(`<p>Виявлено некоректний ввід кількості цукерок</p>`)
             document.write(`<p>Підсумок: Неможливо визначити результат</p>`)
