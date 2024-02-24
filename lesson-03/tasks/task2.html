@@ -13,8 +13,8 @@
          інакше, якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн.</p>
       <p>Рішення:</p>
       <script>
-         const numberMoney = parseFloat(prompt('Введіть скільки Ви маєте зараз коштів'))
-         const price = parseFloat(prompt('Введіть ціну товару, який бажаєте придбати'))
+         const numberMoney = parseFloat(prompt('Введіть скільки Ви маєте зараз коштів', '40'))
+         const price = parseFloat(prompt('Введіть ціну товару, який бажаєте придбати', '38'))
          const shortage = (numberMoney - (price + 4))
          if (isNaN(numberMoney) || isNaN(price) || (numberMoney < 0) || (price < 0))
             document.write('Некоректний ввід суми коштів')
