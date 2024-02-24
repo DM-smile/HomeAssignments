@@ -17,17 +17,17 @@
          const randomNumber = minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1))
          const numberOne = parseInt(prompt('Введи число від 1 до 5'))
          if (numberOne === randomNumber) {
-            alert('Молодець! Ти вгадав з першої спроби')
+            alert(`Число ${randomNumber}! Молодець! Ти вгадав з першої спроби`)
             document.write(`Молодець! Ти вгадав з першої спроби! Я загадав число ${randomNumber}`)
          }
          else if (numberOne !== randomNumber) {
-            const numberTwo = parseInt(prompt('Не вгадав! Повторна спроба! Введи число від 1 до 5'))
+            const numberTwo = parseInt(prompt(`Не вгадав! Це не ${numberOne} Повторна спроба! Введи число від 1 до 5`))
             if (numberTwo === randomNumber) {
-               alert('Молодець! Ти вгадав з другої спроби')
+               alert(`Число ${randomNumber}! Молодець! Ти вгадав з другої спроби`)
                document.write(`Молодець! Ти вгадав з другої спроби! Я загадав число ${randomNumber}`)
             }
             else {
-               alert('Нажаль тобі не вдалося вгадати число! Спробуй зіграти ще раз!')
+               alert(`Нажаль тобі не вдалося вгадати число! Я загадав число ${randomNumber}! Спробуй зіграти ще раз!`)
                document.write(`
             <p>Нажаль тобі не вдалося вгадати число!</p>
             <p>Я загадав число ${randomNumber}</p>
