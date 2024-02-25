@@ -10,8 +10,27 @@
 
    <body>
       <h1>Рішення додаткової задачі №3</h1>
-      <p></p>
+      <p>З клавіатури вводяться вартість одиниці та кількість одиниць двох товарів. Вивести на екран вартість кожного з
+         видів товарів окремо і загальну вартість.</p>
       <p>Рішення:</p>
+      <script>
+         alert('З клавіатури вводяться вартість одиниці та кількість одиниць двох товарів. Вивести на екран вартість кожного з видів товарів окремо і загальну вартість.')
+         const firstProduct = prompt('Введіть перший товар', 'Молоко')
+         const numberFirstProduct = parseFloat(prompt(`Укажіть кількість товару "${firstProduct}"`, '3'))
+         const priceFirstProduct = parseFloat(prompt(`Маємо ${firstProduct} (${numberFirstProduct}од.) Укажіть його ціну`, '85'))
+         const secondProduct = prompt(`Маємо ${firstProduct} (${numberFirstProduct}од.) по ціні (${priceFirstProduct}грн)! Введіть другий товар`, 'Сир')
+         const numberSecondProduct = parseFloat(prompt(`Маємо ${firstProduct} (${numberFirstProduct}од.) по ціні (${priceFirstProduct}грн) та другий товар ${secondProduct}, укажіть кількість другого товару`, '2'))
+         const priceSecondProduct = parseFloat(prompt(`Маємо ${firstProduct} (${numberFirstProduct}од.) по ціні (${priceFirstProduct}грн) та ${secondProduct} (${numberSecondProduct} од.), укажіть вартість товару ${secondProduct}`, '220'))
+         const geleralPriseFirstProduct = numberFirstProduct * priceFirstProduct
+         const geleralPriseSecondProduct = numberSecondProduct * priceSecondProduct
+         const generalPrise = geleralPriseFirstProduct + geleralPriseSecondProduct
+         alert(`Отже маємо: ${firstProduct} (${numberFirstProduct}од.), по ціні ${priceFirstProduct}грн, та ${secondProduct} (${numberSecondProduct}од.) по ціні ${priceFirstProduct}грн`)
+         alert(`Загальна вартість товару "${firstProduct}" становить ${geleralPriseFirstProduct}грн, а товару ${secondProduct} становить ${geleralPriseSecondProduct}грн`)
+         alert(`Загальна сума по чеку становить: ${generalPrise}грн`)
+         document.write(`<p>${firstProduct} (${numberFirstProduct}од.), ціна ${priceFirstProduct}грн, сума: ${geleralPriseFirstProduct}</p>`)
+         document.write(`<p>${secondProduct} (${numberSecondProduct}од.), ціна ${priceSecondProduct}грн, сума: ${geleralPriseSecondProduct}</p>`)
+         document.write(`Загальна сума по чеку становить: ${generalPrise}грн`)
+      </script>
       <a href="task3_add.html">
          <p>Ввести дані ще раз</p>
       </a>
