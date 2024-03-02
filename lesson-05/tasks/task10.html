@@ -12,8 +12,23 @@
       <h1>Рішення задачі №10</h1>
       <p>Знайти суму всіх непарних чисел, що знаходяться між заданими користувачем числами.</p>
       <p>Рішення:</p>
-      <p>Поки не вирішено</p>
-      
+      <script>
+
+         let numberOfNubmer = parseInt(prompt('Скільки чисел бажаеш ввести?'))
+         alert(`Добре, введи по черзі ${numberOfNubmer} чисел`)
+         let result = 0
+         while (numberOfNubmer > 0) {
+            let number = parseInt(prompt(`Введи будь-яке число \n(ще ${numberOfNubmer})`))
+            numberOfNubmer--
+            if (number % 2 !== 0) {
+               result = number + result
+            }
+         }
+         alert(`Сума всіх непарних чисел = ${result}`)
+         document.write(`Сума всіх непарних чисел = ${result}`)
+
+
+      </script>
       <a href="task10.html">
          <p>Перезапустити</p>
       </a>
