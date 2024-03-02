@@ -13,8 +13,23 @@
       <p>Вивести таблицю</p>
       <img src="../img/tasks/task5.png" alt="#">
       <p>Рішення:</p>
+      <script>
+         document.write('<table border="2px">')
+         let number = 1
+         for (let row = 1; row <= 3; row++) {
+            document.write('<tr>')
+            for (let step = 1; step <= 3; step++) {
+               document.write('<td>')
+               document.write(`${number}`)
+               document.write('</td>')
+               number++
+            }
+            document.write('</tr>')
+         }
+         document.write('</table>')
+      </script>
       <a href="task5.html">
-         <p>Ввести дані ще раз</p>
+         <p>Перезапустити</p>
       </a>
       <a href="../index.html"> 👈 Назад</a>
    </body>

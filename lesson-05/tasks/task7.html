@@ -13,8 +13,18 @@
       <p>Вивести на екран N абзаців (N вводиться користувачем) за зразком:</p>
       <img src="../img/tasks/task7.png" alt="#">
       <p>Рішення:</p>
+      <script>
+         const numberStep = parseFloat(prompt('Введіть кількість абзаців'))
+         for(let i = 1; i <= numberStep; i++){
+            document.write(`<h1>Заголовок ${i}</h1>`)
+            for (let paragraph = 1; paragraph <= i; paragraph++){
+               document.write(`<p>Розділ ${i}, параграф ${paragraph}</p>`)
+            }
+            document.write('<hr>')
+         }
+      </script>
       <a href="task7.html">
-         <p>Ввести дані ще раз</p>
+         <p>Перезапустити</p>
       </a>
       <a href="../index.html"> 👈 Назад</a>
    </body>

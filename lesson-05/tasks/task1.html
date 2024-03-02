@@ -14,8 +14,18 @@
          вводиться користувачем. Приклад:</p>
       <img src="../img/tasks/task1.png" alt="#">
       <p>Рішення:</p>
+      <script>
+         const numberOfNumbers = parseFloat(prompt('Укажіть кількість випадкових чисел'))
+         const min = 1, max = 100
+         document.write('<ul>')
+         for (let list = 0; list < numberOfNumbers; list++) {
+            let randomNumber = min + Math.floor(Math.random() * (max - min + 1))
+            document.write(`<li>${randomNumber}</li>`)
+         }
+         document.write('</ul>')
+      </script>
       <a href="task1.html">
-         <p>Ввести дані ще раз</p>
+         <p>Перезапустити</p>
       </a>
       <a href="../index.html"> 👈 Назад</a>
    </body>

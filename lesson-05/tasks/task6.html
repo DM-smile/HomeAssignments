@@ -13,8 +13,29 @@
       <p>Вивести 3 таблиці (по 3 рядки і 3 стовпці у кожній) за зразком</p>
       <img src="../img/tasks/task6.png" alt="#">
       <p>Рішення:</p>
+      <script>
+         document.write('<div style="display: flex; gap: 40px";>')
+
+         let number = 1
+         for (let table = 1; table <= 3; table++) {
+            document.write('<table border="2px">')
+            for (let row = 1; row <= 3; row++) {
+               document.write('<tr>')
+               for (let step = 1; step <= 3; step++) {
+                  document.write('<td>')
+                  document.write(`${number}`)
+                  document.write('</td>')
+                  number++
+               }
+               document.write('</tr>')
+            }
+         }
+         document.write('</table>')
+
+         document.write('</div>')
+      </script>
       <a href="task6.html">
-         <p>Ввести дані ще раз</p>
+         <p>Перезапустити</p>
       </a>
       <a href="../index.html"> 👈 Назад</a>
    </body>
