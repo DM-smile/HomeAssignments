@@ -11,5 +11,5 @@ document.write('') // вивід даних в документ html
 prompt // вивід спливаючого вікна з вводом даних
 
 const min = 1, max = 100 //випадкове число (мінімальне та максимальне значення)
-const randomNumber = min + Math.floor(Math.random() * (max - min + 1)) //випадкове число (вивід)
+let randomNumber = min + Math.floor(Math.random() * (max - min + 1)) //випадкове число (вивід)
 

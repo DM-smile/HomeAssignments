@@ -13,9 +13,16 @@
       <p>Користувач загадує число. За 3 спроби комп’ютер намагається вгадати число користувача (використати confirm).
       </p>
       <p>Рішення:</p>
-      <p>Поки не вирішено</p>
       <script>
-         
+         alert('Загадай число, а я спробую його вгадати за 3 спроби, готовий?')
+         for (let i = 1; i <= 3; i++) {
+            const min = 1, max = 100
+            let randomNumber = min + Math.floor(Math.random() * (max - min + 1))
+            if (confirm(`Спроба ${i} \nЦе ${randomNumber}?`)) {
+               alert(`Ура, я вгадав число ${randomNumber}`)
+               break
+            }
+         }
       </script>
       <a href="task8.html">
          <p>Перезапустити</p>

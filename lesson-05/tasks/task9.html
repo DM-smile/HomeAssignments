@@ -12,7 +12,17 @@
       <h1>Рішення задачі №9</h1>
       <p>Користувач загадує число. Комп’ютер задає питання поки не вгадає число користувача (використати confirm)</p>
       <p>Рішення:</p>
-      <p>Поки не вирішено</p>
+      <script>
+         alert('Загадай число, а я спробую його вгадати, готовий?')
+         for (let i = 1; i >= 1; i++) {
+            const min = 1, max = 100
+            let randomNumber = min + Math.floor(Math.random() * (max - min + 1))
+            if (confirm(`Спроба ${i} \nЦе ${randomNumber}?`)) {
+               alert(`Ура, я вгадав число ${randomNumber}`)
+               break
+            }
+         }
+      </script>
       <a href="task9.html">
          <p>Перезапустити</p>
       </a>
