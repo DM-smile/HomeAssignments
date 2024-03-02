@@ -4,17 +4,58 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="shortcut icon" href="../img/icons/smile.png" type="image/x-icon">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
       <title>Рішення додаткової задачі №4</title>
    </head>
 
    <body>
       <h1>Рішення додаткової задачі №4</h1>
-      <p>З клавіатури вводиться вік дитини. Вивести на екран через скільки років вона буде відвідувати садочок, піде у школу,
-      закінчить школу, вступить і закінчить</p>
+      <p>З клавіатури вводиться вік дитини. Вивести на екран через скільки років вона буде відвідувати садочок, піде у
+         школу, закінчить школу, вступить і закінчить</p>
       <p>Рішення:</p>
       <script>
-         
+         const childAge = parseFloat(prompt('Укажи вік людини'))
+         let kinder = (`Через ${3 - childAge} років піде в дитячий садок`)
+         let school = (`Через ${7 - childAge} років закінчить дитячий садок та піде в школу`)
+         let university = (`Через ${18 - childAge} років закінчить школу та вступить до університету`)
+         let work = (`Через ${24 - childAge} років закінчить університет та почне працювати`)
+         let pensioner = (`Через ${58 - childAge} років закінчить працювати та піде на пенсію`)
+
+         if (kinder > 0) {
+            document.write(`<p>Дитині зараз ${childAge} років</p>`)
+            document.write(`<p>${kinder}</p>`)
+            document.write(`<p>${school}</p>`)
+            document.write(`<p>${university}</p>`)
+            document.write(`<p>${work}</p>`)
+            document.write(`<p>${pensioner}</p>`)
+         } else if (school > childAge) {
+            document.write(`<p>Дитині зараз ${childAge} років</p>`)
+            document.write(`<p>${school}</p>`)
+            document.write(`<p>${university}</p>`)
+            document.write(`<p>${work}</p>`)
+            document.write(`<p>${pensioner}</p>`)
+         } else if (university > school) {
+            document.write(`<p>Підлітку зараз ${childAge} років</p>`)
+            document.write(`<p>${university}</p>`)
+            document.write(`<p>${work}</p>`)
+            document.write(`<p>${pensioner}</p>`)
+         } else if (work > university) {
+            document.write(`<p>Людині зараз ${childAge} років</p>`)
+            document.write(`<p>${work}</p>`)
+            document.write(`<p>${pensioner}</p>`)
+         } else if (pensioner > work) {
+            document.write(`<p>Людині зараз ${childAge} років</p>`)
+            document.write(`<p>${pensioner}</p>`)
+         }
+
+         console.log(childAge)
+         console.log(pensioner)
+         console.log(work)
+         console.log(university)
+         console.log(school)
+         console.log(kinder)
+
+         console.log(c)
       </script>
       <a href="task4_add.html">
          <p>Ввести дані ще раз</p>
