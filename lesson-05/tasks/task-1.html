@@ -12,7 +12,33 @@
       <h1>Рішення задачі №-1</h1>
       <p>Поступово генерувати 100 випадкових чисел від 1 до 1000. Підрахувати яких чисел більше: парних чи непарних.</p>
       <p>Рішення:</p>
-      <p>Поки не вирішено</p>
+      <script>
+         const numberOfNumbers = 100
+         const min = 1, max = 1000
+         let randomNumber
+         let even = 0
+         let notEven = 0
+         for (let i = 1; i <= numberOfNumbers; i++) {
+            randomNumber = min + Math.floor(Math.random() * (max - min + 1))
+            if (randomNumber % 2 === 0) {
+               even++
+            } else {
+               notEven++
+            }
+         }
+         if (even > notEven) {
+            alert('Парних більше')
+            document.write('Парних більше')
+         } else if (even < notEven) {
+            alert('Непарних більше')
+            document.write('Непарних більше')
+         } else {
+            alert('Парних та непарних рівна кількість')
+            document.write('Парних та непарних рівна кількість')
+         }
+         console.log(even)
+         console.log(notEven)
+      </script>
       <a href="task-1.html">
          <p>Перезапустити</p>
       </a>
