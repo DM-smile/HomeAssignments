@@ -13,21 +13,22 @@
       <p>Знайти суму всіх непарних чисел, що знаходяться між заданими користувачем числами.</p>
       <p>Рішення:</p>
       <script>
-
-         let numberOfNubmer = parseInt(prompt('Скільки чисел бажаеш ввести?'))
-         alert(`Добре, введи по черзі ${numberOfNubmer} чисел`)
+         const bottomNumber = parseFloat(prompt('Введіть число нижнього діапазону'))
+         const topNumber = parseFloat(prompt('Введіть число верхнього діапазону'))
+         const cycle = topNumber - bottomNumber - 1
+         let number = bottomNumber
          let result = 0
-         while (numberOfNubmer > 0) {
-            let number = parseInt(prompt(`Введи будь-яке число \n(ще ${numberOfNubmer})`))
-            numberOfNubmer--
+         console.log(`Цикл = ${cycle}`)
+         for (let i = 1; i <= cycle; i++) {
+            number++
             if (number % 2 !== 0) {
-               result = number + result
+               result = result + number
+               console.log(`крок = ${number}`)
             }
          }
-         alert(`Сума всіх непарних чисел = ${result}`)
-         document.write(`Сума всіх непарних чисел = ${result}`)
-
-
+         alert(`Сума всіх непарних чисел в заданому діапазоні = ${result}`)
+         document.write(`Сума всіх непарних чисел в заданому діапазоні = ${result}`)
+         console.log(`Результат = ${result}`)
       </script>
       <a href="task10.html">
          <p>Перезапустити</p>
