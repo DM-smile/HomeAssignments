@@ -13,7 +13,23 @@
       <p>Користувач поступово вводить прибуток магазину за кожен день протягом N тижнів. Знайти загальну величину
          прибутку та вивести величину прибутку протягом кожного окремого тижня.</p>
       <p>Рішення:</p>
-      <p>Поки не вирішено</p>
+      <script>
+         const numberWeek = parseFloat(prompt('Введіть кількість робочих тижнів', '3'))
+         const numberDay = parseFloat(prompt('Введіть кількість робочих днів на тиждень', '7'))
+         let dayIncome
+         let totalIncome = 0
+         let weekIncome
+         for (let week = 1; week <= numberWeek; week++) {
+            weekIncome = 0
+            for (let day = 1; day <= numberDay; day++) {
+               dayIncome = parseInt(prompt(`Введіть суму прибутку в ${day}й робочий день ${week}го тижня`, '0'))
+               weekIncome = weekIncome + dayIncome
+            }
+            document.write(`Прибуток за ${week}й тиждень = ${weekIncome} грн <br>`)
+            totalIncome = totalIncome + weekIncome
+         }
+         document.write(`Загальний прибуток за ${numberWeek} робочих тижнів = ${totalIncome} грн`)
+      </script>
       <a href="task16.html">
          <p>Перезапустити</p>
       </a>

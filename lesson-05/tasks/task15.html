@@ -12,7 +12,19 @@
       <h1>Рішення задачі №15</h1>
       <p>Користувача поступово вводить показники температури протягом року. Знайти середню температуру.</p>
       <p>Рішення:</p>
-      <p>Поки не вирішено</p>
+      <script>
+         let currentTemp
+         let averageTemp = 0
+         const numberMouth = 12
+         for (let mouth = 1; mouth <= numberMouth; mouth++) {
+            currentTemp = parseInt(prompt(`Введіть показник температури місяць №${mouth}`))
+            averageTemp = averageTemp + currentTemp
+         }
+         averageTemp = averageTemp.toFixed(0) / numberMouth
+         averageTemp = averageTemp.toFixed(0)
+         document.write(`Середня температура протягом року становить ${averageTemp} градусів`)
+         alert(`Середня температура протягом року становить ${averageTemp} градусів`)
+      </script>
       <a href="task15.html">
          <p>Перезапустити</p>
       </a>

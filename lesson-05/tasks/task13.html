@@ -6,6 +6,19 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
       <title>Рішення задачі №13</title>
+      <style>
+         img {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+         }
+
+         td {
+            width: 50px;
+            height: 50px;
+         }
+      </style>
    </head>
 
    <body>
@@ -14,6 +27,33 @@
          користувач намагається потопити корабель.</p>
       <p>Рішення:</p>
       <p>Поки не вирішено</p>
+      <!-- <script>
+         document.write('<table border="2px">')
+         let numberCells = 1
+         alert('Вітаю в грі "Морський бій! \nДля початку вибери розмір поля, кількість боекомплекту підрахується автоматично від відсотку поля. Готовий?"')
+         const width = parseInt(prompt('Укажи ширину поля', '5'))
+         const height = parseInt(prompt('Укажи висоту поля', '5'))
+         let shells = width * height / 2
+         shells = shells.toFixed(0)
+         const min = 1
+         const max = width * height
+         alert(`Ти маєш поле ${width} x ${height} та ${shells} Снарядів! ВОГОНЬ!`)
+         for (let row = 1; row <= width; row++) {
+            document.write('<tr>')
+            for (let step = 1; step <= height; step++) {
+               document.write('<td>')
+               document.write(`${numberCells}`)
+               document.write('</td>')
+               numberCells++
+            }
+            document.write('</tr>')
+         }
+         let randomNumber = min + Math.floor(Math.random() * (max - min + 1))
+
+         document.write('</table>')
+         // document.write(`${shells}`)
+         document.write(`${randomNumber}`)
+      </script> -->
       <a href="task13.html">
          <p>Перезапустити</p>
       </a>
