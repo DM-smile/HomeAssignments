@@ -10,8 +10,17 @@
 
    <body>
       <h1>Рішення задачі №1</h1>
-      <p></p>
+      <p>Відобразити трикутник за допомогою символів «о»</p>
+      <img src="../img/task1.png" alt="#">
       <p>Рішення:</p>
+      <script>
+         let row = ''
+         const number = parseInt(prompt('Введіть бажану кількість рядків', '10'))
+         for (let symbol = 0; symbol < number; symbol++) {
+            row = row + 'o'
+            document.write(`${row}<br>`)
+         }
+      </script>
       <a href="task1.html">
          <p>Перезапустити</p>
       </a>

@@ -10,8 +10,57 @@
 
    <body>
       <h1>Рішення задачі №3</h1>
-      <p></p>
+      <p>Інвестор вклав S тис. грн на 20 років під 20% річних, податок складає 5% від суми прибутку. Визначити за
+         допомогою циклів суму, яку він одержить.</p>
       <p>Рішення:</p>
+      <script>
+         // кількість років
+         const quantityYears = 20
+
+         // сума інвестиції
+         const investment = parseFloat(prompt(`Введіть суму інвестиції на ${quantityYears} років`, '100'))
+
+         // відсоток річних
+         const parsentage = 20
+
+         // поточний накопичений відсоток
+         let totalParsentage = 0
+
+         // поточна накопичена сума
+         let totalSum = investment + totalParsentage
+
+         console.log(`інвестиція ${investment} грн`)
+         console.log(`на ${quantityYears} років`)
+         console.log(`під ${parsentage}% річних`)
+
+         // цикл підрахунку
+         for (i = 1; i <= quantityYears; i++) {
+            currentParsent = totalSum / 100 * parsentage
+            totalParsentage = totalParsentage + currentParsent
+            totalSum = totalSum + currentParsent
+
+            console.log(`за ${i}й рік нараховано відсотків = ${currentParsent.toFixed(2)} грн`)
+         }
+
+         // відсоток податку
+         const taxParsent = 5
+
+         // поточна сума податків
+         const taxTotal = totalSum / 100 * taxParsent
+
+         // поточна сума для виплати
+         let totalPay = totalSum - taxTotal
+
+         console.log(`сумарна кількість відсотків = ${totalParsentage.toFixed(2)} грн`)
+         console.log(`загальна накопичена сума = ${totalSum.toFixed(2)} грн`)
+         console.log(`загальний податок ${taxTotal.toFixed(2) } грн (${taxParsent}% від накопиченої суми)`)
+         console.log(`загальна сума виплати з урахуванням відкотку податків = ${totalPay.toFixed(2)} грн`)
+
+
+         alert(`Банк прийняв депозит ${investment} грн під ${parsentage}% річних на ${quantityYears} років \nКількість накопичених відсотків за весь період = ${totalParsentage.toFixed(2)} грн \nЗагальна сума виплати після закінчання періоду = ${totalPay.toFixed(2)} грн з вирахуванням податку ${taxTotal.toFixed(2)} грн (${taxParsent}% від загальної накопиченої суми) \nПідраховано за умовою поступового додавання накопичених відсотків до загальної суми депозиту`)
+
+         document.write(`Банк прийняв депозит ${investment} грн під ${parsentage}% річних на ${quantityYears} років<br> Кількість накопичених відсотків за весь період = ${totalParsentage.toFixed(2)} грн<br> Загальна сума виплати після закінчання періоду = ${totalPay.toFixed(2)} грн з вирахуванням податку ${taxTotal.toFixed(2)} грн (${taxParsent}% від загальної накопиченої суми)<br> Підраховано за умовою поступового додавання накопичених відсотків до загальної суми депозиту`)
+      </script>
       <a href="task3.html">
          <p>Перезапустити</p>
       </a>

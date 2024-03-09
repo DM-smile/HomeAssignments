@@ -10,8 +10,23 @@
 
    <body>
       <h1>Рішення задачі №2</h1>
-      <p></p>
+      <p>Комп’ютер загадує випадкове число від 1 до 10. Вгадати число шляхом введеня можливих варіантів. В кінці вивести
+         кількість спроб користувача..</p>
       <p>Рішення:</p>
+      <script>
+         alert('Я загадав число від 1-10, спробуй його вгадати використовуючи якомога менше спроб!')
+         const randomNumber = 1 + Math.floor(Math.random() * (10))
+         let myNumber
+         let attempt = 0
+         let text = ''
+         while (myNumber !== randomNumber) {
+            myNumber = parseInt(prompt(`${text}\nВведи число!`))
+            attempt++
+            text = 'Не вгадав! Спробуй ще!'
+         }
+         alert(`Ти вгадав число ${randomNumber} з ${attempt} спроби`)
+         document.write(`Ти вгадав число ${randomNumber} з ${attempt} спроби`)
+      </script>
       <a href="task2.html">
          <p>Перезапустити</p>
       </a>

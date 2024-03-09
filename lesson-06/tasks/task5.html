@@ -11,7 +11,44 @@
    <body>
       <h1>Рішення задачі №5</h1>
       <p></p>
-      <p>Рішення:</p>
+      <p>Щоденно спортзал відвідує певна кількість людей. Користувач вводить такі дані: скільки людей відвідало спортзал
+         за день та вік кожного відвідувача. Потрібно вивести вік найстаршого та наймолодшого відвідувачів, а також
+         середній вік всіх відвідувачів спортзалу за день.</p>
+      <script>
+         // загальна кількість
+         let quantityPeoples = parseInt(prompt('Скільки людей за день відвідало спортзал?', '3'))
+         // наймолодший
+         let youngPeople = Infinity
+         // найдоросліший
+         let adultPeople = - Infinity
+         // загальний вік
+         let totalAge = 0
+
+         console.log(`загальна кількість ${quantityPeoples} відвідувачів`)
+
+         // цикл
+         for (let i = 1; i <= quantityPeoples; i++) {
+            let currentAge = parseInt(prompt(`Скільки років ${i}му відвідувачу?`))
+            totalAge = totalAge + currentAge
+            if (currentAge <= youngPeople)
+               youngPeople = currentAge
+            if (currentAge >= adultPeople)
+               adultPeople = currentAge
+            console.log(`вік ${i}го відвідувача = ${currentAge} роів`)
+         }
+
+         // підрахунок середнього віку
+         let middleAge = totalAge / quantityPeoples
+
+         console.log(`наймолодший ${youngPeople} роів`)
+         console.log(`найдоросліший ${adultPeople} років`)
+         console.log(`загальний вік ${totalAge} років`)
+         console.log(`середній вік ${Math.floor(middleAge)} років`)
+
+         alert(`В спортзал прийшли ${quantityPeoples} відвідувачів, \nНаймолодшому відвідувачу ${youngPeople} років, \nНайдорослішому відвідувачу ${adultPeople} років, \nСередній вік всіх відвидувачів ${Math.floor(middleAge)} років`)
+
+         document.write(`В спортзал прийшли ${quantityPeoples} відвідувачів,<br> Наймолодшому відвідувачу ${youngPeople} років,<br> Найдорослішому відвідувачу ${adultPeople} років, <br> Середній вік всіх відвидувачів ${Math.floor(middleAge)} років.`)
+      </script>
       <a href="task5.html">
          <p>Перезапустити</p>
       </a>
