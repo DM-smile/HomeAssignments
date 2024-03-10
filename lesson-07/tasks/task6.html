@@ -6,13 +6,47 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="shortcut icon" href="/../../img/icons/favicon.png" type="image/x-icon">
       <title>Рішення задачі №6</title>
+      <style>
+         table {
+            border: 2px solid black;
+            padding: 1px;
+         }
+
+         td {
+            border: 1px solid black;
+            padding: 2px;
+            font-size: 18px;
+         }
+      </style>
    </head>
 
    <body>
       <h1>Рішення задачі №6</h1>
-      <p>Створити функцію, яка створює таблицю з вказаною кількістю рядків і стовпців (таблиця заповнюється заданим фіксованим
-         повідомленням).</p>
+      <p>Створити функцію, яка створює таблицю з вказаною кількістю рядків і стовпців (таблиця заповнюється заданим
+         фіксованим повідомленням).</p>
       <p>Рішення:</p>
+      <script>
+         document.write('<table>')
+         function table(rows, columns, messages) {
+
+            for (let newRow = 1; newRow <= rows; newRow++) {
+               document.write('<tr>')
+               for (let newColumn = 1; newColumn <= columns; newColumn++) {
+                  document.write(`<td>${messages}</td>`)
+               }
+               document.write('</tr>')
+            }
+            document.write('</table>')
+         }
+
+         const row = parseInt(prompt('Введіть кількість рядків таблиці', '6'))
+         const column = parseInt(prompt('Введіть кількість колонок таблиці', '5'))
+         const message = prompt('Введіть повідомлення', 'Hello, World!')
+
+         let result = table(row, column, message)
+
+
+      </script>
       <a href="task6.html">
          <p>Перезапустити</p>
       </a>

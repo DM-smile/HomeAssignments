@@ -13,6 +13,23 @@
       <p>Дано покази температур (довільна кількість). Розробити функцію, яка дозволить знайти середнє значення для
          додатних показів температури.</p>
       <p>Рішення:</p>
+      <script>
+         function aveTemp(temp1, temp2, temp3, temp4, temp5) {
+            let aveTemp = (temp1 + temp2 + temp3 + temp4 + temp5) / 5
+            return aveTemp
+         }
+         alert('Введіть 5 значень температури для підрахунку середнього значення')
+         let value1 = parseInt(prompt('Введи перше значення температури'))
+         let value2 = parseInt(prompt('Введи друге значення температури'))
+         let value3 = parseInt(prompt('Введи третє значення температури'))
+         let value4 = parseInt(prompt('Введи четверте значення температури'))
+         let value5 = parseInt(prompt("Введи п'яте значення температури"))
+
+         let result = aveTemp(value1, value2, value3, value4, value5)
+
+         alert(`Середнє значення температури з п'яти введених: ${result}`)
+         document.write(`Середнє значення температури з п'яти введених: ${result}`)
+      </script>
       <a href="task10.html">
          <p>Перезапустити</p>
       </a>

@@ -13,9 +13,36 @@
       <p>Створити функцію, яка за номером місяця повертає пору року, до якої відноситься цей місяць.</p>
       <p>Рішення:</p>
       <script>
-         
+         let season
+         function getSeason(numberMonth) {
+            switch (numberMonth) {
+               case 12:
+               case 1:
+               case 2:
+                  season = 'зима'
+                  break
+               case 3:
+               case 4:
+               case 5:
+                  season = 'весна'
+                  break
+               case 6:
+               case 7:
+               case 8:
+                  season = 'літо'
+                  break
+               case 9:
+               case 10:
+               case 11:
+                  season = 'осінь'
+            }
+         }
+         let month = parseInt(prompt('Введи номер місяця'))
+         getSeason(month)
+         document.write(`Це ${season}<br>`)
+         alert(`Це ${season}`)
       </script>
-      <a href="task1.html">
+      <a href="task0.html">
          <p>Перезапустити</p>
       </a>
       <a href="../index.html"> 👈 Назад</a>

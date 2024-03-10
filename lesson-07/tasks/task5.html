@@ -10,9 +10,38 @@
 
    <body>
       <h1>Рішення задачі №5</h1>
-      <p>Створити окремі функції, які переводять: <br>1) Сантиметри у дюйми; <br> 2) Кілограми у фунти; <br> 3) Кілометри у
-         милі.</p>
+      <p>Створити окремі функції, які переводять: <br>1) Сантиметри у дюйми; <br> 2) Кілограми у фунти; <br> 3)
+         Кілометри у милі.</p>
       <p>Рішення:</p>
+      <script>
+         function calcInch(cm) {
+            let inch = cm / 2.54
+            return inch
+         }
+         function calcPound(kg) {
+            let pound = kg * 2.20462
+            return pound
+         }
+         function calcMiles(km) {
+            let miles = km * 0.621371
+            return miles
+         }
+         let toInches = parseFloat(prompt('Введи кількість сантиметрів для переводу у дюйми'))
+         let resultInch = calcInch(toInches)
+         alert(`${toInches} сантиметрів у дюймах буде ${resultInch.toFixed(2)}`)
+
+         let tolLibra = parseFloat(prompt('Введи кількість кілограмів для переводу у фунти'))
+         let resultPound = calcPound(tolLibra)
+         alert(`${tolLibra} кілограмів у фунтах буде ${resultPound.toFixed(2)}`)
+
+         let toMiles = parseFloat(prompt('Введи кількість кілометрів для переводу у милі'))
+         let resultMiles = calcMiles(toMiles)
+         alert(`${toMiles} кілометрів у милях буде ${resultMiles.toFixed(2)}`)
+
+         document.write(`${toInches} сантиметрів у дюймах буде ${resultInch.toFixed(2)}<br>`)
+         document.write(`${tolLibra} кілограмів у фунтах буде ${resultPound.toFixed(2)}<br>`)
+         document.write(`${toMiles} кілометрів у милях буде ${resultMiles.toFixed(2)}`)
+      </script>
       <a href="task5.html">
          <p>Перезапустити</p>
       </a>
