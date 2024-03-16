@@ -10,8 +10,51 @@
 
    <body>
       <h1>Рішення задачі №1</h1>
-      <p></p>
+      <p>Дано масив, який містить оцінки з К предметів. Знайти середній бал і з’ясувати до якої категорії він
+         відноситься (відмінник, двійочник (має хоча би одну двійку), хорошист (оцінки добре і відмінно), трійочник(є
+         хоча би одна трійка)).</p>
       <p>Рішення:</p>
+      <script>
+         const evaluation = [3, 4, 3, 4, 5]
+         let sum = 0
+         let minEvaluation = Infinity
+         for (let i = 0; i < evaluation.length; i++) {
+            sum += evaluation[i]
+            average = sum / evaluation.length
+            if (evaluation[i] < minEvaluation)
+               minEvaluation = evaluation[i]
+         }
+         let successEvaluation
+         switch (minEvaluation) {
+            case 1:
+            case 2:
+               successEvaluation = 'Двійочник'
+               break
+            case 3:
+               successEvaluation = 'Трійочник'
+               break
+            case 4:
+               successEvaluation = 'Хорошист'
+               break
+            case 5:
+               successEvaluation = 'Відмінник'
+               break
+            default:
+               successEvaluation = 'Дані введено некоректно'
+         }
+         document.write(`Дано оцінки: ${evaluation}<br>`)
+         document.write(`Середній бал: ${average}<br>`)
+         document.write(`Цей учень: ${successEvaluation}<br>`)
+
+
+         // logs
+         console.log(`arr = ${evaluation}`)
+         console.log(`length = ${evaluation.length}`)
+         console.log(`sum = ${sum}`)
+         console.log(`average = ${average}`)
+         console.log(`minEvaluation = ${minEvaluation}`)
+         console.log(`successEvaluation = ${successEvaluation}`)
+      </script>
       <a href="task1.html">
          <p>Перезапустити</p>
       </a>

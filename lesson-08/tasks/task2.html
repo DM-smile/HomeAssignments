@@ -10,8 +10,59 @@
 
    <body>
       <h1>Рішення задачі №2</h1>
-      <p></p>
+      <p>Дано масив, який зберігає кількість відвідувачів магазину протягом тижня. Вивести на екран:</p>
+      <ul>
+         <li>номери днів, протягом яких кількість відвідувачів була меншою за 20;</li>
+         <li>номери днів, коли кількість відвідувачів була мінімальною;</li>
+         <li>номери днів, коли кількість відвідувачів була максимальною;</li>
+         <li>загальну кількість клієнтів у робочі дні та окремо загальну кількість днів на вихідних.</li>
+      </ul>
       <p>Рішення:</p>
+      <script>
+         const numVisitors = [43, 18, 25, 18, 51, 67, 72]
+         let numDaysVisitorsLessTwenty = []
+         let minVisitors = Infinity
+         let maxVisitors = -Infinity
+         let numDaysMinVisitors = []
+         let numDaysMaxVisitors = []
+         let sumVisitorsWorkingDays = 0
+         let sumVisitorsOffDays = 0
+         for (let i = 0; i < numVisitors.length; i++) {
+            if (i < 5)
+               sumVisitorsWorkingDays += numVisitors[i]
+            if (i < 7 && i >= 5)
+               sumVisitorsOffDays += numVisitors[i]
+            if (numVisitors[i] < minVisitors)
+               minVisitors = numVisitors[i]
+            if (numVisitors[i] > maxVisitors)
+               maxVisitors = numVisitors[i]
+         }
+         for (let i = 0; i < numVisitors.length; i++) {
+            if (numVisitors[i] === minVisitors)
+               numDaysMinVisitors.push(i + 1)
+            if (numVisitors[i] === maxVisitors)
+               numDaysMaxVisitors.push(i + 1)
+            if (numVisitors[i] < 20)
+               numDaysVisitorsLessTwenty.push(i + 1)
+         }
+
+         document.write(`Дано кількість відвідучвачів магазину протягов тижня: ${numVisitors}<br>`)
+         document.write(`Номери днів, протягом яких кількість відвідувачів була меншою за 20: ${numDaysVisitorsLessTwenty}<br>`)
+         document.write(`Номери днів, коли кількість відвідувачів була мінімальною: ${numDaysMinVisitors}<br>`)
+         document.write(`Номери днів, коли кількість відвідувачів була максимальною: ${numDaysMaxVisitors}<br>`)
+         document.write(`Загальна кількість клієнтів у робочі дні: ${sumVisitorsWorkingDays}<br>`)
+         document.write(`Загальна кількість клієнтів у вихідні дні: ${sumVisitorsOffDays}<br>`)
+
+         // logs 
+         console.log(`numVisitors: ${numVisitors}`)
+         console.log(`numDaysVisitorsLessTwenty: ${numDaysVisitorsLessTwenty}`)
+         console.log(`minVisitors: ${minVisitors}`)
+         console.log(`maxVisitors: ${maxVisitors}`)
+         console.log(`numDaysMinVisitors: ${numDaysMinVisitors}`)
+         console.log(`numDaysMaxVisitors: ${numDaysMaxVisitors}`)
+         console.log(`sumVisitorsWorkingDays: ${sumVisitorsWorkingDays}`)
+         console.log(`sumVisitorsOffDays: ${sumVisitorsOffDays}`)
+      </script>
       <a href="task2.html">
          <p>Перезапустити</p>
       </a>

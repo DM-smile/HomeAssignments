@@ -10,8 +10,19 @@
 
    <body>
       <h1>Рішення задачі №3</h1>
-      <p></p>
+      <p>Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я «Іван».</p>
       <p>Рішення:</p>
+      <script>
+         const names = ['Maxim', 'Olena', 'David', 'Ivan', 'Olena', 'Dmytro', 'Stepan', 'Ivan']
+         let namesIvan = 0
+         for (let i = 0; i < names.length; i++) {
+            if (names[i] === 'Ivan')
+               namesIvan++
+         }
+         document.write(`Дано масив з іменами: ${names}<br>`)
+         document.write(`Кількість імен "Іван" у цьому масиві = ${namesIvan}`)
+
+      </script>
       <a href="task3.html">
          <p>Перезапустити</p>
       </a>

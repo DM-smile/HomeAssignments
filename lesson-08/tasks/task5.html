@@ -10,8 +10,26 @@
 
    <body>
       <h1>Рішення задачі №5</h1>
-      <p></p>
+      <p>Дано послідовність цін товарів та назв (у окремих масивах). Вивести на екран ті, які може собі дозволити
+         користувач (кількість грошей задається).</p>
+      <p>Приклад збереження даних</p>
+      <p>let productsPrices = [1000, 20, 31]</p>
+      <p>let productsTitles = [‘cheese’, ‘juice’, ‘bread’]</p>
       <p>Рішення:</p>
+      <script>
+         let money = parseFloat(prompt('Введіть кількість грошей'))
+         const productsTitles = ['Молоко', 'Сир', 'Хліб', "М'ясо", 'Риба']
+         const productsPrices = [60, 110, 30, 200, 270]
+         document.write(`Сума коштів = ${money} грн <br>`)
+         document.write('Список товарів на вибір на такий бюджет:<br>')
+         document.write('<ol>')
+         for (let i = 0; i < productsTitles.length; i++) {
+            if (money >= productsPrices[i]) {
+               document.write(`<li>${productsTitles[i]} за ${productsPrices[i]} грн </li>`)
+            }
+         }
+         document.write('</ol>')
+      </script>
       <a href="task5.html">
          <p>Перезапустити</p>
       </a>
