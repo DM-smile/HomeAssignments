@@ -10,8 +10,17 @@
 
    <body>
       <h1>Рішення задачі №6</h1>
-      <p></p>
+      <p>Дано масив елементів. Усі елементи, які більші за перший елемент помножити на 2</p>
       <p>Рішення:</p>
+      <script>
+         const elements = [38, 2, -44, 88, 102, -20, 408, 29, -11, 209]
+         document.write(`Дано масив: ${elements}<br>`)
+         elements.forEach(
+            (element, index, array) => {
+               if (element > array[0]) document.write(`${element}* 2 = ${array[index] * 2}<br>`)
+            }
+         )
+      </script>
       <a href="task6.html">
          <p>Перезапустити</p>
       </a>

@@ -10,8 +10,16 @@
 
    <body>
       <h1>Рішення задачі №9</h1>
-      <p></p>
+      <p>Дано масив імен. Сформувати масив з перших літер цих імен.</p>
       <p>Рішення:</p>
+      <script>
+         const names = [
+            "Олександр", "Іван", "Марія", "Олена", "Андрій",
+            "Катерина", "Володимир", "Тетяна", "Сергій", "Наталія"]
+         document.write(`Дано масив імен:<br> ${names}<br><br>`)
+         let firstLettersNames = names.map((firstLettersNames) => firstLettersNames[0][0])
+         document.write(`Масив з мерших літер цих імен:<br> ${firstLettersNames}<br>`)
+      </script>
       <a href="task9.html">
          <p>Перезапустити</p>
       </a>

@@ -10,8 +10,19 @@
 
    <body>
       <h1>Рішення задачі №5</h1>
-      <p></p>
+      <p>Дано масив елементів. Знайти добуток додатних елементів</p>
+      <p>Тут використати цикл for..of</p>
       <p>Рішення:</p>
+      <script>
+         const numbers = [12, 4, -12, 28, -44, -2, 88]
+         let productNumbers = 1
+         for (let product of numbers) {
+            if (product > 0) {
+               productNumbers *= product
+            }
+         }
+         document.write(`Дано масив: ${numbers}<br> Добуток додатних чисел: ${productNumbers}`)
+      </script>
       <a href="task5.html">
          <p>Перезапустити</p>
       </a>

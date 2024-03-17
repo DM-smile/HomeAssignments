@@ -10,8 +10,16 @@
 
    <body>
       <h1>Рішення задачі №8</h1>
-      <p></p>
+      <p>Дано масив номерів авто. Сформувати новий масив тих, які починаються на «А»</p>
       <p>Рішення:</p>
+      <script>
+         const carNumbers = ["АА1234АА", "АВ5678ВС", "КМ9012ІІ", "ХТ3456ХТ", "ВІ7890ВС", "ВМ1357ІН", "СК4682ТВ", "АІ9753НК", "ТО5467ОС", "ВР8021ВА"]
+         document.write(`Дано масив номерів авто:<br> ${carNumbers}<br><br>`)
+         let carNumbersBeginA = []
+         for (let number of carNumbers)
+            if (number[0][0] === 'А') carNumbersBeginA.push(number)
+         document.write(`Масив з номерів, які починаються на "А":<br> ${carNumbersBeginA}`)
+      </script>
       <a href="task8.html">
          <p>Перезапустити</p>
       </a>

@@ -10,7 +10,13 @@
 
    <body>
       <h1>Рішення задачі №3</h1>
-      <p></p>
+      <p>Користувач вводить кількість елементів. Створити масив, у якому перші 5 елементів заповнені 1-цями, а інші до
+         кінця масиву заповнені 7-ками.</p>
+      <script>
+         const elementNumber = parseInt(prompt('Введіть кількість елементів', '20'))
+         let createArray = new Array(elementNumber).fill(1, 0, 6).fill(7, 5)
+         document.write(`Введено кількість елементів: ${elementNumber}<br>${createArray}<br>`)
+      </script>
       <p>Рішення:</p>
       <a href="task3.html">
          <p>Перезапустити</p>

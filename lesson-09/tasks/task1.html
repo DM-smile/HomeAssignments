@@ -10,8 +10,14 @@
 
    <body>
       <h1>Рішення задачі №1</h1>
-      <p></p>
+      <p>Користувач вводить кількість елементів. Створити масив, що складається з вказаної кількості елементів
+         заповнених нулями.</p>
       <p>Рішення:</p>
+      <script>
+         const elementNumber = parseInt(prompt('Введіть кількість елементів', '20'))
+         let createArray = new Array(elementNumber).fill(0)
+         document.write(`Введено кількість елементів: ${elementNumber}<br>${createArray}<br>`)
+      </script>
       <a href="task1.html">
          <p>Перезапустити</p>
       </a>
