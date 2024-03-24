@@ -13,9 +13,24 @@
       <p>Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000)</p>
       <p>Визначити, чи є ціна, що менше 1000</p>
       <p>Рішення:</p>
-      <a href="task6.html">
-         <p>Перезапустити</p>
-      </a>
+      <script>
+         // ======== Генерація масиву цін ========
+         let historyPrices = createHistoryPrices(1, 10000, 15)
+         function createHistoryPrices(minPrice, maxPrice, length) {
+            let newPrice = []
+            for (i = 0; i < length; i++) {
+               newPrice.push(minPrice + Math.floor(Math.random() * (maxPrice)))
+            }
+            return newPrice
+         }
+         document.write(`Дано базовий масив з ${historyPrices.length}-и цін:<br> ${historyPrices} <br><br>`)
+
+         // ======== рішення задачі =======
+         historyPrices.some(
+            (price) => price < 1000) ? document.write('Є така ціна') : document.write('Немає такої ціни')
+
+      </script>
+      <a href="task6.html"> <br><br><br>Перезапустити<br> </a>
       <a href="../index.html"> 👈 Назад</a>
    </body>
 

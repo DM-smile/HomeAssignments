@@ -14,11 +14,23 @@
       <p>Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.</p>
       <p>Рішення:</p>
       <script>
-
+         // ======== Генерація масиву цін ========
+         let historyPrices = createHistoryPrices(1, 10000, 15)
+         function createHistoryPrices(minPrice, maxPrice, length) {
+            let newPrice = []
+            for (i = 0; i < length; i++) {
+               newPrice.push(minPrice + Math.floor(Math.random() * (maxPrice)))
+            }
+            return newPrice
+         }
+         // ======== рішення задачі =======
+         let historyPricesMoreThanHundred = historyPrices.filter(
+            (el) => el > 1000
+         )
+         // =============================== //
+         document.write(`Базовий масив з ${historyPrices.length}-и цін:<br> ${historyPrices} <br><br>Новий масив з ${historyPricesMoreThanHundred.length}-и цін:<br> ${historyPricesMoreThanHundred}`)
       </script>
-      <a href="task1.html">
-         <p>Перезапустити</p>
-      </a>
+      <a href="task1.html"> <br><br><br>Перезапустити<br> </a>
       <a href="../index.html"> 👈 Назад</a>
    </body>
 

@@ -13,9 +13,24 @@
       <p>Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000)</p>
       <p>Підрахувати кількість змін цін</p>
       <p>Рішення:</p>
-      <a href="task5.html">
-         <p>Перезапустити</p>
-      </a>
+      <script>
+         // ======== Генерація масиву цін ========
+         let historyPrices = createHistoryPrices(1, 10000, 15)
+         function createHistoryPrices(minPrice, maxPrice, length) {
+            let newPrice = []
+            for (i = 0; i < length; i++) {
+               newPrice.push(minPrice + Math.floor(Math.random() * (maxPrice)))
+            }
+            return newPrice
+         }
+         document.write(`Дано базовий масив з ${historyPrices.length}-и цін:<br> ${historyPrices} <br><br>`)
+
+         // ======== рішення задачі =======
+         let priceChanges = historyPrices.reduce((changeValue, price, i) => i === 0 || price !== historyPrices[i - 1] ? changeValue += 1 : changeValue, 0)
+         // =============================== //
+         document.write(`Кількість змін цін:<br> ${priceChanges}`)
+      </script>
+      <a href="task5.html"> <br><br><br>Перезапустити<br> </a>
       <a href="../index.html"> 👈 Назад</a>
    </body>
 
