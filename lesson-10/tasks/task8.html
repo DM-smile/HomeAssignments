@@ -26,7 +26,10 @@
          document.write(`Дано базовий масив з ${historyPrices.length}-и цін:<br> ${historyPrices} <br><br>`)
 
          // ======== рішення задачі =======
-         let numberOfPrices = historyPrices.reduce((valuePrev, price) => price > 1000 ? valuePrev + 1 : valuePrev, 0)
+         let numberOfPrices = historyPrices.reduce(
+            (num, price) => price > 1000 ? num + 1 : num,
+            0
+         )
          // =============================== //
          document.write(`Кількість цін, що більше за 1000:<br> ${numberOfPrices}`)
       </script>
