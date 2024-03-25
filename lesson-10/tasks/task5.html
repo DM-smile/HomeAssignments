@@ -26,7 +26,6 @@
          document.write(`Дано базовий масив з ${historyPrices.length}-и цін:<br> ${historyPrices} <br><br>`)
 
          // ======== рішення задачі =======
-         let smena
          let priceChanges = historyPrices.reduce(
             (changeValue, price, i, baseArr) =>
                i === 0 || price !== baseArr[i - 1] ? changeValue += 1 : changeValue,
