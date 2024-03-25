@@ -30,8 +30,8 @@
          document.write('<ul>')
 
          historyPrices.forEach(
-            (price, ind) => {
-               if (ind === 0 || price > historyPrices[ind - 1]) document.write(`<li>${price}</li>`)
+            (price, ind, baseArr) => {
+               if (ind === 0 || price > baseArr[ind - 1]) document.write(`<li>${price}</li>`)
             }
          )
 

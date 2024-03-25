@@ -15,7 +15,7 @@
       <p>Рішення:</p>
       <script>
          // ======== Генерація масиву цін ========
-         let historyPrices = createHistoryPrices(1, 10000, 15)
+         let historyPrices = createHistoryPrices(1, 10000, 10)
          function createHistoryPrices(minPrice, maxPrice, length) {
             let newPrice = []
             for (i = 0; i < length; i++) {
@@ -26,9 +26,10 @@
          document.write(`Дано базовий масив з ${historyPrices.length}-и цін:<br> ${historyPrices} <br><br>`)
 
          // ======== рішення задачі =======
+         let smena
          let priceChanges = historyPrices.reduce(
-            (changeValue, price, i) =>
-               i === 0 || price !== historyPrices[i - 1] ? changeValue += 1 : changeValue,
+            (changeValue, price, i, baseArr) =>
+               i === 0 || price !== baseArr[i - 1] ? changeValue += 1 : changeValue,
             0
          )
          // =============================== //
