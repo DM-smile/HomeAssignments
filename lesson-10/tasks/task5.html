@@ -26,13 +26,13 @@
          document.write(`Дано базовий масив з ${historyPrices.length}-и цін:<br> ${historyPrices} <br><br>`)
 
          // ======== рішення задачі =======
-         let priceChanges = historyPrices.reduce(
+         let quantityChangesPrices = historyPrices.reduce(
             (changeValue, price, i, baseArr) =>
                i === 0 || price !== baseArr[i - 1] ? changeValue += 1 : changeValue,
             0
          )
          // =============================== //
-         document.write(`Кількість змін цін:<br> ${priceChanges}`)
+         document.write(`Кількість змін цін:<br> ${quantityChangesPrices}`)
       </script>
       <a href="task5.html"> <br><br><br>Перезапустити<br> </a>
       <a href="../index.html"> 👈 Назад</a>

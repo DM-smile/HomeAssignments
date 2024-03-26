@@ -33,12 +33,12 @@
          let currentMaxPrice = Math.max(...historyPrices) // === спосіб через Math.max
 
          // 2) визначення відсотку від максимальної ціни:
-         let historyPricesPercent = historyPrices.map(
+         let pricesPercent = historyPrices.map(
             (price) => (price / currentMaxPrice * 100).toFixed(1) + '%'
             //тут toFixed можливо недоречний...
          )
          // =============================== //
-         document.write(`Максимальне значення: ${currentMaxPrice}<br>Значення цін у відсотках стосовно максимального значення:<br>${historyPricesPercent}`)
+         document.write(`Максимальне значення: ${currentMaxPrice}<br>Значення цін у відсотках стосовно максимального значення:<br>${pricesPercent}`)
       </script>
       <a href="task4.html"><br><br><br>Перезапустити<br></a>
       <a href="../index.html"> 👈 Назад</a>

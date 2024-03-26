@@ -26,12 +26,12 @@
          document.write(`Дано базовий масив з ${historyPrices.length}-и цін:<br> ${historyPrices} <br><br>`)
 
          // ======== рішення задачі =======
-         let quantityPricesPperThousand = historyPrices.reduce(
+         let quantityPricesPerThousand = historyPrices.reduce(
             (num, price) => price > 1000 ? num + 1 : num,
             0
          )
          // =============================== //
-         document.write(`Кількість цін, що більше за 1000:<br> ${quantityPricesPperThousand}`)
+         document.write(`Кількість цін, що більше за 1000:<br> ${quantityPricesPerThousand}`)
       </script>
       <a href="task8.html"> <br><br><br>Перезапустити<br> </a>
       <a href="../index.html"> 👈 Назад</a>
