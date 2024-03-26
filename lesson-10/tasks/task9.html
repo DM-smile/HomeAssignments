@@ -26,11 +26,11 @@
          document.write(`Дано базовий масив з ${historyPrices.length}-и цін:<br> ${historyPrices} <br><br>`)
 
          // ======== рішення задачі =======
-         let sumOfPrices = historyPrices.reduce(
+         let sumPricesPerThousand = historyPrices.reduce(
             (sum, price) => price > 1000 ? sum += price : sum
          )
          // =============================== //
-         document.write(`Cума цін, що більше за 1000:<br> ${sumOfPrices}`)
+         document.write(`Cума цін, що більше за 1000:<br> ${sumPricesPerThousand}`)
       </script>
       <a href="task9.html"> <br><br><br>Перезапустити<br> </a>
       <a href="../index.html"> 👈 Назад</a>

@@ -26,9 +26,9 @@
          document.write(`Дано базовий масив з ${historyPrices.length}-и цін:<br> ${historyPrices} <br><br>`)
 
          // ======== рішення задачі =======
-         let findIndex = historyPrices.findLastIndex((el, ind) => el > 1000)
+         let lastIndexPriceMoreThousand = historyPrices.findLastIndex((el, ind) => el > 1000)
          // =============================== //
-         document.write(`Індекс останньої ціни, що більше за 1000:<br>${findIndex}`)
+         document.write(`Індекс останньої ціни, що більше за 1000:<br>${lastIndexPriceMoreThousand}`)
       </script>
       <a href="task13.html"> <br><br><br>Перезапустити<br> </a>
       <a href="../index.html"> 👈 Назад</a>

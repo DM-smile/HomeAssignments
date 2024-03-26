@@ -26,9 +26,9 @@
          document.write(`Дано базовий масив з ${historyPrices.length}-и цін:<br> ${historyPrices} <br><br>`)
 
          // ======== рішення задачі =======
-         let lastPrice = historyPrices.findLast((el, ind) => el > 1000)
+         let lastPriceMoreThousand = historyPrices.findLast((el, ind) => el > 1000)
          // =============================== //
-         document.write(`Остання ціна, що більше за 1000:<br>${lastPrice}`)
+         document.write(`Остання ціна, що більше за 1000:<br>${lastPriceMoreThousand}`)
       </script>
       <a href="task12.html"> <br><br><br>Перезапустити<br> </a>
       <a href="../index.html"> 👈 Назад</a>

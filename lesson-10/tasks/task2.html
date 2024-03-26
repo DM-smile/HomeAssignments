@@ -25,12 +25,12 @@
          }
 
          // ======== рішення задачі =======
-         let historyPricesMoreThanHundred = historyPrices.reduce(
+         let numbersPricesMoreThanThousand = historyPrices.reduce(
             (newArr, price, index) => price > 1000 ? [...newArr, index + 1] : newArr,
             []
          )
          // =============================== //
-         document.write(`Базовий масив з ${historyPrices.length}-и цін:<br> ${historyPrices} <br><br>Новий масив з ${historyPricesMoreThanHundred.length}-и номерів цін:<br> ${historyPricesMoreThanHundred}`)
+         document.write(`Базовий масив з ${historyPrices.length}-и цін:<br> ${historyPrices} <br><br>Новий масив з ${numbersPricesMoreThanThousand.length}-и номерів цін:<br> ${numbersPricesMoreThanThousand}`)
       </script>
       <a href="task2.html"> <br><br><br>Перезапустити<br> </a>
       <a href="../index.html"> 👈 Назад</a>
