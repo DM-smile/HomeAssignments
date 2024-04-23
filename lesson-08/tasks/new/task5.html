@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №5</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №5</h1>
+      <p>Дано послідовність цін товарів та назв (у окремих масивах). Вивести на екран ті, які може собі дозволити
+         користувач (кількість грошей задається).</p>
+      <p>Приклад збереження даних</p>
+      <p>let productsPrices = [1000, 20, 31]</p>
+      <p>let productsTitles = [‘cheese’, ‘juice’, ‘bread’]</p>
+      <p>Рішення:</p>
+      <script>
+         let money = parseFloat(prompt('Введіть кількість грошей'))
+         if (isNaN(money)) money = 0
+         const productsTitles = ['Молоко', 'Сир', 'Хліб', "М'ясо", 'Риба']
+         const productsPrices = [60, 110, 30, 200, 270]
+         function productCount(quantityMoney, product, price) {
+            let pruductsListForPay = []
+            for (let i = 0; i < productsTitles.length; i++) {
+               if (quantityMoney >= productsPrices[i]) pruductsListForPay.push(productsTitles[i])
+            }
+            if (pruductsListForPay.length > 0) {
+               return pruductsListForPay
+            } else return 'Список відсутній'
+         }
+         const currentPruductsList = productCount(money, productsTitles, productsPrices)
+         document.write(`Список товарів: ${productsTitles}<br>Цини: ${productsPrices}<br>`)
+         document.write(`Ваш бюджет: ${money}<br>Можете дозволити собі такі товари: ${currentPruductsList}`)
+      </script>
+      <a href="task5.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../../index_new.html"> 👈 Назад</a>
+   </body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №9</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №9</h1>
+      <p>Дано масив імен. Сформувати масив з перших літер цих імен.</p>
+      <p>Рішення:</p>
+      <script>
+         const names = [
+            "Олександр", "Іван", "Марія", "Олена", "Андрій",
+            "Катерина", "Володимир", "Тетяна", "Сергій", "Наталія"]
+         document.write(`Дано масив імен:<br> ${names}<br><br>`)
+         let firstLettersNames = names.map((firstLettersNames) => firstLettersNames[0][0])
+         document.write(`Масив з мерших літер цих імен:<br> ${firstLettersNames}<br>`)
+      </script>
+      <a href="task9.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

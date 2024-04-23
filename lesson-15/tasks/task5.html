@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №5</title>
+      <style>
+         table {
+            border: 1px solid black;
+            width: 500px;
+            padding: 0;
+            margin: 0;
+         }
+
+         td {
+            border: 1px solid black;
+            max-width: 100px;
+         }
+      </style>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №5</h1>
+      <p>Розробити клас «Керівник танців»</p>
+      <table>
+         <tr>
+            <td>Поля</td>
+            <td>Масив імен хлопців Масив імен дівчат </td>
+         </tr>
+         <tr>
+            <td>Методи</td>
+            <td>Метод випадкового вибору імені хлопця Метод випадкового вибору імені дівчини Метод виведення пари для
+               танців Метод run , який ініціює через кожні 5 секунд виведення нової пари для танців </td>
+         </tr>
+      </table>
+      <p>Рішення:</p>
+      <script>
+         "use strict"
+         // ===== BEGIN ===== //
+         const boysNames = ['Liam', 'Noah', 'Oliver', 'William', 'Elijah', 'James', 'Benjamin', 'Lucas', 'Henry', 'Alexander']
+         const girlsNames = ['Olivia', 'Emma', 'Ava', 'Charlotte', 'Sophia', 'Amelia', 'Isabella', 'Mia', 'Evelyn', 'Harper']
+         // ========== //
+         class HeadOfDances {
+            constructor(boyName, girlName) {
+               this.boy = boyName
+               this.girl = girlName
+            }
+            getRandomPair(boysArr, girlsArr) {
+               const randBoyIndex = Math.floor(Math.random() * (boysArr.length))
+               const randGirlIndex = Math.floor(Math.random() * (girlsArr.length))
+               const currentPair = new HeadOfDances(boysArr[randBoyIndex], girlsArr[randGirlIndex])
+               document.write(`${currentPair.boy} --- ${currentPair.girl}<br>`)
+               console.log(`${currentPair.boy} --- ${currentPair.girl}`)
+            }
+            run() {
+               this.getRandomPair(boysNames, girlsNames)
+            }
+         }
+         const headOfDances = new HeadOfDances()
+         setInterval(() => headOfDances.run(), 5000)
+      </script>
+      <a href="task5.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

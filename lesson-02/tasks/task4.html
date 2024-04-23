@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №4</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №4</h1>
+      <p>Дано довжину у сантиметрах. Визначати скільки це метрів і кілометрів. </p>
+      <script>
+         let a = parseFloat(prompt('Вкажи відстань в сантиметрах для підрахунку', '1543454'))
+         let m = a / 100
+         let km = m / 1000
+         document.write(`<p>Рішення:</p>`)
+         document.write(`<p>Конвертуємо ${a} сантиметрів</p>`)
+         document.write(`<p>${a} сантиметрів в метрах буде ${m} метрів</p>`)
+         document.write(`<p>${a} сантиметрів в кілометрах буде ${km} кілометрів</p>`)
+      </script>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

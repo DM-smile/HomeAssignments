@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Рішення задачі №1</title>
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+   </head>
+
+   <body>
+      <h1>Рішення задачі №1</h1>
+      <script>
+         // ====== генерація випадкового масиву ======== //
+         let currentArray = gеtArray(6, 8, 100, 999)
+         function gеtArray(rows, cols, min, max) {
+            document.write(`Дано випадково згенерований масив чисел з ${rows} рядків та ${cols} стопців:<br><br>`)
+            let newArray = []
+            for (let i = 0; i < rows; i++) {
+               let row = []
+               for (let j = 0; j < cols; j++) {
+                  let randNum = min + Math.floor(Math.random() * (max - min + 1))
+                  row.push(randNum)
+               }
+               newArray.push(row)
+               document.write(`<b>${newArray[i]}</b><br>`)
+            }
+            return newArray
+         }
+         console.log(currentArray)
+         document.write('<br>')
+         // ======================= //
+         document.write('Знайти суми елементів у вказаній області<br>Рішення:<br><br>')
+         // ======================= //
+
+         document.write('1) номери рядків від 0 до половини, стовпці від 0 до половини<br>')
+         // ========== 1 ========== //
+         let sum1 = 0
+         for (let rowIndex = 0; rowIndex < Math.floor(currentArray.length / 2); rowIndex++) {
+            for (let colIndex = 0; colIndex < Math.floor(currentArray[rowIndex].length / 2); colIndex++)
+               sum1 += currentArray[rowIndex][colIndex]
+         }
+         document.write(`Сума елементів: ${sum1}<br><br>`)
+         // ======================= //
+
+         document.write('2) номери рядків від 0 до половини, стовпці від половини до кінця<br>')
+         // ========== 2 ========== //
+         let sum2 = 0
+         for (let rowIndex = 0; rowIndex < Math.floor(currentArray.length / 2); rowIndex++) {
+            for (let colIndex = Math.floor(currentArray[rowIndex].length / 2); colIndex < currentArray[rowIndex].length; colIndex++)
+               sum2 += currentArray[rowIndex][colIndex]
+         }
+         document.write(`Сума елементів: ${sum2}<br><br>`)
+         // ======================= //
+
+         document.write('3) номери рядків (від половини до кінця, стовпці від 0 до половини<br>')
+         // ========== 3 ========== //
+         let sum3 = 0
+         for (let rowIndex = Math.floor(currentArray.length / 2); rowIndex < currentArray.length; rowIndex++) {
+            for (let colIndex = 0; colIndex < Math.floor(currentArray[rowIndex].length / 2); colIndex++)
+               sum3 += currentArray[rowIndex][colIndex]
+         }
+         document.write(`Сума елементів: ${sum3}<br><br>`)
+         // ======================= //
+
+         document.write('4) номери рядків від половини до кінця , стовпці від половини до кінця<br>')
+         // ========== 4 ========== //
+         let sum4 = 0
+         for (let rowIndex = Math.floor(currentArray.length / 2); rowIndex < currentArray.length; rowIndex++) {
+            for (let colIndex = Math.floor(currentArray[rowIndex].length / 2); colIndex < currentArray[rowIndex].length; colIndex++)
+               sum4 += currentArray[rowIndex][colIndex]
+         }
+         document.write(`Сума елементів: ${sum4}<br><br>`)
+         // ======================= //
+
+         document.write('5) Суму парних рядків<br>')
+         // ========== 5 ========== //
+         sum5 = 0
+         for (let rowIndex = 1; rowIndex < currentArray.length; rowIndex += 2) {
+            for (let colIndex = 0; colIndex < currentArray[rowIndex].length; colIndex++)
+               sum5 += currentArray[rowIndex][colIndex]
+         }
+         document.write(`Сума елементів: ${sum5}<br><br>`)
+         // ======================= //
+
+         document.write('6) Суму непарних стовпців<br>')
+         // ========== 6 ========== //
+         sum6 = 0
+         for (let rowIndex = 0; rowIndex < currentArray.length; rowIndex++) {
+            for (let colIndex = 0; colIndex < currentArray[rowIndex].length; colIndex += 2)
+               sum6 += currentArray[rowIndex][colIndex]
+         }
+         document.write(`Сума елементів: ${sum6}<br><br>`)
+         // ======================= //
+
+         document.write('7) У парних рядках – непарні стовпці, у непарних – парні<br>')
+         // ========== 7 ========== //
+         sum7 = 0
+         for (let rowIndex = 0; rowIndex < currentArray.length; rowIndex++) {
+            if (rowIndex % 2 !== 0) {
+               for (let colIndex = 0; colIndex < currentArray[rowIndex].length; colIndex += 2) {
+                  sum7 += currentArray[rowIndex][colIndex]
+               }
+            }
+            else {
+               for (let colIndex = 1; colIndex < currentArray[rowIndex].length; colIndex += 2) {
+                  sum7 += currentArray[rowIndex][colIndex]
+               }
+            }
+
+         }
+         document.write(`Сума елементів: ${sum7}<br><br>`)
+         // ======================= //
+         console.log(`1) ${sum1}`)
+         console.log(`2) ${sum2}`)
+         console.log(`3) ${sum3}`)
+         console.log(`4) ${sum4}`)
+         console.log(`5) ${sum5}`)
+         console.log(`6) ${sum6}`)
+         console.log(`7) ${sum7}`)
+      </script>
+      <a href="task1.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

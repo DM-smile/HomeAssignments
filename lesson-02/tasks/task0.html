@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №0</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №0</h1>
+      <p>Обчислити значення виразів </p> <br>
+      <img src="../img/task0.png" alt="#">
+      <script>
+         "use strict"
+         let a = parseFloat(prompt('Введіть значення числа "а"'))
+         let b = parseFloat(prompt('Введіть значення числа "b"'))
+         let c = parseFloat(prompt('Введіть значення числа "c"'))
+         // 1)
+         let firstTask = a + 12 + b
+         document.write(`<p>Рішення:</p>`)
+         // 2)
+         document.write(`<p>1) S1 = ${firstTask};</p>`)
+         let secondTask = Math.sqrt((a + b) / (2 * a))
+         document.write(`<p>2) S2 = ${secondTask};</p>`)
+         // 3)
+         let thirdTask = Math.cbrt((a + b) * c)
+         document.write(`<p>3) S3 = ${thirdTask};</p>`)
+         // 4)
+         let fourthTask = Math.sin(a / -b)
+         document.write(`<p>4) S4 = ${fourthTask};</p>`)
+      </script>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

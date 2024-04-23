@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №2</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №2</h1>
+      <p>Дано масив імен спортсменів. Розробити програму для виведення усіх можливих результатів змагань (списки імен у
+         відповідності до місць, які вони займуть).</p>
+      <p>Рішення:</p>
+      <script>
+         const athletesNames = ['Stepan', 'Olena', 'Ivan']
+         document.write(`Дано масив імен: ${athletesNames}<br>Перебір можливих комбінацій:<br><br>`)
+
+         // ===== перебір комбінацій спосіб №1 =====
+
+         getResultCompetition()  //run
+
+         // function getResultCompetition(step = 0, resArr = [], arr = athletesNames) {
+         //    if (step === arr.length) document.write(`${resArr}<br>`)
+         //    else {
+         //       for (let i = 0; i < arr.length; i++) {
+         //          if (!resArr.includes(arr[i])) {
+         //             getResultCompetition(step + 1, [...resArr, arr[i]])
+         //          }
+         //       }
+         //    }
+         // }
+
+         // ===== перебір комбінацій спосіб №2 =====
+
+         function getResultCompetition(currentArr = athletesNames, resArr = []) {
+            if (currentArr.length === 0) document.write(`${resArr}<br>`)
+            else {
+               for (const member of currentArr) {
+                  getResultCompetition(currentArr.filter(el => el !== member), [...resArr, member])
+               }
+            }
+         }
+      </script>
+      <a href="task2.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

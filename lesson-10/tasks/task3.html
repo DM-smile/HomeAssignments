@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №3</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №3</h1>
+      <p>Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000)</p>
+      <p>Сформувати список з тих цін, які більші за попереднє значення</p>
+      <p>Рішення:</p>
+      <script>
+         // ======== Генерація масиву цін ========
+         let historyPrices = createHistoryPrices(1, 10000, 20)
+         function createHistoryPrices(minPrice, maxPrice, length) {
+            let newPrice = []
+            for (i = 0; i < length; i++) {
+               newPrice.push(minPrice + Math.floor(Math.random() * (maxPrice)))
+            }
+            return newPrice
+         }
+         document.write(`Дано базовий масив з ${historyPrices.length}-и цін:<br> ${historyPrices} <br><br>`)
+
+         // ======== рішення задачі =======
+         document.write('Сформований список з тих цін, які більші за попереднє значення:')
+         document.write('<ul>')
+
+         historyPrices.forEach(
+            (price, ind, baseArr) => {
+               if (ind === 0 || price > baseArr[ind - 1]) document.write(`<li>${price}</li>`)
+            }
+         )
+
+         document.write('</ul>')
+      </script>
+      <a href="task3.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №0</title>
+      <style>
+         table {
+            border: 1px solid black;
+            width: 500px;
+            padding: 0;
+            margin: 0;
+         }
+
+         td {
+            border: 1px solid black;
+            max-width: 100px;
+         }
+      </style>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №0</h1>
+      <p>Дано два об’єкта. Обидва містять масив цілих чисел. При цьому у одному з них є функція знаходження суми, а у
+         іншому – функція для знаходження добутку тих, які знаходяться між заданими мінімальним і максимальних
+         значенням. Використати обидва методи стосовно обидвох об’єктів (використати call, apply)</p>
+      <p>Рішення:</p>
+      <script>
+         "use strict"
+         // ===== BEGIN ===== //
+         const firstObject = {
+            currentArray: [12, 45, 242, 90, 456, 32, 5],
+            getSum: function () {
+               let sum = this.currentArray.reduce((prevSum, el) => prevSum + el, 0)
+               return sum
+            }
+         }
+         const secondObject = {
+            currentArray: [101, 20, 11, 88, 456, 65, 100],
+            getProduct: function (minValue, maxValue) {
+               let product = this.currentArray.reduce((prevValue, el) =>
+                  el >= minValue && el <= maxValue ? prevValue *= el : prevValue, 1
+               )
+               return product
+            }
+         }
+         // ========== SHOW RESULT========== //
+         document.write(`Дано масиви:<br>1) [${firstObject.currentArray}]<br>2) [${secondObject.currentArray}]<br><br>`)
+         document.write(`Sum:<br>1) ${firstObject.getSum()}<br>2) ${firstObject.getSum.call(secondObject)}<br><br>`)
+         document.write(`Product:<br>1) ${secondObject.getProduct.call(firstObject, 40, 100)}<br>2) ${secondObject.getProduct(40, 100)}`)
+      </script>
+      <a href="task0.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

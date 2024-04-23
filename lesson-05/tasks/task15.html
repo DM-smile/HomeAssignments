@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №15</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №15</h1>
+      <p>Користувача поступово вводить показники температури протягом року. Знайти середню температуру.</p>
+      <p>Рішення:</p>
+      <script>
+         let currentTemp
+         let averageTemp = 0
+         const numberMouth = 12
+         for (let mouth = 1; mouth <= numberMouth; mouth++) {
+            currentTemp = parseInt(prompt(`Введіть показник температури місяць №${mouth}`))
+            averageTemp = averageTemp + currentTemp
+         }
+         averageTemp = averageTemp.toFixed(0) / numberMouth
+         averageTemp = averageTemp.toFixed(0)
+         document.write(`Середня температура протягом року становить ${averageTemp} градусів`)
+         alert(`Середня температура протягом року становить ${averageTemp} градусів`)
+      </script>
+      <a href="task15.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

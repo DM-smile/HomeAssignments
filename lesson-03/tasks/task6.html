@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №6</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №6</h1>
+      <p>З клавіатури вводиться номер дня тижня. Вивести на екран назву дня.</p>
+      <p>Рішення:</p>
+      <script>
+         const numberDay = parseInt(prompt('Введіть номер дня тижня для визначення'))
+         if (isNaN(numberDay) || (numberDay < 1) || (numberDay > 7))
+            document.write('Некоректно введено номер дня тижня, спробуйте ще раз')
+         let nameDay
+         switch (numberDay) {
+            case 1:
+               nameDay = 'понеділок'
+               document.write(`Ви ввели номер тижня "${numberDay}" і це є "${nameDay}"`)
+               break
+            case 2:
+               nameDay = 'вівторок'
+               document.write(`Ви ввели номер тижня "${numberDay}" і це є "${nameDay}"`)
+               break
+            case 3:
+               nameDay = 'середа'
+               document.write(`Ви ввели номер тижня "${numberDay}" і це є "${nameDay}"`)
+               break
+            case 4:
+               nameDay = 'червер'
+               document.write(`Ви ввели номер тижня "${numberDay}" і це є "${nameDay}"`)
+               break
+            case 5:
+               nameDay = "п'ятниця"
+               document.write(`Ви ввели номер тижня "${numberDay}" і це є "${nameDay}"`)
+               break
+            case 6:
+               nameDay = 'субота'
+               document.write(`Ви ввели номер тижня "${numberDay}" і це є "${nameDay}"`)
+               break
+            case 7:
+               nameDay = 'неділя'
+               document.write(`Ви ввели номер тижня "${numberDay}" і це є "${nameDay}"`)
+               break
+         }
+      </script>
+      <a href="task6.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html">👈 Назад</a>
+   </body>
+
+</html>

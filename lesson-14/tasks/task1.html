@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Рішення задачі №1</title>
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+   </head>
+
+   <body>
+      <h1>Рішення задачі №1</h1>
+      <p>Описати масив об’єктів – сайтів розроблених компанією з такими властивостями</p>
+      <p>----- Властивості ------</p>
+      <ul>
+         <li>назва компанії на час розробки (назву періодично змінюють)</li>
+         <li>власник компанії</li>
+         <li>споснсори (масив спонсорів)</li>
+      </ul>
+      <p>* прізвище спонсора</p>
+      <p>* ім’я спонсора</p>
+      <p>* сума вкладень спонсора</p>
+      <ul>
+         <li>рік випуску</li>
+         <li>вартість сайту</li>
+      </ul>
+      <p>Знайти:</p>
+      <ol>
+         <li>загальну вартість усіх сайтів</li>
+         <li>кількість сайтів, що було зроблено між 2000 та 2009 рр.</li>
+         <li>кількість сайтів, де сума спонсорських вкладень була більшою за 100000</li>
+         <li>створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)</li>
+         <li>знайти рік, коли прибуток був найбільшим</li>
+         <li>упорядкувати список за спаданням прибутку</li>
+         <li>Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000 </li>
+      </ol>
+      <p>Рішення:</p>
+      <script>
+         // ============ масив ========== //
+         let websites = [
+            {
+               companyNameDuringDevelopment: "ABC Web Solutions",
+               owner: "John Smith",
+               sponsors: [
+                  {
+                     lastName: "Johnson",
+                     firstName: "Alice",
+                     investmentAmount: 5000
+                  },
+                  {
+                     lastName: "Brown",
+                     firstName: "Bob",
+                     investmentAmount: 7000
+                  }
+               ],
+               releaseYear: 2005,
+               websiteCost: 15000
+            },
+            {
+               companyNameDuringDevelopment: "XYZ Digital Services",
+               owner: "Jane Doe",
+               sponsors: [
+                  {
+                     lastName: "Williams",
+                     firstName: "Emma",
+                     investmentAmount: 8000
+                  },
+                  {
+                     lastName: "Davis",
+                     firstName: "Chris",
+                     investmentAmount: 6000
+                  }
+               ],
+               releaseYear: 2008,
+               websiteCost: 20000
+            },
+            {
+               companyNameDuringDevelopment: "QWERTY Web Development",
+               owner: "Michael Johnson",
+               sponsors: [
+                  {
+                     lastName: "Lee",
+                     firstName: "David",
+                     investmentAmount: 3000
+                  },
+                  {
+                     lastName: "Garcia",
+                     firstName: "Maria",
+                     investmentAmount: 9000
+                  }
+               ],
+               releaseYear: 2003,
+               websiteCost: 9000
+            },
+            {
+               companyNameDuringDevelopment: "TechWeb",
+               owner: "Jessica Brown",
+               sponsors: [
+                  {
+                     lastName: "Martinez",
+                     firstName: "Jose",
+                     investmentAmount: 10000
+                  },
+                  {
+                     lastName: "Hernandez",
+                     firstName: "Jennifer",
+                     investmentAmount: 4000
+                  }
+               ],
+               releaseYear: 2007,
+               websiteCost: 18000
+            }
+         ]
+         // ============ рішення задачі ========== //
+
+         // Загальну вартість усіх сайтів.
+         const getAllPrice = websites.reduce(
+            (prevSum, el) => prevSum + el.websiteCost, 0
+         )
+
+
+         // Кількість сайтів, що було зроблено між 2000 та 2009 рр.
+
+         const getNumSitesPeriod = websites.reduce(
+            (prevNum, el) => el.releaseYear > 2000 && el.releaseYear < 2009 ? prevNum + 1 : prevNum, 0
+         )
+
+
+         // Кількість сайтів, де сума спонсорських вкладень була більшою за 100000.
+
+         function getNumSitesOfSponsInvestments(array, maxSumInvest) {
+            let quantitiInvestment = 0
+            for (let i = 0; i < array.length; i++) {
+               let tempSum = 0
+               for (let j = 0; j < array[i].sponsors.length; j++) {
+                  tempSum += array[i].sponsors[j].investmentAmount
+               }
+               if (tempSum > maxSumInvest) quantitiInvestment++
+            }
+            return quantitiInvestment
+         }
+
+         // Створити загальний список усіх спонсорів(поки можуть повторюватись, просто зібрати усі у масив).
+
+         function getSponsorsList(array = websites) {
+            let arrList = []
+            for (let i = 0; i < array.length; i++) {
+               for (let j = 0; j < array[i].sponsors.length; j++) {
+                  arrList.push(` ${array[i].sponsors[j].lastName} ${array[i].sponsors[j].firstName}`)
+               }
+            }
+            return arrList
+         }
+
+
+         // Знайти рік, коли прибуток був найбільшим.
+
+         function getMaxProfitYear(array = websites) {
+            let biggestProfit = -Infinity
+            let biggestProfitYear
+            for (let i = 0; i < array.length; i++) {
+               if (array[i].websiteCost > biggestProfit) {
+                  biggestProfit = array[i].websiteCost
+                  year = array[i].releaseYear
+               }
+            }
+            return year
+         }
+
+
+         // Упорядкувати список за спаданням прибутку.
+         function getSortList(array = websites) {
+            let newArr = []
+            let sortList = array.sort((el1, el2) => el2.websiteCost - el1.websiteCost)
+            console.log(`Пункт №6`), console.log(sortList)
+            for (let i = 0; i < sortList.length; i++) {
+               newArr.push(` ${sortList[i].companyNameDuringDevelopment} (${sortList[i].websiteCost}$)`)
+            }
+            return newArr
+         }
+
+
+         // Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000.
+
+         let priceLess10000 = websites.reduce(
+            (prevList, obj) => obj.websiteCost < 10000 ? [...prevList, JSON.parse(JSON.stringify(obj))] : prevList, []
+         )
+         // === //
+         let priceMore10000 = websites.reduce(
+            (prevList, obj) => obj.websiteCost >= 10000 ? [...prevList, JSON.parse(JSON.stringify(obj))] : prevList, []
+         )
+
+
+         // ============================= LOG =================================== //
+         document.write('<ol>')
+         document.write(`<li>Загальна вартість усіх сайтів: ${getAllPrice}$</li>`)
+         document.write(`<li>Кількість сайтів, що було зроблено між 2000 та 2009 рр: ${getNumSitesPeriod}</li>`)
+         document.write(`<li>Кількість сайтів, де сума спонсорських вкладень була більшою за 100000: ${getNumSitesOfSponsInvestments(websites, 100000)}</li>`)
+         document.write(`<li>Загальний список усіх спонсорів: ${getSponsorsList()}</li>`)
+         document.write(`<li>Рік, коли прибуток був найбільшим: ${getMaxProfitYear()}р.</li>`)
+         document.write(`<li>Упорядкований список за спаданням прибутку: ${getSortList()}<br><i>(делаті в консолі)</i></li>`)
+         document.write(`<li><p>2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000:</p><ul><li><i>(делаті в консолі)</i></li><li><i>(делаті в консолі)</i></li></ul></li>`)
+         document.write('</ol>')
+         console.log('Пункт №7')
+         console.log(priceLess10000), console.log(priceMore10000)
+      </script>
+      <a href="task1.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

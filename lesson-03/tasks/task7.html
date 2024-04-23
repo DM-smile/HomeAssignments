@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №7</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №7</h1>
+      <p>З клавіатури вводиться номер місяця. Вивести до якої пори він відноситься</p>
+      <p>Рішення:</p>
+      <script>
+         const numberMouth = parseInt(prompt('Введіть номер місяця для визначення пори року'))
+         if (isNaN(numberMouth) || (numberMouth < 1) || (numberMouth > 12))
+            document.write('Некоректно введено номер місяця, спробуйте ще раз')
+         let nameMouth
+         let season
+         switch (numberMouth) {
+            case 1:
+               nameMouth = 'січень'
+               season = 'зима'
+               document.write(`Ви ввели номер місяця "${numberMouth}", це є "${nameMouth}" і відноситься до пори року "${season}"`)
+               break
+            case 2:
+               nameMouth = 'лютий'
+               season = 'зима'
+               document.write(`Ви ввели номер місяця "${numberMouth}", це є "${nameMouth}" і відноситься до пори року "${season}"`)
+               break
+            case 3:
+               nameMouth = 'березень'
+               season = 'весна'
+               document.write(`Ви ввели номер місяця "${numberMouth}", це є "${nameMouth}" і відноситься до пори року "${season}"`)
+               break
+            case 4:
+               nameMouth = 'квітень'
+               season = 'весна'
+               document.write(`Ви ввели номер місяця "${numberMouth}", це є "${nameMouth}" і відноситься до пори року "${season}"`)
+               break
+            case 5:
+               nameMouth = 'травень'
+               season = 'весна'
+               document.write(`Ви ввели номер місяця "${numberMouth}", це є "${nameMouth}" і відноситься до пори року "${season}"`)
+               break
+            case 6:
+               nameMouth = 'червень'
+               season = 'літо'
+               document.write(`Ви ввели номер місяця "${numberMouth}", це є "${nameMouth}" і відноситься до пори року "${season}"`)
+               break
+            case 7:
+               nameMouth = 'липень'
+               season = 'літо'
+               document.write(`Ви ввели номер місяця "${numberMouth}", це є "${nameMouth}" і відноситься до пори року "${season}"`)
+               break
+            case 8:
+               nameMouth = 'серпень'
+               season = 'літо'
+               document.write(`Ви ввели номер місяця "${numberMouth}", це є "${nameMouth}" і відноситься до пори року "${season}"`)
+               break
+            case 9:
+               nameMouth = 'вересень'
+               season = 'осінь'
+               document.write(`Ви ввели номер місяця "${numberMouth}", це є "${nameMouth}" і відноситься до пори року "${season}"`)
+               break
+            case 10:
+               nameMouth = 'жовтень'
+               season = 'осінь'
+               document.write(`Ви ввели номер місяця "${numberMouth}", це є "${nameMouth}" і відноситься до пори року "${season}"`)
+               break
+            case 11:
+               nameMouth = 'листопад'
+               season = 'осінь'
+               document.write(`Ви ввели номер місяця "${numberMouth}", це є "${nameMouth}" і відноситься до пори року "${season}"`)
+               break
+            case 12:
+               nameMouth = 'грудень'
+               season = 'зима'
+               document.write(`Ви ввели номер місяця "${numberMouth}", це є "${nameMouth}" і відноситься до пори року "${season}"`)
+               break
+         }
+      </script>
+      <a href="task7.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html">👈 Назад</a>
+   </body>
+
+</html>

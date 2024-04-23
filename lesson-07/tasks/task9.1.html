@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №9.1</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №9.1</h1>
+      <p>Дано покази температур (довільна кількість). Розробити функцію, яка дозволить підрахувати кількість від’ємних
+         показів температури.</p>
+      <p>Рішення:</p>
+      <script>
+         let negativeTemp = 0
+         function testTemp(number) {
+            for (let i = 1; i <= number; i++) {
+               let currentTemp = parseInt(prompt(`Замір температури №${i} (всього потрібно замірів ${number})`))
+               if (currentTemp < 0) {
+                  negativeTemp++
+               }
+            }
+         }
+         const number = parseInt(prompt('Скільки разів зробити замір температури?', '5'))
+         let result = testTemp(number)
+         alert(`Зроблено замірів: ${number} \nКількість від'ємних показів температури: ${negativeTemp}`)
+         document.write(`Зроблено замірів: ${number}<br> Кількість від'ємних показів температури: ${negativeTemp}`)
+      </script>
+      <a href="task9.1.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

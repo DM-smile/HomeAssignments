@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №3</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №3</h1>
+      <p>Ось приклад відповіді з одного з сайтів (масив об’єктів з інформацією про товари)</p>
+      <img src="../img/2.png" alt="#" width="700" , height="auto">
+      <p>(весь текст масиву, що в кінці документу скопіюєте в код).</p>
+      <ol>
+         <li>Загальну вартість (нові ціни - price)</li>
+         <li>Знайти кількість товарів, у яких ціна зменшилась (price < old_price)</li>
+         <li>Товари, які доступні (sell_status:"available")</li>
+         <li>сформувати новий список об”єктів тільки доступних для продажу товарів, які міститимуть тільки ідентифікатор
+            товару (id), нову ціну (price), стару ціну (old_price), та ціну у доларах (usd_price) </li>
+      </ol>
+      <p>Рішення:</p>
+      <script src="../js/script.js"></script>
+      <script>
+         document.write('<ol>')
+         // ========== 1 ========== //
+         let allSumProducts = dataList.reduce(
+            (prevSum, el) => prevSum + el.price, 0
+         )
+         document.write(`<li>Загальна вартість: ${allSumProducts} грн</li>`)
+
+         // ========== 2 ========== //
+         let productsReducedPrice = dataList.reduce(
+            (prevNum, el) => el.price < el.old_price ? prevNum + 1 : prevNum, 0
+         )
+         document.write(`<li>кількість товарів, у яких ціна зменшилась: ${productsReducedPrice}</li>`)
+
+         // ========== 3 ========== //
+         let productsAvailable = dataList.reduce(
+            (prevArr, el) => el.sell_status === "available" ? [...prevArr, el.id] : prevArr, []
+         )
+         document.write(`<li>Товари, які доступні (ID): ${productsAvailable}</li>`)
+
+         // ========== 4 ========== //
+         let newListPriducrs = dataList.reduce(
+            (prevObj, el) => {
+               if (el.sell_status === "available") {
+                  return [...prevObj, {
+                     price: el.price,
+                     old_price: el.old_price,
+                     usd_price: el.usd_price,
+                  }]
+               } else return prevObj
+            }, []
+         )
+         document.write(`<li>Сформований новий список об'єктів тільки доступних для продажу товарів в консолі</li>`)
+         document.write('</ol>')
+         // ========== LOG ========== //
+         console.log(newListPriducrs)
+      </script>
+      <a href="task3.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

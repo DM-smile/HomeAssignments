@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №2</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №2</h1>
+      <p>Користувач вводить кількість елементів. Створити масив, у якому перша половина заповнена 1-цями, а друга
+         заповнена 7-ками.</p>
+      <script>
+         const elementNumber = parseInt(prompt('Введіть кількість елементів', '20'))
+         let createArray = new Array(elementNumber).fill(1, 0, (elementNumber / 2)).fill(7, (elementNumber / 2))
+         document.write(`Введено кількість елементів: ${elementNumber}<br>${createArray}<br>`)
+      </script>
+      <p>Рішення:</p>
+      <a href="task2.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

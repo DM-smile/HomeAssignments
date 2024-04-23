@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №3</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №3</h1>
+      <p>Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я «Іван».</p>
+      <p>Рішення:</p>
+      <script>
+         const namesArray = ['Максим', 'Василь', 'Данил', 'Іван', 'Олена', 'Дмитро', 'Степан', 'Іван']
+         function counterNames(array, findName) {
+            let counterSelectedName = 0
+            for (let i = 0; i < array.length; i++) {
+               if (array[i] === findName)
+                  counterSelectedName++
+            }
+            return counterSelectedName
+         }
+         let findSearch = 'Іван'
+         let totalCount = counterNames(namesArray, findSearch)
+         document.write(`Дано масив з іменами: ${namesArray}<br>Кількість імен "${findSearch}" у цьому масиві: ${totalCount}`)
+      </script>
+      <a href="task3.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../../index_new.html"> 👈 Назад</a>
+   </body>
+
+</html>

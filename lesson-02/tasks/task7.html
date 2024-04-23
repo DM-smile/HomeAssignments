@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №7</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №7</h1>
+      <p>Знайти суму випадкового номера місяця (від 1 до 12) та випадкового номера дня (від 0 до 6). </p>
+      <script>
+         let minWeek = 0, maxWeek = 6
+         let minMonth = 1, maxMonth = 12
+         let randomWeek = minWeek + Math.floor(Math.random() * (maxWeek - minWeek + 1))
+         let randomMonth = minMonth + Math.floor(Math.random() * (maxMonth - minMonth + 1))
+         let rez = randomWeek + randomMonth
+         document.write(`<p>Рішення:</p>`)
+         document.write(`<p>Отримуємо випадковий номер міцяця: ${randomMonth}</p>`)
+         document.write(`<p>Отримуємо випадковий номер тижня: ${randomWeek}</p>`)
+         document.write(`Рахуємо <p>${randomMonth} + ${randomWeek}</p>`)
+         document.write(`<p>Результат: ${rez}</p>`)
+      </script>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

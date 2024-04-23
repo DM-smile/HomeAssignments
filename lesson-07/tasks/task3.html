@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №3</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №3</h1>
+      <p>Створити окремі функції, які для 4 чисел знаходять: <br> 1) суму; <br> 2) добуток; <br>3) середнє арифметичне;
+         <br> 4) мінімальне значення. </p>
+      <p>Рішення:</p>
+      <script>
+         let num1, num2, num3, num4
+         num1 = parseFloat(prompt('Введи перше число'))
+         num2 = parseFloat(prompt('Введи друге число'))
+         num3 = parseFloat(prompt('Введи третє число'))
+         num4 = parseFloat(prompt('Введи четверте число'))
+
+         function calcSum(a, b, c, d) {
+            let sum = a + b + c + d
+            return sum
+         }
+         function calcProduct(a, b, c, d) {
+            let product = a * b * c * d
+            return product
+         }
+         function calcAverage(a, b, c, d) {
+            let average = (a + b + c + d) / 4
+            return average
+         }
+
+         let result = (`Сума = ${calcSum(num1, num2, num3, num4)}<br> Добуток = ${calcProduct(num1, num2, num3, num4)}<br> Середнє арифметичне = ${calcAverage(num1, num2, num3, num4)}`)
+         document.write(`${result}`)
+      </script>
+      <a href="task3.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

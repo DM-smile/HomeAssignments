@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №2</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №2</h1>
+      <p>Дано масив, який зберігає кількість відвідувачів магазину протягом тижня. Вивести на екран:</p>
+      <ul>
+         <li>номери днів, протягом яких кількість відвідувачів була меншою за 20;</li>
+         <li>номери днів, коли кількість відвідувачів була мінімальною;</li>
+         <li>номери днів, коли кількість відвідувачів була максимальною;</li>
+         <li>загальну кількість клієнтів у робочі дні та окремо загальну кількість днів на вихідних.</li>
+      </ul>
+      <p>Рішення:</p>
+      <script>
+         // генерація масиву кількості відвідувачів
+         function getArr(quantityDays, minNumberVisitors, maxNumberVisitors) {
+            let quantityVisitorsArr = []
+            for (let i = 0; i < quantityDays; i++) {
+               const randomQuantity = minNumberVisitors + Math.floor(Math.random() * (maxNumberVisitors - minNumberVisitors + 1))
+               quantityVisitorsArr.push(randomQuantity)
+            }
+            return quantityVisitorsArr
+         }
+         let currentQuantityVisitors = getArr(7, 10, 50)
+         document.write(`Згенеровано кількість відвідувачів протіягом тижня: ${currentQuantityVisitors}<br>`)
+
+         // визначення номерів днів, протягом яких кількість відвідувачів була меншою за 20
+         function getNumberDays(currentArray) {
+            let numberDays = []
+            for (let i = 0; i < currentArray.length; i++) {
+               if (currentArray[i] < 20) numberDays.push(i + 1)
+            }
+            if (numberDays.length === 0) return 'Дані відсутні'
+            else return numberDays
+         }
+         let currentNumberDays = getNumberDays(currentQuantityVisitors)
+         document.write(`Номери днів, коли кількість відвідувачів була меншою за 20: ${currentNumberDays}<br>`)
+
+         //визначення номерів днів, коли кількість відвідувачів була мінімальною
+         function findMinQuantity(currentArray) {
+            let minQuantityValue = Infinity
+            for (let i = 0; i < currentArray.length; i++) {
+               if (currentArray[i] < minQuantityValue) minQuantityValue = currentArray[i]
+            }
+            let minQuantityArr = []
+            for (let j = 0; j < currentArray.length; j++) {
+               if (currentArray[j] === minQuantityValue) minQuantityArr.push(j + 1)
+            }
+            return minQuantityArr
+         }
+         let currentMinQuantitys = findMinQuantity(currentQuantityVisitors)
+         document.write(`Номери днів, коли кількість відвідувачів була мінімальною: ${currentMinQuantitys}<br>`)
+         //визначення номерів днів, коли кількість відвідувачів була максимальною
+         function findMaxQuantity(currentArray) {
+            let maxQuantityValue = -Infinity
+            for (let i = 0; i < currentArray.length; i++) {
+               if (currentArray[i] > maxQuantityValue) maxQuantityValue = currentArray[i]
+            }
+            let maxQuantityArr = []
+            for (let j = 0; j < currentArray.length; j++) {
+               if (currentArray[j] === maxQuantityValue) maxQuantityArr.push(j + 1)
+            }
+            return maxQuantityArr
+         }
+         let currentMaxQuantitys = findMaxQuantity(currentQuantityVisitors)
+         document.write(`Номери днів, коли кількість відвідувачів була максимальною: ${currentMaxQuantitys}<br>`)
+
+         //визначення загальної кількість клієнтів у робочі дні та окремо загальну кількість днів на вихідних
+         function totalQuantityClient(currentArray, firstIndex, lastIndex) {
+            totalQuantity = 0
+            for (let i = firstIndex; i <= lastIndex; i++) {
+               totalQuantity += currentArray[i]
+            }
+            return totalQuantity
+         }
+         // робочі:
+         let quantityForWorkingDays = totalQuantityClient(currentQuantityVisitors, 0, 4)
+         // вихідні:
+         let quantityForOffDays = totalQuantityClient(currentQuantityVisitors, 5, 6)
+         document.write(`Загальна кількість клієнтів за робочі дні: ${quantityForWorkingDays}<br>`)
+         document.write(`Загальна кількість клієнтів за вихідні дні: ${quantityForOffDays}`)
+      </script>
+      <a href="task2.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../../index_new.html"> 👈 Назад</a>
+   </body>
+
+</html>

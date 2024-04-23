@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №10</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №10</h1>
+      <p>Дано масив цін у грн. Податок складає 20%. Сформувати масив, який буде містити величину сплаченого податку у
+         грн.</p>
+      <p>Рішення:</p>
+      <script>
+         const prices = [1158, 794, 1407, 1120, 462, 479, 1009, 703, 1365, 755]
+         document.write(`Дано масив цін: ${prices}<br><br>`)
+         let tax = prices.map((price) => price / 100 * 20)
+         document.write(`Податок 20% від цих цін: ${tax}<br>`)
+      </script>
+      <a href="task10.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

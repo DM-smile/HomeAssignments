@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №4</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №4</h1>
+      <p>Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000)</p>
+      <p>Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального</p>
+      <p>Рішення:</p>
+      <script>
+         // ======== Генерація масиву цін ========
+         let historyPrices = createHistoryPrices(1, 10000, 10)
+         function createHistoryPrices(minPrice, maxPrice, length) {
+            let newPrice = []
+            for (i = 0; i < length; i++) {
+               newPrice.push(minPrice + Math.floor(Math.random() * (maxPrice)))
+            }
+            return newPrice
+         }
+         document.write(`Дано базовий масив з ${historyPrices.length}-и цін:<br> ${historyPrices} <br><br>`)
+
+         // ======== рішення задачі =======:
+         // 1) визначення максимальної ціни:
+         // let currentMaxPrice = historyPrices.reduce(
+         //    (maxPrice, price, i) => i === 0 || price > maxPrice ? maxPrice = price : maxPrice
+         // ) === спосіб через reduce
+         let currentMaxPrice = Math.max(...historyPrices) // === спосіб через Math.max
+
+         // 2) визначення відсотку від максимальної ціни:
+         let pricesPercent = historyPrices.map(
+            (price) => (price / currentMaxPrice * 100).toFixed(1) + '%'
+            //тут toFixed можливо недоречний...
+         )
+         // =============================== //
+         document.write(`Максимальне значення: ${currentMaxPrice}<br>Значення цін у відсотках стосовно максимального значення:<br>${pricesPercent}`)
+      </script>
+      <a href="task4.html"><br><br><br>Перезапустити<br></a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

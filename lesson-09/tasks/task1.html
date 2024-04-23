@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Рішення задачі №1</title>
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+   </head>
+
+   <body>
+      <h1>Рішення задачі №1</h1>
+      <p>Користувач вводить кількість елементів. Створити масив, що складається з вказаної кількості елементів
+         заповнених нулями.</p>
+      <p>Рішення:</p>
+      <script>
+         const elementNumber = parseInt(prompt('Введіть кількість елементів', '20'))
+         let createArray = new Array(elementNumber).fill(0)
+         document.write(`Введено кількість елементів: ${elementNumber}<br>${createArray}<br>`)
+      </script>
+      <a href="task1.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

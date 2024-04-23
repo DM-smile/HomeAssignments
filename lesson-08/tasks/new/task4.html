@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №4</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №4</h1>
+      <p>Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за:</p>
+      <ol>
+         <li>за весь рік;</li>
+         <li>у першій половині року;</li>
+         <li>у другій половині року;</li>
+         <li>за літо;</li>
+         <li>за ІІ квартал;</li>
+         <li>за парні місяці (з парними номерами);</li>
+         <li>за місяці, які є початковими у сезоні (весна, літо, осінь, зима).</li>
+      </ol>
+      <p>Рішення:</p>
+      <script>
+         // генерація масиву платіжок
+         function getArr(quantityPayment, min, max) {
+            let paymentsArr = []
+            for (let i = 0; i < quantityPayment; i++) {
+               const randomValue = min + Math.floor(Math.random() * (max - min + 1))
+               paymentsArr.push(randomValue)
+            }
+            return paymentsArr
+         }
+         let totalPaymentsArr = getArr(12, 1000, 5000)
+         document.write(`Згенеровано послідовність платіжок протягом року:<br>${totalPaymentsArr}`)
+         document.write(`<ul>Визначена сумарна кількість грошей за:`)
+         // Знаходимо сумарну кількість грошей за:
+         function sum(array, firstMonth, lastMonth, step) {
+            let sum = 0
+            for (let i = firstMonth - 1; i <= lastMonth - 1; i += step) {
+               sum += array[i]
+            }
+            return sum
+         }
+         // За весь рік
+         const sumAllYear = sum(totalPaymentsArr, 1, 12, 1)
+         // За першу половині року
+         const sumFirstHalfYear = sum(totalPaymentsArr, 1, 6, 1)
+         // За другу половині року
+         const sumSecondHalfYear = sum(totalPaymentsArr, 7, 12, 1)
+         // За літо
+         const sumForTheSummer = sum(totalPaymentsArr, 6, 8, 1)
+         // За ІІ квартал
+         const sumSecondQuarterYear = sum(totalPaymentsArr, 4, 6, 1)
+         // За парні місяці
+         const sumForTheMonthEven = sum(totalPaymentsArr, 2, 12, 2)
+         // За місяці, які є початковими у сезоні
+         const sumMonthsStartSeason = sum(totalPaymentsArr, 3, 12, 3)
+         document.write(`<li>За весь рік: ${sumAllYear}$</li>`)
+         document.write(`<li>За першу половині року: ${sumFirstHalfYear}$</li>`)
+         document.write(`<li>За другу половині року: ${sumSecondHalfYear}$</li>`)
+         document.write(`<li>За літо: ${sumForTheSummer}$</li>`)
+         document.write(`<li>За ІІ квартал: ${sumSecondQuarterYear}$</li>`)
+         document.write(`<li>За парні місяці: ${sumForTheMonthEven}$</li>`)
+         document.write(`<li>За місяці, які є початковими у сезоні: ${sumMonthsStartSeason}$</li>`)
+         document.write(`</ul>`)
+      </script>
+      <a href="task4.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../../index_new.html"> 👈 Назад</a>
+   </body>
+
+</html>

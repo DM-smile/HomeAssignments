@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Рішення задачі №1</title>
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+   </head>
+
+   <body>
+      <h1>Рішення задачі №1</h1>
+      <p>Створити функцію, яка за номером місяця повертає пору року, до якої відноситься цей місяць.</p>
+      <p>Рішення:</p>
+      <script>
+         let season
+         function getSeason(numberMonth) {
+            switch (numberMonth) {
+               case 12:
+               case 1:
+               case 2:
+                  season = 'зима'
+                  break
+               case 3:
+               case 4:
+               case 5:
+                  season = 'весна'
+                  break
+               case 6:
+               case 7:
+               case 8:
+                  season = 'літо'
+                  break
+               case 9:
+               case 10:
+               case 11:
+                  season = 'осінь'
+            }
+         }
+         let month = parseInt(prompt('Введи номер місяця'))
+         getSeason(month)
+         document.write(`Це ${season}<br>`)
+         alert(`Це ${season}`)
+      </script>
+      <a href="task0.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

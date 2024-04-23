@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №1</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №1</h1>
+      <p>З клавіатури вводяться імена двох дітей та кількість у них цукерок. Вивести не екран ім’я тієї дитини, у якої
+         кількість цукерок є більшою, або вивести, що кількість однакова.</p>
+      <p>Рішення:</p>
+      <script>
+         "use strict"
+         const nameFirstChild = prompt("Введи ім'я першої дитини", 'Кіндрат Погуляйко')
+         const nameSecondChild = prompt("Введи ім'я другої дитини", 'Кончіта Попукалова')
+         const numberCandiesFirstChild = parseInt(prompt(`Скільки цукерок має ${nameFirstChild}?`, '12'))
+         const numberCandiesSecondChild = parseInt(prompt(`Скільки цукерок має ${nameSecondChild}?`, '7'))
+         if (isNaN(numberCandiesFirstChild) || isNaN(numberCandiesSecondChild)) {
+            document.write(`<p>Виявлено некоректний ввід кількості цукерок</p>`)
+            document.write(`<p>Підсумок: Неможливо визначити результат</p>`)
+         }
+         else if (!isNaN(nameFirstChild) || !isNaN(nameSecondChild) || nameFirstChild === "" || nameSecondChild === "") {
+            document.write(`<p>Виявлено некоректний ввід імені</p>`)
+            document.write(`<p>Підсумок: Неможливо визначити результат</p>`)
+         }
+         else if (numberCandiesFirstChild > numberCandiesSecondChild) {
+            document.write(`<p>Отже, нам відомо що ${nameFirstChild} має ${numberCandiesFirstChild} цукерок, а ${nameSecondChild} має ${numberCandiesSecondChild} цукерок</p>`)
+            document.write(`<p>Підсумок: Більша кількість цукерок у ${nameFirstChild}</p>`)
+         }
+         else if (numberCandiesFirstChild < numberCandiesSecondChild) {
+            document.write(`<p>Отже, нам відомо що ${nameFirstChild} має ${numberCandiesFirstChild} цукерок, а ${nameSecondChild} має ${numberCandiesSecondChild} цукерок</p>`)
+            document.write(`<p>Підсумок: Більша кількість цукерок у ${nameSecondChild}</p>`)
+         }
+
+         else if (numberCandiesFirstChild === numberCandiesSecondChild) {
+            document.write(`<p>Отже, нам відомо що ${nameFirstChild} та ${nameSecondChild} мають по ${numberCandiesFirstChild} цукерок</p>`)
+            document.write(`<p>Підсумок: У обох дітей рівна кількість цукерок</p>`)
+         }
+
+      </script>
+      <a href="task1.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html">👈 Назад</a>
+   </body>
+
+</html>

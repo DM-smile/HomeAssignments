@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №5</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №5</h1>
+      <p>Дано кількість секунд, що пройшла від початку доби. Визначити скільки це годин і хвилин. </p>
+      <script>
+         let a = parseInt(prompt('Вкажи кількість секунд для підрахунку', '3600'))
+         let min = a / 60
+         let h = min / 60
+         document.write(`<p>Рішення:</p>`)
+         document.write(`<p>Маємо ${a} секунд від початку доби</p>`)
+         document.write(`<p>${a} секунд це ${min} хвилин або ${h} годин</p>`)
+      </script>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

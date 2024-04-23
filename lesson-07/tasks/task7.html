@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №7</title>
+      <style>
+         img {
+            max-width: 600px;
+            height: auto;
+         }
+      </style>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №7</h1>
+      <p>Створити функцію, яка випадковим чином виводить на екран одне із 4 зображень (шляхи до зображень передаються у
+         функцію)</p>
+      <p>Рішення:</p>
+      <script>
+         function getPicture(img) {
+            document.write(`<img src="../img/${img}.jpg" alt="#">`)
+            console.log(`виведено зображення №${img}`)
+         }
+         let randomImage = 1 + Math.floor(Math.random() * (4))
+         let resultImage = getPicture(randomImage)
+      </script>
+      <a href="task7.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №3</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №3</h1>
+      <p>Морський бій. Випадковим чином на двовимірному полі розміром 6*6 розташовується 5 кораблів. Користувач стріляє
+         вказуючи координати. Гра продовжується поки не потоплено усі кораблі або у користувача не закінчаться снаряди.
+      </p>
+      <p>Рішення:</p>
+      <h3>Результат гри в консолі</h3>
+      <script>
+         game(5, 10, 6, 6) // кораблі, снаряди, довжина поля, висота поля
+         function generateGameField(rowNumber, colNumber, shipNumber) {
+            let gameField = []
+            for (let row = 0; row < rowNumber; row++) {
+               let rows = new Array(colNumber).fill('🟦')
+               gameField.push(rows)
+            }
+            for (ship = 0; ship < shipNumber;) {
+               let posX = Math.floor(Math.random() * (rowNumber))
+               let posY = Math.floor(Math.random() * (colNumber))
+               if (gameField[posX][posY] !== '🛳️') {
+                  gameField[posX][posY] = '🛳️'
+                  ship++
+               }
+
+            }
+            return gameField
+
+         }
+
+         function play(shipNumber, missleNumber, gameField, rowNumber) {
+            while (shipNumber > 0 && missleNumber > 0) {
+               let fireX = parseInt(prompt(`Снарядів: ${missleNumber} \nКораблів ${shipNumber} \nВведи рядок`, '1')) - 1
+               let fireY = parseInt(prompt(`Снарядів: ${missleNumber} \nКораблів ${shipNumber} \nВведи стовпчик`, '1')) - 1
+               if (gameField[fireX][fireY] === '🛳️') {
+                  alert('Є влучання')
+                  shipNumber--
+                  gameField[fireX][fireY] = '🔥'
+               }
+               else {
+                  gameField[fireX][fireY] = '🚀'
+               }
+               missleNumber--
+            }
+            if (shipNumber === 0) return 'Перемога!'
+            else return 'Програв!'
+         }
+         function game(shipNumber, missleNumber, rowNumber, colNumber) {
+            let gameField = generateGameField(rowNumber, colNumber, shipNumber)
+            console.log(gameField)
+            let result = play(shipNumber, missleNumber, gameField)
+            alert(result)
+         }
+      </script>
+      <a href="task3.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

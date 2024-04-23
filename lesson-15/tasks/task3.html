@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №3</title>
+      <style>
+         table {
+            border: 1px solid black;
+            width: 500px;
+            padding: 0;
+            margin: 0;
+         }
+
+         td {
+            border: 1px solid black;
+            max-width: 100px;
+         }
+      </style>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №3</h1>
+      <p>Розробити клас MultChecker для перевірки таблиці множення</p>
+      <table>
+         <tr>
+            <td>Поля</td>
+            <td>Число, яке перевіряємо (наприклад, перевірка частини таблиці множення на 7) Кількість правильних
+               відповідей Кількість неправильних відповідей </td>
+         </tr>
+         <tr>
+            <td>Методи</td>
+            <td>Генерування прикладу (метод випадковим чином визначає друге число, перше число фіксоване) Перевірка
+               правильності вказаної відповіді render - виведення інформації про тестування на екран </td>
+         </tr>
+      </table>
+      <p>Рішення:</p>
+      <script>
+         "use strict"
+         // ===== BEGIN ===== //
+         class MultChecker {
+            constructor(num) {
+               this.currentNumber = num
+               this.correctAnswer = 0
+               this.incorrectAnswer = 0
+            }
+            generateExample(firstNum, secondNum) {
+               return firstNum * secondNum
+            }
+            correctCheck(min, max) {
+               const langthGame = parseInt(prompt('Введіть бажану кількість прикладів для перевірки)'))
+               for (let i = 0; i < langthGame; i++) {
+                  const randNum = min + Math.floor(Math.random() * (max * min + 1))
+                  const result = this.generateExample(this.currentNumber, randNum)
+                  const answer = parseInt(prompt(`${this.currentNumber} * ${randNum} = ???`))
+                  answer === result ? this.correctAnswer++ : this.incorrectAnswer++
+               }
+               this.render()
+            }
+            render() {
+               alert(`Правильних відповідей: ${this.correctAnswer}\nНеправильних відповідей: ${this.incorrectAnswer}`)
+               document.write(`Правильних відповідей: ${this.correctAnswer}<br>Неправильних відповідей: ${this.incorrectAnswer}`)
+            }
+         }
+         const numOfCheck = parseInt(prompt('Яке число перевіряємо?'))
+         const multChecker = new MultChecker(numOfCheck)
+
+         multChecker.correctCheck(1, 10)
+      </script>
+      <a href="task3.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №1</title>
+   </head>
+
+   <body>
+      <style>
+         th,
+         td {
+            border: 1px solid black;
+            padding: 15px;
+            text-align: center;
+            width: 100px;
+         }
+      </style>
+      <h1>Рішення задачі №1</h1>
+      <p>Знайти суму, добуток та частку двох дійсних чисел. Результат вивести у формі таблиці </p>
+      <script>
+         let a = parseFloat(prompt('Введіть значення першого числа'))
+         let b = parseFloat(prompt('Введіть значення другого числа'))
+         document.write(`<p>Рішення:</p>`)
+      </script>
+      <table>
+         <tr>
+            <td>Числа</td>
+            <th>
+               <script>document.write(a)</script>
+            </th>
+            <th>
+               <script>document.write(b)</script>
+            </th>
+         </tr>
+         <tr>
+            <td>Сума</td>
+            <td colspan="2">
+               <script>
+                  let numberSum = a + b
+                  document.write(numberSum)
+               </script>
+            </td>
+         </tr>
+         <tr>
+            <td>Добуток</td>
+            <td colspan="2">
+               <script>
+                  let numberMultiplication = a * b
+                  document.write(numberMultiplication)
+               </script>
+            </td>
+         </tr>
+         <tr>
+            <td>Частка</td>
+            <td colspan="2">
+               <script>
+                  let numberDivision = a / b
+                  document.write(numberDivision)
+               </script>
+            </td>
+         </tr>
+      </table>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

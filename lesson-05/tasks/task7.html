@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №7</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №7</h1>
+      <p>Вивести на екран N абзаців (N вводиться користувачем) за зразком:</p>
+      <img src="../img/tasks/task7.png" alt="#">
+      <p>Рішення:</p>
+      <script>
+         const numberStep = parseFloat(prompt('Введіть кількість абзаців'))
+         for (let i = 1; i <= numberStep; i++) {
+            document.write(`<h1>Заголовок ${i}</h1>`)
+            for (let paragraph = 1; paragraph <= i; paragraph++) {
+               document.write(`<p>Розділ ${i}, параграф ${paragraph}</p>`)
+            }
+            document.write('<hr>')
+         }
+      </script>
+      <a href="task7.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

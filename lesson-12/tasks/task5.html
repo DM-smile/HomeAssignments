@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №5</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №5</h1>
+      <p>Дано масив імен. Застосовуючи відповідне сортування та бінарний пошук визначити, чи є у масиві ім’я «Olga» і
+         під яким індексом.</p>
+      <p>Рішення:</p>
+      <script>
+         let namesArray = ['Finn', 'Benjamin', 'Jack', 'Isabella', 'Chloe', 'Emily', 'Daniel', 'Olga', 'Henry', 'Alice']
+         namesArray.sort()
+         function searchName(arr, searchElement) {
+            let start = 0
+            let end = arr.length - 1
+            while (start <= end) {
+               const mid = Math.floor((start + end) / 2)
+               if (arr[mid] === searchElement) return mid
+               if (arr[mid] < searchElement) start = mid + 1
+               if (arr[mid] > searchElement) end = mid - 1
+            }
+            return -1
+         }
+         const currentSearchName = 'Olga'
+         const resultSearchName = searchName(namesArray, currentSearchName)
+         // ========================= //
+         document.write(`${namesArray}<br>`)
+         if (resultSearchName >= 0)
+            document.write(`Ім'я "${currentSearchName}" знаходиться в масиві під індексом ${resultSearchName}`)
+         else {
+            document.write(`Ім'я ${currentSearchName} відсутнє в даному масиві`)
+         }
+      </script>
+      <a href="task5.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Рішення задачі №1</title>
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+   </head>
+
+   <body>
+      <h1>Рішення задачі №1</h1>
+      <p>Дано масив, який містить оцінки з К предметів. Знайти середній бал і з’ясувати до якої категорії він
+         відноситься (відмінник, двійочник (має хоча би одну двійку), хорошист (оцінки добре і відмінно), трійочник(є
+         хоча би одна трійка)).</p>
+      <p>Рішення:</p>
+      <script>
+         // генерація масиву оцінок
+         function getArr(quantitySubject, min, max) {
+            let ratingsArr = []
+            for (let i = 0; i < quantitySubject; i++) {
+               const randomRating = min + Math.floor(Math.random() * (max - min + 1))
+               ratingsArr.push(randomRating)
+            }
+            document.write(`Згенеровано оцінки учня з ${quantitySubject} предметів:<br>`)
+            return ratingsArr
+         }
+         let currentRandomArray = getArr(5, 1, 5)
+         document.write(`${currentRandomArray}<br>`)
+         console.log(`currentRandomArray: ${currentRandomArray}`)
+
+         // підрахунок середньої оцінки
+         function getGpa(arr) {
+            let sumRaiting = 0
+            for (let i = 0; i < arr.length; i++) {
+               sumRaiting += arr[i]
+            }
+            let gpa = Math.round(sumRaiting / arr.length)
+            document.write(`Середній бал: ${gpa}<br>`)
+            return gpa
+         }
+         const currentGpa = getGpa(currentRandomArray)
+         console.log(`GPA: ${currentGpa}`)
+
+         // визначення статусу учня
+         function getPupilStatus(arr) {
+            let minRaiting = Math.min(...arr)
+            let currentPupilStatus
+            switch (minRaiting) {
+               case 1:
+               case 2:
+                  currentPupilStatus = 'Двійочник'
+                  break
+               case 3:
+                  currentPupilStatus = 'Трійочник'
+                  break
+               case 4:
+                  currentPupilStatus = 'Хорошист'
+                  break
+               case 5:
+                  currentPupilStatus = 'Відмінник'
+                  break
+               default:
+                  currentPupilStatus = 'Дані введено некоректно'
+            }
+            document.write(`Цей учень ${currentPupilStatus}`)
+            return currentPupilStatus
+         }
+         let currentPupilStatus = getPupilStatus(currentRandomArray)
+         console.log(`currentPupilStatus: ${currentPupilStatus}`)
+      </script>
+      <a href="task1.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../../index_new.html"> 👈 Назад</a>
+   </body>
+
+</html>

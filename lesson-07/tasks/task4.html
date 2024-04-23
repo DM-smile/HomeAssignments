@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №4</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №4</h1>
+      <p>Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів: кількість парних, кількість
+         додатних, кількість більших за 100.</p>
+      <p>Рішення:</p>
+      <script>
+         let evenNumber = 0
+         let positiveNumber = 0
+         let moreHundred = 0
+         function multiCount(a, b, c) {
+            if ((a % 2) === 0)
+               evenNumber++
+            if (a > 0)
+               positiveNumber++
+            if (a > 100)
+               moreHundred++
+            if ((b % 2) === 0)
+               evenNumber++
+            if (b > 0)
+               positiveNumber++
+            if (b > 100)
+               moreHundred++
+            if ((c % 2) === 0)
+               evenNumber++
+            if (c > 0)
+               positiveNumber++
+            if (c > 100)
+               moreHundred++
+         }
+         let num1 = parseFloat(prompt('Введи перше число'))
+         let num2 = parseFloat(prompt('Введи друге число'))
+         let num3 = parseFloat(prompt('Введи третє число'))
+         let result = multiCount(num1, num2, num3)
+         document.write(`Парних чисел: ${evenNumber}<br>`)
+         document.write(`Додатних чисел: ${positiveNumber}<br>`)
+         document.write(`Чисел більших за 100: ${moreHundred}<br>`)
+      </script>
+      <a href="task4.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

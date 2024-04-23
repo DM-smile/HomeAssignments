@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №4</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №4</h1>
+      <p>Дано масив хлопців і дівчат вивести всі можливі комбінації для танців з хлопців і дівчат.</p>
+      <p>Рішення:</p>
+      <script>
+         const boysList = ['Данил', 'Іван', 'Максим', 'Дмитро', 'Василь']
+         const girlsList = ['Олена', 'Вікторія', 'Даша', 'Тетяна', 'Ганна']
+         document.write(`Дано масиви:<br>Хлопці: ${boysList}<br>Дівчата: ${girlsList}<br><br>Генерування можливих комбінацій пар для танців:<br><br>`)
+         // ========== спосіб через цикли ========== //
+         // for (let i = 0; i < boysList.length; i++) {
+         //    resArr = []
+         //    resArr.push(boysList[i])
+         //    for (let j = 0; j < girlsList.length; j++) {
+         //       resArr.push(girlsList[j])
+         //       document.write(`${resArr}<br>`)
+         //       resArr.pop()
+         //    }
+         // }
+
+         // ======= спосіб через рекурсивні функції ======= //
+         function generateCouple(boysArr = boysList, girlsArr = girlsList, resArr = []) {
+            for (let currentBoyIndex = 0; currentBoyIndex < boysArr.length; currentBoyIndex++) {
+               for (let i = 0; i < girlsArr.length; i++) {
+                  const currentCouple = [...resArr, boysArr[currentBoyIndex], girlsArr[i]]
+                  if (currentCouple.length === 2) {
+                     document.write(`${currentCouple[0]} та ${currentCouple[1]} <br>`)
+                  } else {
+                     generateCouple(boysArr, girlsArr, currentCouple)
+                  }
+               }
+               document.write('<br>')
+            }
+         }
+         generateCouple()
+      </script>
+      <a href="task4.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

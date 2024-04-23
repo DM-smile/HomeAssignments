@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №7</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №7</h1>
+      <p>Дано масив цін. Змінити цей масив так, що на ціни товарів, які більші за 1000 грн. дати 30% знижки.</p>
+      <p>Рішення:</p>
+      <script>
+         const prices = [1158, 794, 1407, 1120, 462, 479, 1009, 703, 1365, 755]
+         let pricesDiscont = []
+         document.write(`Дано масив цін:<br> ${prices}<br><br>`)
+         for (let price of prices)
+            price > 1000 ? pricesDiscont.push(price / 100 * 70) : pricesDiscont.push(price)
+         document.write(`На ціни, які більше 1000 додана знижка 30%:<br> ${pricesDiscont}<br>`)
+      </script>
+      <a href="task7.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

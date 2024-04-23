@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №2</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №2</h1>
+      <p>Розробити функцію, у яку передають об’єкт (день, місяць, рік). Визначити, який буде рік через N місяців.
+      <p>Рішення:</p>
+      <script>
+         function getYear({ month, year }, calcOfMonth) {
+            let calcYear = (calcOfMonth + month) / 12
+            let resYear = Math.floor(year + calcYear)
+            return resYear
+         }
+         // =========== //
+         let objData = {
+            day: 5,
+            month: 3,
+            year: 2024
+         }
+         const calcOfMonth = 35
+         const result = getYear(objData, calcOfMonth)
+         document.write(`N = ${calcOfMonth}<br>Зараз ${objData.year} рік<br>Через ${calcOfMonth} місяців буде ${result} рік`)
+      </script>
+      <a href="task2.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №2</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №2</h1>
+      <p>Створити клас TMoney для роботи з грошовими сумами. Сума повинна зберігатися у вигляді доларового еквіваленту.
+         Реалізувати методи додавання/вилучення грошової маси, вказуючи необхідну суму у гривнях, та визначення курсу
+         долара, при якому сума у гривнях збільшиться на 100. Курс долара зберігати в окремому полі.</p>
+      <p>Рішення:</p>
+      <script>
+         "use strict"
+         // ===== BEGIN ===== //
+         class TMoney {
+            #dollarRate
+            #money
+            #moneyUsd
+            constructor(money = 0, usd = 39.5) {
+               this.#dollarRate = usd
+               this.#money = money
+               this.#moneyUsd = this.#money / this.#dollarRate
+            }
+
+            get DollarRate() { return this.#dollarRate }
+            get MoneyUsd() { return this.#moneyUsd }
+            get Money() { return this.#money }
+            set Money(val) { this.#money = val }
+            set MoneyUsd(val) { this.#moneyUsd = val }
+
+            toString() {
+               if (this.MoneyUsd < 0) {
+                  throw new Error("Початкові дані не можуть бути від'ємними!")
+               } else return `${this.MoneyUsd.toFixed(3)}$`
+            }
+
+            toUsd(val) {
+               return val / this.DollarRate
+            }
+
+            addMoney(val = 0) {
+               if (val < 0 || typeof val !== 'number') {
+                  throw new Error('Введені некоректні дані при спробі збільшити кількість грошей!')
+               }
+               else {
+                  this.Money += val
+                  this.MoneyUsd = this.toUsd(this.Money)
+               }
+            }
+
+            reduceMoney(val = 0) {
+               if (val < 0 || typeof val !== 'number') {
+                  throw new Error('Введені некоректні дані при спробі зменшити кількість грошей!')
+               } else {
+                  if (this.Money < val) {
+                     throw new Error('Кількість зменшення грошей перевищує їх наявність!')
+                  }
+                  else {
+                     this.Money -= val
+                     this.MoneyUsd = this.toUsd(this.Money)
+                  }
+               }
+            }
+
+            getDollarRateForHundredUah() {
+               return (this.Money + 100) / this.MoneyUsd
+            }
+
+         }
+         const money = new TMoney(1000)
+         document.write(`Початкова сума: ${money}<br>`)
+
+
+         money.addMoney(1255) // збільшення грн
+         money.reduceMoney(663) // зменшення грн
+
+         document.write(`Змінена сума: ${money}<br>`) // вивід в usd
+
+         const dollarRateForHundredUah = money.getDollarRateForHundredUah()
+         document.write(`Курс долара, при якому сума збільшиться на 100 грн: ${dollarRateForHundredUah.toFixed(1)}`)
+
+      </script>
+      <a href="task2.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

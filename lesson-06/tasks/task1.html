@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Рішення задачі №1</title>
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+   </head>
+
+   <body>
+      <h1>Рішення задачі №1</h1>
+      <p>Відобразити трикутник за допомогою символів «о»</p>
+      <img src="../img/task1.png" alt="#">
+      <p>Рішення:</p>
+      <script>
+         let row = ''
+         const number = parseInt(prompt('Введіть бажану кількість рядків', '10'))
+         for (let symbol = 0; symbol < number; symbol++) {
+            row = row + 'o'
+            document.write(`${row}<br>`)
+         }
+      </script>
+      <a href="task1.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

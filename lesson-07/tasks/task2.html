@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №2</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №2</h1>
+      <p>Створити функцію, яка за номером дня дозволяє з’ясувати чи є цей день робочим.</p>
+      <p>Рішення:</p>
+      <script>
+         let weekDay
+         function getWeekDay(day) {
+            switch (day) {
+               case 1:
+               case 2:
+               case 3:
+               case 4:
+               case 5:
+                  weekDay = 'робочий'
+                  break
+               case 6:
+               case 7:
+                  weekDay = 'вихідний'
+            }
+         }
+         numberDay = parseInt(prompt('Введи номер дня тидня'))
+         getWeekDay(numberDay)
+         document.write(`це ${weekDay} день`)
+         alert(`це ${weekDay} день`)
+      </script>
+      <a href="task2.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

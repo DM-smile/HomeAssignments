@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №4</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №4</h1>
+      <p>Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за:</p>
+      <ol>
+         <li>за весь рік;</li>
+         <li>у першій половині року;</li>
+         <li>у другій половині року;</li>
+         <li>за літо;</li>
+         <li>за ІІ квартал;</li>
+         <li>за парні місяці (з парними номерами);</li>
+         <li>за місяці, які є початковими у сезоні (весна, літо, осінь, зима).</li>
+      </ol>
+      <p>Рішення:</p>
+      <script>
+         const payments = [2345, 1789, 2654, 2976, 1587, 2134, 2889, 1783, 2356, 1912, 2734, 1278]
+         let sumYear = 0
+         let sumFirstHalfYear = 0
+         let sumSecondHalfYear = 0
+         let sumSummer = 0
+         let sumSecondQuarter = 0
+         let sumEvenMonth = 0
+         let sumStartSeasonMonth = 0
+         for (let i = 0; i < payments.length; i++) {
+            if (i < 6) {
+               sumFirstHalfYear += payments[i]
+            }
+            if (i >= 6) {
+               sumSecondHalfYear += payments[i]
+            }
+            if (i >= 5 && i <= 7) {
+               sumSummer += payments[i]
+            }
+            if (i >= 3 && i <= 5) {
+               sumSecondQuarter += payments[i]
+            }
+            if (((i + 1) % 2) === 0) {
+               sumEvenMonth += payments[i]
+            }
+            if (((i + 1) % 3) === 0) {
+               sumStartSeasonMonth += payments[i]
+            }
+            sumYear += payments[i]
+         }
+         document.write(`Дано платіжки протягом року: ${payments}`)
+         document.write('<ol>')
+         document.write(`<li>Загальна сума за весь рік = ${sumYear} грн</li>`)
+         document.write(`<li>Загальна сума за першу половину року = ${sumFirstHalfYear} грн</li>`)
+         document.write(`<li>Загальна сума за другу половину року = ${sumSecondHalfYear} грн</li>`)
+         document.write(`<li>Загальна сума за літо = ${sumSummer} грн</li>`)
+         document.write(`<li>Загальна сума за другий квартал = ${sumSecondQuarter} грн</li>`)
+         document.write(`<li>Загальна сума за місяці з парними номерами = ${sumEvenMonth} грн</li>`)
+         document.write(`<li>Загальна сума за початкові в сезоні місяці = ${sumStartSeasonMonth} грн</li>`)
+         document.write('</ol>')
+      </script>
+      <a href="task4.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

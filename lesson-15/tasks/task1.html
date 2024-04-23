@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Рішення задачі №1</title>
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <style>
+         table {
+            border: 1px solid black;
+            width: 500px;
+            padding: 0;
+            margin: 0;
+         }
+
+         td {
+            border: 1px solid black;
+            max-width: 100px;
+         }
+      </style>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №1</h1>
+      <p>Створити об’єкт «Тир». У масиві зберігаються 1, якщо у цьому квадраті є заєць і 0 в іншому випадку.</p>
+      <table>
+         <tr>
+            <td colspan="2" style="text-align: center;">Тир</td>
+         </tr>
+         <tr>
+            <td>Поля(властивості)</td>
+            <td>Масив, у якому зберігається поле з зайцями</td>
+         </tr>
+         <tr>
+            <td>Методи (дії)</td>
+            <td>Метод пострілу (задається позиція пострілу) Виведення ігрового поля </td>
+         </tr>
+      </table>
+      <p>Рішення:</p>
+      <script>
+         "use strict"
+         // ===== BEGIN ===== //
+         let shootingGallery = {
+            // field
+            playingField: [0, 0, 0, 1, 0, 0, 1, 0, 0, 1],
+            // shot
+            shot: function (coordinates) {
+               if (coordinates < 0 || coordinates > 10) {
+                  return -1
+               }
+               else if (this.playingField[coordinates - 1] === 1) {
+                  this.playingField[coordinates - 1] = '🐰'
+                  return true
+               }
+               else {
+                  this.playingField[coordinates - 1] = '❌'
+                  return false
+               }
+            },
+            // show field
+            showField: function () {
+               document.write(`Поле: ${this.playingField}`)
+            }
+         }
+         // ===== run functions === //
+         const shotResult = shootingGallery.shot(parseInt(prompt('Куди стріляємо?\nВведи координати 1-10')))
+         if (shotResult === -1) {
+            alert('Постріл за межі поля!\nПерезаряджаємо!')
+            location.reload()
+         }
+         else if (shotResult) {
+            document.write('Попав!<br>')
+            alert('Попав!')
+         }
+         else if (!shotResult) {
+            document.write('Мимо!<br>')
+            alert('Мимо!')
+         }
+
+         shootingGallery.showField()
+      </script>
+      <a href="task1.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №9</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №9</h1>
+      <p>Користувач загадує число. Комп’ютер задає питання поки не вгадає число користувача (використати confirm)</p>
+      <p>Рішення:</p>
+      <script>
+         alert('Загадай число, а я спробую його вгадати, готовий?')
+         for (let i = 1; i >= 1; i++) {
+            const min = 1, max = 100
+            let randomNumber = min + Math.floor(Math.random() * (max - min + 1))
+            if (confirm(`Спроба ${i} \nЦе ${randomNumber}?`)) {
+               alert(`Ура, я вгадав число ${randomNumber}`)
+               break
+            }
+         }
+      </script>
+      <a href="task9.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

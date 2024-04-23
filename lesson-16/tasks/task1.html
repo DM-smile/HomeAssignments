@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №1</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №1</h1>
+      <p>Створити клас TDate для роботи із датами у форматі “день.місяць.рік”. Дата представляється структурою із трьома
+         полями. Реалізувати методи збільшення/зменшення дати на певну кількість днів, місяців чи років. Введення та
+         виведення дати реалізувати за допомогою методу toString.</p>
+      <p>Рішення:</p>
+      <script>
+         "use strict"
+         // ===== BEGIN ===== //
+         class tDate {
+            #day; #month; #year
+            constructor(initialDays, initialMonths, initialYears) {
+               this.#day = initialDays
+               this.#month = initialMonths
+               this.#year = initialYears
+            }
+
+            // getter / setter ===
+            get Day() { return this.#day }
+            set Day(val) { this.#day = val }
+
+            get Month() { return this.#month }
+            set Month(val) { this.#month = val }
+
+            get Year() { return this.#year }
+            set Year(val) { this.#year = val }
+
+            // output ===
+            toString() { return `${this.Day}, ${this.Month}, ${this.Year}<br>` }
+
+            // correct ===
+            correctDate() {
+               const daysInMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+               if ((this.Year % 4 === 0 && this.Year % 100 !== 0) || (this.Year % 400 === 0)) {
+                  daysInMonths[1] = 29
+               }
+               while ((this.Day > daysInMonths[this.Month - 1]) || (this.Month > 12)) {
+                  if (this.Day > daysInMonths[this.Month - 1]) {
+                     this.Day -= daysInMonths[this.Month - 1]
+                     this.Month++
+                  }
+                  if (this.Month > 12) {
+                     this.Month -= 12
+                     this.Year++
+                  }
+
+               }
+               while ((this.Day < 1)) {
+                  if (this.Day < 1) {
+                     this.Month--
+                  }
+                  if (this.Month < 1) {
+                     this.Month = 12
+                     this.Year--
+                  }
+                  this.Day += daysInMonths[this.Month - 1]
+               }
+               while (this.Month < 1) {
+                  this.Month += 12
+                  this.Year--
+               }
+            }
+
+            // correct days === 
+            increaseDays(val = 0) {
+               if (val < 0 || typeof val !== 'number') {
+                  throw new Error('Введені некоректні значення при спробі збільшити значення поля "Day"')
+               } else this.Day += val
+               this.correctDate()
+            }
+            reduceDays(val = 0) {
+               if (val < 0 || typeof val !== 'number') {
+                  throw new Error('Введені некоректні значення при спробі зменшити значення поля "Day"')
+               } else this.Day -= val
+               this.correctDate()
+            }
+            // correct months === 
+            increaseMonths(val = 0) {
+               if (val < 0 || typeof val !== 'number') {
+                  throw new Error('Введені некоректні значення при спробі збільшити значення поля "Month"')
+               } else this.Month += val
+               this.correctDate()
+            }
+            reduceMonths(val = 0) {
+               if (val < 0 || typeof val !== 'number') {
+                  throw new Error('Введені некоректні значення при спробі зменшити значення поля "Month"')
+               } else this.Month -= val
+               this.correctDate()
+            }
+            // correct years === 
+            increaseYears(val = 0) {
+               if (val < 0 || typeof val !== 'number') {
+                  throw new Error('Введені некоректні значення при спробі збільшити значення поля "Year"')
+               } else this.Year += val
+               this.correctDate()
+            }
+            reduceYears(val = 0) {
+               if (val < 0 || typeof val !== 'number') {
+                  throw new Error('Введені некоректні значення при спробі зменшити значення поля "Year"')
+               } else this.Year -= val
+               this.correctDate()
+            }
+         }
+
+
+
+         const increaseDay = 120 // збільшити дні
+         const increaseMonth = 13 // збільшити місяці
+         const increaseYear = 45 // збільшити роки
+         const reduceDay = 0 // зменшити дні
+         const reduceMonth = 20 // зменшити місяці
+         const reduceYear = 40 // зменшити роки
+
+
+
+         const currentDate = new tDate(21, 4, 2024)
+         currentDate.correctDate()
+         document.write(`Початкова дата: ${currentDate}`)
+         const changeData = currentDate
+
+         changeData.increaseDays(increaseDay)
+         changeData.increaseMonths(increaseMonth)
+         changeData.increaseYears(increaseYear)
+         changeData.reduceDays(reduceDay)
+         changeData.reduceMonths(reduceMonth)
+         changeData.reduceYears(reduceYear)
+
+         document.write(`Корегування дати: +${increaseDay} днів, +${increaseMonth} місяців, 
+         +${increaseYear} років, -${reduceDay} днів, -${reduceMonth} місяців, -${reduceYear} років<br>`)
+         document.write(`Відкорегована дата: ${changeData}`)
+      </script>
+      <a href="task1.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

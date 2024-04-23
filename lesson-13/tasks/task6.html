@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №6</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №6</h1>
+      <p>З використанням замикань розробити ітератор, тобто функцію, що буде поступово за окремими викликами видавати по
+         одну букву наперед заданого слова. З використанням нього розробити гру «Прекладач». Виводимо для користувача
+         опис цього слова і по одну букву користувач вводить переклад цього слова. Підрахувати кількість вгаданих букв.
+      </p>
+      <p>Рішення:</p>
+      <script>
+         function wordPlay(word = currentWord, counter = 0, guesLetters = []) {
+            function getLetter() {
+               for (let i = 0; i < word.length; i++) {
+                  let currentLetter = prompt(`Слово англійською з ${word.length} літер\nПідказка: це двоколісний транспорт. \nВведи ${i + 1} літеру цього слова`)
+                  if (currentLetter.toUpperCase() === word[i]) {
+                     counter++
+                     guesLetters.push(word[i])
+                  } else {
+                     guesLetters.push('_')
+                  }
+               }
+               if (guesLetters.length !== 0) {
+                  document.write(`Вгадані літери: ${guesLetters}<br>`)
+               }
+               if (word.length === counter) {
+                  document.write(`Ти молодець! Слово "${word}" вгадано повністю!<br>`)
+               }
+               return counter
+            }
+            return getLetter()
+         }
+         const currentWord = 'BICYCLE'
+         document.write(`Вгадано ${wordPlay()} з ${currentWord.length} літер`)
+      </script>
+      <a href="task6.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

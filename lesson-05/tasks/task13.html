@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №13</title>
+      <style>
+         img {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+         }
+
+         td {
+            width: 50px;
+            height: 50px;
+            font-size: 0;
+            background: url('../img/task13/0.png') no-repeat;
+         }
+
+         .ship {
+            background: url('../img/task13/1.png');
+         }
+
+         .bomb {
+            background: url('../img/task13/2.png');
+         }
+
+         .mosk {
+            width: 60%;
+            object-fit: contain;
+            aspect-ratio: 630 / 360;
+         }
+      </style>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №13</h1>
+      <p>Морський бій. Комп’ютер випадково розташовує одиночний корабель на полі розміром N*M. Маючи К снарядів
+         користувач намагається потопити корабель.</p>
+      <p>Рішення:</p>
+      <script>
+         document.write('<table border="2px">')
+         let numberCells = 1
+         alert('Вітаю в грі "Морський бій! \nДля початку вибери розмір поля та спробуй вручити з однієї спроби!')
+         const width = parseInt(prompt('Укажи ширину поля', '5'))
+         const height = parseInt(prompt('Укажи висоту поля', '5'))
+         const min = 1
+         const max = width * height
+         let randomShip = min + Math.floor(Math.random() * (max - min + 1))
+         alert(`Ти маєш поле ${width} x ${height} та всього 1 Снаряд! ВОГОНЬ!`)
+         let randomFire = min + Math.floor(Math.random() * (max - min + 1))
+         for (let row = 1; row <= width; row++) {
+            document.write('<tr>')
+            for (let step = 1; step <= height; step++) {
+               if (randomFire == numberCells) {
+                  document.write('<td class="bomb">')
+               }
+               else if (randomShip == numberCells) {
+                  document.write('<td class="ship">')
+               }
+               else if (randomFire == randomShip) {
+                  alert('Руський ваєнний карабіль іді "№%:!!!')
+                  document.write('<img class="mosk" src="../img/task13/4.jpg" alt="#">')
+                  width = 0
+                  height = 0
+               }
+               else {
+                  document.write('<td>')
+               }
+               document.write(`${numberCells}`)
+               document.write('</td>')
+               numberCells++
+            }
+            document.write('</tr>')
+         }
+         alert('Не влучив!!')
+         document.write('</table>')
+      </script>
+      <a href="task13.html">
+         <p style="font-size: 40px;"><br><br><br>Перезапустити<br></p>
+      </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

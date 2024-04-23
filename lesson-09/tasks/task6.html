@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №6</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №6</h1>
+      <p>Дано масив елементів. Усі елементи, які більші за перший елемент помножити на 2</p>
+      <p>Рішення:</p>
+      <script>
+         const elements = [38, 2, -44, 88, 102, -20, 408, 29, -11, 209]
+         document.write(`Дано масив: ${elements}<br>`)
+         elements.forEach(
+            (element, index, array) => {
+               if (element > array[0]) document.write(`${element}* 2 = ${array[index] * 2}<br>`)
+            }
+         )
+      </script>
+      <a href="task6.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

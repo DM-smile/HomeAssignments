@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №7</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №7</h1>
+      <p>Тренажер додавання. Кожні 10 секунд користувачу задають випадковий приклад з додавання двох цифр і робиться
+         перевірка.</p>
+      <p>Рішення:</p>
+      <p>Гра запускається...</p>
+      <p>Для завершення гри натисни "Скасувати"</p>
+      <script>
+         alert('Гра запускається...')
+         function additionSimulator(min, max, countCorrect = 0, countAll = 0) {
+            function runGame() {
+               countAll++
+               const firstNum = min + Math.floor(Math.random() * (max - min + 1))
+               const secondNum = min + Math.floor(Math.random() * (max - min + 1))
+               let sum = firstNum + secondNum
+               let result = prompt(`Правильних відповідей: ${countCorrect}\nВиріши приклад:\n${firstNum} + ${secondNum} = ?`)
+               if (result === null) {
+                  clearInterval(intervalId)
+                  alert(`Гра завершена!\nВсього було прикладів: ${countAll}\nВирішених правильно: ${countCorrect}`)
+                  document.write(`Всього було прикладів: ${countAll}<br>Вирішених правильно: ${countCorrect}`)
+               } else {
+                  result = parseInt(result)
+                  if (result === sum) {
+                     countCorrect++
+                     alert('Вірно!')
+                  } else {
+                     alert('НЕ вірно!')
+                  }
+               }
+            }
+            const intervalId = setInterval(runGame, 10000)
+            return countCorrect
+         }
+         additionSimulator(10, 100)
+      </script>
+      <a href="task7.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

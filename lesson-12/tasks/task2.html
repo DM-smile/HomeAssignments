@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №2</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №2</h1>
+      <p>Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів та порівнянь чисел під час сортування
+         змішуванням.</p>
+      <p>Рішення:</p>
+      <script>
+         // генерація масиву випадкових чисел
+         let currentArray = []
+         for (let i = 0; i < 30; i++) {
+            currentArray.push(1 + Math.floor(Math.random() * (999)))
+         }
+         // рішення задачі //
+         let countPassage = 0, countComparison = 0, countExchange = 0, leftIndex = 0
+         let rightIndex = currentArray.length - 1
+         while (leftIndex < rightIndex) {
+            let change = false
+            for (let i = leftIndex + 1; i <= rightIndex; i++) {
+               countComparison++
+               if (currentArray[i - 1] > currentArray[i]) {
+                  let temp = currentArray[i - 1]
+                  currentArray[i - 1] = currentArray[i]
+                  currentArray[i] = temp
+                  change = true
+                  countExchange++
+               }
+            }
+            rightIndex--
+            countPassage++
+            if (!change) break
+            change = false
+            for (let i = rightIndex; i > leftIndex; i--) {
+               countComparison++
+               if (currentArray[i - 1] > currentArray[i]) {
+                  let temp = currentArray[i - 1]
+                  currentArray[i - 1] = currentArray[i]
+                  currentArray[i] = temp
+                  change = true
+                  countExchange++
+               }
+            }
+            leftIndex++
+            countPassage++
+            if (!change) break
+         }
+         // =================== log =================== //
+         console.log(`Масив: ${currentArray}`)
+         console.log(`Циклів проходу: ${countPassage}`)
+         console.log(`Порівнянь: ${countComparison}`)
+         console.log(`Обмінів: ${countExchange}`)
+         document.write(`${currentArray}<br>`)
+         document.write(`Порівнянь: ${countComparison}<br>`)
+         document.write(`Обмінів: ${countExchange}`)
+      </script>
+      <a href="task2.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

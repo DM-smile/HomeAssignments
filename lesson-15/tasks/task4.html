@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №4</title>
+      <style>
+         table {
+            border: 1px solid black;
+            width: 500px;
+            padding: 0;
+            margin: 0;
+         }
+
+         td {
+            border: 1px solid black;
+            max-width: 100px;
+         }
+
+         img {
+            width: 400px;
+         }
+      </style>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №4</h1>
+      <p>Розробити клас Baner</p>
+      <table>
+         <tr>
+            <td>Поля</td>
+            <td>Масив об’єктів ( графічних зображень та посилань на сайти)</td>
+         </tr>
+         <tr>
+            <td>методи</td>
+            <td>Метод випадкового вибору об’єкта (графічного зображення та посилання) Метод виведення випадкового банера
+            </td>
+         </tr>
+      </table>
+      <p>Рішення:</p>
+      <script>
+         "use strict"
+         // ===== BEGIN ===== //
+         const banners = [
+            {
+               image: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Felis_silvestris_silvestris.jpg',
+               link: 'https://uk.wikipedia.org/wiki/%D0%9A%D1%96%D1%82'
+            },
+            {
+               image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/European_shorthair_portrait_Quincy.jpg/240px-European_shorthair_portrait_Quincy.jpg',
+               link: 'https://uk.wikipedia.org/wiki/%D0%9A%D0%BE%D1%80%D0%BE%D1%82%D0%BA%D0%BE%D1%88%D0%B5%D1%80%D1%81%D1%82%D0%B0_%D1%94%D0%B2%D1%80%D0%BE%D0%BF%D0%B5%D0%B9%D1%81%D1%8C%D0%BA%D0%B0_%D0%BA%D1%96%D1%88%D0%BA%D0%B0'
+            },
+            {
+               image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRO_GuDQTBHvHaMWiOQxcMvZ2O-Azo4PvHTddP_xOOmUD3Yd5N',
+               link: 'https://www.businessinsider.com/photos-sphynx-cat-with-terrifying-glare-is-quite-sweet-2020-3'
+            },
+            {
+               image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/GreekSphynxCat1.png/1280px-GreekSphynxCat1.png',
+               link: 'https://uk.wikipedia.org/wiki/%D0%9A%D0%B0%D0%BD%D0%B0%D0%B4%D1%81%D1%8C%D0%BA%D0%B8%D0%B9_%D1%81%D1%84%D1%96%D0%BD%D0%BA%D1%81'
+            }
+         ]
+
+         // ========================== //
+         class Banner {
+            constructor(image) {
+               this.photo = image
+            }
+            getRandomImage(arr) {
+               const randInd = Math.floor(Math.random() * (arr.length))
+               return this.photo[randInd]
+            }
+            getShowBanner(currentImage) {
+               document.write(`<a href="${currentImage.link}" target="_blank"><img src="${currentImage.image}" alt="photo" title="Click ME"></a>`)
+            }
+         }
+         const showBanner = new Banner(banners)
+         const randImg = showBanner.getRandomImage(banners)
+         showBanner.getShowBanner(randImg)
+      </script>
+      <a href="task4.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

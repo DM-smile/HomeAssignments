@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №4</title>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №4</h1>
+      <p>Дано масив елементів. Вивести на екран елементи, що більші за 100</p>
+      <p>Тут використати цикл for..of</p>
+      <p>Рішення:</p>
+      <script>
+         const numbers = [
+            143, 54, 88, 11, 199, 72, 35, 107, 6, 182,
+            93, 159, 47, 124, 70, 3, 186, 29, 97, 131,
+            16, 58, 176, 90, 42, 81, 165, 4, 199, 17
+         ]
+         document.write(`Дано масив: ${numbers}<br>Елементи більші за 100:<br>`)
+         for (let result of numbers) {
+            if (result > 100) document.write(`${result}<br>`)
+         }
+      </script>
+      <a href="task4.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

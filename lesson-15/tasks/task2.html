@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №2</title>
+      <style>
+         table {
+            border: 1px solid black;
+            width: 500px;
+            padding: 0;
+            margin: 0;
+         }
+
+         td {
+            border: 1px solid black;
+            max-width: 100px;
+         }
+      </style>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №2</h1>
+      <p>Створити об’єкт «Авто».</p>
+      <table>
+         <tr>
+            <td colspan="2" style="text-align: center;">Авто</td>
+         </tr>
+         <tr>
+            <td>Поля(властивості)</td>
+            <td>Марка Розмір бака Кількість наявних літрів Кількість місць Кількість пасажирів </td>
+         </tr>
+         <tr>
+            <td>Методи (дії)</td>
+            <td>Заправка на вказану кількість літрів Виведення кількості пасажирів Додавання пасажирів Висадка пасажирів
+            </td>
+         </tr>
+      </table>
+      <p>Рішення:</p>
+      <script>
+         "use strict"
+         // ===== BEGIN ===== //
+         let auto = {
+            brand: 'Benzo-Tesla',
+            tankSize: 200,
+            currentQuantitiLiters: 50,
+            numSeats: 20,
+            numPassengers: 10,
+            fillUp: function (liters) {
+               if ((this.currentQuantitiLiters + liters) > this.tankSize) {
+                  throw new Error('Недостатньо місця в баку')
+               } else this.currentQuantitiLiters += liters
+            },
+            showPassengers: function () { return this.numPassengers },
+            addPassengers: function (num) {
+               if ((this.numPassengers + num) > this.numSeats) {
+                  throw new Error('Не вистачає вільного місця для заданої кількості пасажирів')
+               } else this.numPassengers += num
+            },
+            removePassengers: function (num) {
+               if (num > this.numPassengers) {
+                  throw new Error('Некоректні дані. Неможливо висадити пасажирів бильше ніж є наявна їх кількість')
+               } else this.numPassengers -= num
+
+            }
+         }
+         // ===== run ===== //
+         const fillUpValue = 100, addPassengersValue = 8, removePassengersValue = 12
+         // ================================= //
+
+         document.write('Маємо авто:<br>')
+         document.write(`Марка: ${auto.brand}<br>`)
+         document.write(`Розмір бензобака: ${auto.tankSize} л.<br>`)
+         document.write(`Кількість нанявних літрів: ${auto.currentQuantitiLiters} л.<br>`)
+         document.write(`Кількість місць: ${auto.numSeats}<br>`)
+         document.write(`Кількість пасажирів: ${auto.numPassengers} чол.<br>`)
+         document.write('========== дії ===========<br>')
+         // ================================= //
+
+
+         auto.fillUp(fillUpValue)
+         document.write(`Заправка на ${fillUpValue}л.<br>`)
+         document.write(`Маємо ${auto.currentQuantitiLiters}л. бензину<br>`)
+
+         document.write(`Кількість пасажирів все ще ${auto.showPassengers()} чол.<br>`)
+
+         auto.addPassengers(addPassengersValue)
+         document.write(`Додаємо ${addPassengersValue} пасажирів<br>`)
+         document.write(`Маємо поточну кількість пасажирів: ${auto.numPassengers} чол.<br>`)
+
+         auto.removePassengers(removePassengersValue)
+         document.write(`Висадка ${removePassengersValue} пасажирів<br>`)
+         document.write(`Маємо поточну кількість пасажирів: ${auto.numPassengers} чол.<br>`)
+      </script>
+      <a href="task2.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Рішення задачі №1</title>
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+   </head>
+
+   <body>
+      <h1>Рішення задачі №1</h1>
+      <p>Вивести з використанням циклів маркований список з випадковими числами (1-100). Кількість випадкових чисел
+         вводиться користувачем. Приклад:</p>
+      <img src="../img/tasks/task1.png" alt="#">
+      <p>Рішення:</p>
+      <script>
+         const numberOfNumbers = parseFloat(prompt('Укажіть кількість випадкових чисел'))
+         const min = 1, max = 100
+         document.write('<ul>')
+         for (let list = 0; list < numberOfNumbers; list++) {
+            let randomNumber = min + Math.floor(Math.random() * (max - min + 1))
+            document.write(`<li>${randomNumber}</li>`)
+         }
+         document.write('</ul>')
+      </script>
+      <a href="task1.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №12</title>
+      <style>
+         div {
+            display: inline-block;
+            border: 5px solid black;
+            background-color: #fefbf2;
+         }
+
+         div img {
+            width: 200px;
+            height: 200px;
+         }
+
+         div p {
+            text-align: center;
+            font-size: 30px;
+         }
+      </style>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №12</h1>
+      <p>Ігровий автомат. Випадково вибираємо зображення у 3 позиціях. Вибір у кожній позиції вибирається як одне з
+         чотирьох зображень. Вивести ці зображення і повідомити виграш користувача (три перших зображення 100 грн, три
+         других – 200, три третіх – 500, три четвертих зображення – 1000грн). Використати цикли і switch (для вибору
+         зображення за номером).</p>
+      <img src="../img/tasks/task12.png" alt="#">
+      <p>Рішення:</p>
+      <script>
+         document.write('<div>')
+         const min = 1, max = 4
+         let randomNumber
+         let result = ''
+         for (let i = 1; i <= 3; i++) {
+            randomNumber = min + Math.floor(Math.random() * (max - min + 1))
+            if (randomNumber === 1) {
+               document.write('<img src="../img/task12/2.png" alt="#">')
+               result = result + randomNumber
+            }
+            if (randomNumber === 2) {
+               document.write('<img src="../img/task12/3.png" alt="#">')
+               result = result + randomNumber
+            }
+            if (randomNumber === 3) {
+               document.write('<img src="../img/task12/4.png" alt="#">')
+               result = result + randomNumber
+            }
+            if (randomNumber === 4) {
+               document.write('<img src="../img/task12/1.png" alt="#">')
+               result = result + randomNumber
+            }
+
+
+         }
+
+         switch (result) {
+            case '111':
+               document.write('<p>Ви виграли 100 грн!</p>')
+               alert('Ви виграли 100 грн!')
+               break
+            case '222':
+               document.write('<p>Ви виграли 200 грн!</p>')
+               alert('Ви виграли 200 грн!')
+               break
+            case '333':
+               document.write('<p>Ви виграли 500 грн!</p>')
+               alert('Ви виграли 500 грн!')
+               break
+            case '444':
+               document.write('<p>Ви виграли 1000 грн!</p>')
+               alert('Ви виграли 1000 грн!')
+               break
+            default:
+               document.write('<p>Ви нічого не виграли</p>')
+         }
+      </script>
+      <a href="task12.html">
+         <p>Грати ще раз</p>
+      </a>
+      </div>
+      <br>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>

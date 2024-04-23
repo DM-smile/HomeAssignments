@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №4</title>
+      <style>
+         div {
+            text-align: center;
+            display: inline-block;
+            line-height: 0.5;
+            font-size: 30px;
+         }
+      </style>
+   </head>
+
+   <body>
+      <h1>Рішення задачі №4</h1>
+      <p>Зобразити рівнобедрений трикутник із символів ^. Висоту задає користувач. Наприклад, на екрані висота =5.</p>
+      <img src="../img/task4.png" alt="#">
+      <p>Рішення:</p>
+      <script>
+         let row = ''
+         const number = parseInt(prompt('Введіть бажану висотку трикутника', '20'))
+         document.write('<div>')
+         for (let symbol = 0; symbol < number; symbol++) {
+            row = row + '^'
+            document.write(`${row}<br>`)
+         }
+         document.write('</div>')
+      </script>
+      <a href="task4.html"> <br><br><br>Перезапустити<br> </a>
+      <a href="../index.html"> 👈 Назад</a>
+   </body>
+
+</html>
