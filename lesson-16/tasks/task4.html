@@ -72,7 +72,10 @@
                      note.number -= notesToGive
                   }
                   document.write('Заберіть гроші!')
-               } else document.write('Неможливо видати таку суму!')
+               } else {
+                  alert('Неможливо видати таку суму!')
+                  document.write('Неможливо видати таку суму!')
+               }
             }
          }
 
@@ -95,8 +98,7 @@
          const bankomat = new TBankomat(notesList)
          const getMinSum = bankomat.getMinSum()
          const getMaxSum = bankomat.getMaxSum()
-         const getMoney = parseInt(prompt('Введіть суму для зняття готівки'))
-
+         const getMoney = parseInt(prompt(`Доступно для зняття: ${getMaxSum} грн\nМінімальна сума дняття готівки: ${getMinSum} грн\nВведіть суму для зняття готівки`))
 
          document.write(`Доступно для зняття: ${getMaxSum} грн<br>`)
          document.write(`Мінімальна сума дняття готівки: ${getMinSum} грн<br>`)
