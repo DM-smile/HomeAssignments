@@ -17,7 +17,7 @@
       <script>
          "use strict"
          // ===== BEGIN ===== //
-         class tDate {
+         class TDate {
             #day; #month; #year
             constructor(initialDays, initialMonths, initialYears) {
                this.#day = initialDays
@@ -123,7 +123,7 @@
 
 
 
-         const currentDate = new tDate(21, 4, 2024)
+         const currentDate = new TDate(21, 4, 2024)
          currentDate.correctDate()
          document.write(`Початкова дата: ${currentDate}`)
          const changeData = currentDate

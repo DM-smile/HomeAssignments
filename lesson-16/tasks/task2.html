@@ -17,11 +17,12 @@
       <script>
          "use strict"
          // ===== BEGIN ===== //
+         // Створити клас TMoney для роботи з грошовими сумами.
          class TMoney {
             #dollarRate
             #money
             #moneyUsd
-            constructor(money = 0, usd = 39.5) {
+            constructor(money = 0, usd = 39.8) {
                this.#dollarRate = usd
                this.#money = money
                this.#moneyUsd = this.#money / this.#dollarRate
@@ -43,6 +44,7 @@
                return val / this.DollarRate
             }
 
+            // Реалізувати методи додавання/вилучення грошової маси
             addMoney(val = 0) {
                if (val < 0 || typeof val !== 'number') {
                   throw new Error('Введені некоректні дані при спробі збільшити кількість грошей!')
@@ -67,22 +69,24 @@
                }
             }
 
+            // визначення курсу долара, при якому сума у гривнях збільшиться на 100
             getDollarRateForHundredUah() {
-               return (this.Money + 100) / this.MoneyUsd
+               const res = (this.Money + 100) / this.MoneyUsd
+               return res.toFixed(1)
             }
 
          }
-         const money = new TMoney(1000)
-         document.write(`Початкова сума: ${money}<br>`)
+         const money = new TMoney(10000)
+         document.write(`Курс долара: ${money.DollarRate}<br>Початкова сума: ${money}<br>`)
 
 
-         money.addMoney(1255) // збільшення грн
-         money.reduceMoney(663) // зменшення грн
+         money.addMoney(122) // збільшення грн
+         money.reduceMoney(412) // зменшення грн
 
          document.write(`Змінена сума: ${money}<br>`) // вивід в usd
 
          const dollarRateForHundredUah = money.getDollarRateForHundredUah()
-         document.write(`Курс долара, при якому сума збільшиться на 100 грн: ${dollarRateForHundredUah.toFixed(1)}`)
+         document.write(`Курс долара, при якому сума збільшиться на 100 грн: ${dollarRateForHundredUah}`)
 
       </script>
       <a href="task2.html"> <br><br><br>Перезапустити<br> </a>

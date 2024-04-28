@@ -17,7 +17,92 @@
       <script>
          "use strict"
          // ===== BEGIN ===== //
+         class Note {
+            constructor(noteValue, noteNumber) {
+               this.value = noteValue
+               this.number = noteNumber
+            }
+            get totalValue() {
+               return this.value * this.number
+            }
+            toString() {
+               return `${this.value} : ${this.number}`
+            }
+         }
 
+
+         class TBankomat {
+            constructor(notesList) {
+               this.notesList = notesList
+            }
+            getMinSum() {
+               let minNote = this.notesList.reduce((prevNoteValue, note) => (
+                  note.number > 0 && note.value < prevNoteValue ? note.value : prevNoteValue), Infinity)
+               return isFinite(minNote) ? minNote : 0
+            }
+            getMaxSum() {
+               let sum = this.notesList.reduce(
+                  (prevSum, note) => prevSum + note.totalValue, 0
+               )
+               return sum
+            }
+            getPossibleNotesList(userMoney) {
+               const possibleNotes = []
+               for (let i = 0; i < this.notesList.length && userMoney > 0; i++) {
+                  const note = this.notesList[i]
+                  if (userMoney >= note.value && note.number > 0) {
+                     const notesNum = Math.floor(userMoney / note.value)
+                     const notesToGive = Math.min(notesNum, note.number)
+                     possibleNotes.push({
+                        note,
+                        notesToGive
+                     })
+                     userMoney -= notesToGive * note.value
+                  }
+               }
+               if (userMoney > 0) return false
+               return possibleNotes
+            }
+            getMoney(userMoney) {
+               const possibleNotes = this.getPossibleNotesList(userMoney)
+               if (possibleNotes) {
+                  document.write('Видаю купюри:<br>')
+                  for (const { note, notesToGive } of possibleNotes) {
+                     document.write(`${note.value} грн : ${notesToGive}<br>`)
+                     note.number -= notesToGive
+                  }
+                  document.write('Заберіть гроші!')
+               } else document.write('Неможливо видати таку суму!')
+            }
+         }
+
+
+         let notesList = [
+            new Note(1000, 1),
+            new Note(500, 3),
+            new Note(200, 5),
+            new Note(100, 10),
+            new Note(50, 20),
+            new Note(20, 0),
+            new Note(10, 0),
+            new Note(5, 0),
+            new Note(2, 0),
+            new Note(1, 0)
+         ]
+
+
+
+         const bankomat = new TBankomat(notesList)
+         const getMinSum = bankomat.getMinSum()
+         const getMaxSum = bankomat.getMaxSum()
+         const getMoney = parseInt(prompt('Введіть суму для зняття готівки'))
+
+
+         document.write(`Доступно для зняття: ${getMaxSum} грн<br>`)
+         document.write(`Мінімальна сума дняття готівки: ${getMinSum} грн<br>`)
+         document.write(`Запит на зняття суми: ${getMoney} грн<br>`)
+
+         bankomat.getMoney(getMoney)
       </script>
       <a href="task4.html"> <br><br><br>Перезапустити<br> </a>
       <a href="../index.html"> 👈 Назад</a>
