@@ -10,13 +10,30 @@
 
    <body>
       <h1>Рішення задачі №1</h1>
-      <p></p>
+      <p>Створити клас, що дозволяє виконувати такі операції над масивами: знаходження кількості додатних, кількості
+         від’ємних, кількість входжень деякого числа (статичні методи)</p>
+      <p>Рішення:</p>
       <script>
          "use strict"
          // ===== BEGIN ===== //
-
+         class UseArray {
+            static getNegativeNumbers(arr) {
+               return arr.reduce((prevNum, el) => el < 0 ? prevNum + 1 : prevNum, 0)
+            }
+            static getPositiveNumbers(arr) {
+               return arr.reduce((prevNum, el) => el >= 0 ? prevNum + 1 : prevNum, 0)
+            }
+            static getSpecifiedNumbers(arr, num) {
+               return arr.reduce((prevNum, el) => el === num ? prevNum + 1 : prevNum, 0)
+            }
+         }
+         const array = [1, 2, 3, 4, 5, 8, 8, 0, -10, -20, -30]
+         const searchNumber = 8
+         document.write(`Дано масив: [${array}]<br>`)
+         document.write(`Кількість від'ємних чисел: ${UseArray.getNegativeNumbers(array)}<br>`)
+         document.write(`Кількість додатніх чисел: ${UseArray.getPositiveNumbers(array)}<br>`)
+         document.write(`Кількість входжень числа ${searchNumber} в масив: ${UseArray.getSpecifiedNumbers(array, searchNumber)}`)
       </script>
-      <p>Рішення:</p>
       <a href="task1.html"> <br><br><br>Перезапустити<br> </a>
       <a href="../index.html"> 👈 Назад</a>
    </body>

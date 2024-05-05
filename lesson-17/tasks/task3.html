@@ -10,13 +10,57 @@
 
    <body>
       <h1>Рішення задачі №3</h1>
-      <p></p>
+      <p>Створити клас Нагадувач. Кожні вказані кількості секунд (використати setInterval) програма нагадує про якусь
+         подію (це просто текст) і також виводиться порядковий номер скільки раз вже нагадування було. Зробити так, щоб
+         неможна було зробити одночасно декілька об’єктів-нагадувачів. Методи зупинки таймера, метод зміни повідомлення
+         без зупинки таймера.</p>
+      <p>Рішення:</p>
       <script>
          "use strict"
          // ===== BEGIN ===== //
+         class Reminder {
+            static reminderSave
+            static counterRows = 1
+            static mySwitch = true
+            constructor(text, newText = 'Ай молодець!', time = 1000, timeOfChange = 7000, timeOfStop = 10000) {
+               if (Reminder.reminderSave) {
+                  console.log('Не можна дублювати екземляри нагадувачів!')
+                  return Reminder.reminderSave
+               } else {
+                  this.text = text
+                  this.time = time
+                  this.timeOfChange = timeOfChange
+                  this.timeOfStop = timeOfStop
+                  this.newText = newText
+                  Reminder.reminderSave = this
+               }
+            }
+
+            interval() {
+               if (Reminder.mySwitch) {
+                  Reminder.mySwitch = false
+                  this.changeMessage()
+                  this.stopInterval()
+                  this.intervalId = setInterval(() => {
+                     document.write(`${Reminder.counterRows} : ${this.text}<br>`)
+                     Reminder.counterRows++
+                  }, this.time)
+               } else console.log('Не можна повторно запускати методи!')
+            }
+            changeMessage() { setTimeout(() => this.text = this.newText, this.timeOfChange) }
+            stopInterval() { setTimeout(() => clearInterval(this.intervalId), this.timeOfStop) }
+         }
+
+         const runReminder = new Reminder('Вчи Java Script')
+         const runReminder2Test = new Reminder('Вчи Python')
+         runReminder.interval()
+         runReminder2Test.interval()
+         const runReminder3Test = new Reminder('Вчи C++')
+         runReminder.interval()
+         runReminder2Test.interval()
+         runReminder3Test.interval()
 
       </script>
-      <p>Рішення:</p>
       <a href="task3.html"> <br><br><br>Перезапустити<br> </a>
       <a href="../index.html"> 👈 Назад</a>
    </body>

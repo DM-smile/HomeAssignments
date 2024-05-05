@@ -10,11 +10,132 @@
 
    <body>
       <h1>Рішення задачі №4</h1>
-      <p></p>
-      <p>Рішення</p>
+      <p>Склад. База товарів, які зберігаються на складі: назва товару, одиниця виміру, кількість, фірма виробник
+         (назва, реєстраційний номер). Організувати реєстрацію/відвантаження товарів, фільтрація за назвою товару,
+         фільтрація за назвою фірми</p>
+      <p>Рішення:</p>
       <script>
          "use strict"
          // ===== BEGIN ===== //
+         class Manufacturer {
+            #firmName
+            #registrationNumber
+
+            get FirmName() { return this.#firmName }
+            set FirmName(val) {
+               if (val.length === 0) throw new Error('Назва фирми не може бути порожньою!')
+               this.#firmName = val
+            }
+            get FirmRegNum() { return this.#registrationNumber }
+            set FirmRegNum(val) {
+               if (val.length === 0 || val < 0 || val[0] === '-') throw new Error('Реєстраційний номер фірми не є коректним!')
+               this.#registrationNumber = val
+            }
+            constructor(name, registrationNumber) {
+               this.FirmName = name
+               this.FirmRegNum = registrationNumber
+            }
+            toString() {
+               return `
+                  Фірма виробник: ${this.FirmName}<br>
+                  Реєстраційний номер: ${this.FirmRegNum}<br>
+               `
+            }
+         }
+         class Product {
+            static productsArray = []
+            static addElementToProductsArray(product) {
+               Product.productsArray.push(product)
+            }
+            static filterByProductName(val, products = Product.productsArray) {
+               return products.filter(product => product.ProductName === val)
+            }
+            static filterByCompanyName(val, products = Product.productsArray) {
+               return products.filter(product => product.Firm.FirmName === val)
+            }
+
+            #productName
+            get ProductName() { return this.#productName }
+            set ProductName(val) {
+               if (val.length === 0) throw new Error('Назва товару не може бути порожньою!')
+               this.#productName = val
+            }
+            #productUnit
+            get Unit() { return this.#productUnit }
+            set Unit(val) {
+               if (val.length === 0 || val.length > 5 || val[0] === '-') throw new Error('Одиниця виміру товару не є коректною!')
+               this.#productUnit = val
+            }
+            #productQuantity
+            get ProductQuantity() { return this.#productQuantity }
+            set ProductQuantity(val) {
+               if (val < 0) throw new Error('Кількість товару не є коректною!')
+               this.#productQuantity = val
+            }
+            #productRegistarionShipment
+            get ProductRegistarionShipment() { return this.#productRegistarionShipment }
+            set ProductRegistarionShipment(val) {
+               if (val < 0) throw new Error("Помилка при спробі реєстрації або відвантаження товару з від'ємною кількістю!")
+               if (!val) val = 0
+               this.#productRegistarionShipment = val
+
+            }
+            Firm
+            constructor(
+               productName,
+               productQuantity,
+               productUnit,
+               firmName,
+               firmRegistrationNumber
+            ) {
+               this.ProductName = productName
+               this.Unit = productUnit
+               this.ProductQuantity = productQuantity
+               this.Firm = new Manufacturer(firmName, firmRegistrationNumber)
+               Product.addElementToProductsArray(this)
+            }
+            toString() {
+               return `
+                  Товар: ${this.ProductName}<br>
+                  Кількість: ${this.ProductQuantity} ${this.Unit}<br>
+                  ${this.Firm}<br>
+               `
+            }
+            registProduct(val) {
+               this.ProductRegistarionShipment = val
+               this.ProductQuantity += this.ProductRegistarionShipment
+            }
+            shipmentProduct(val) {
+               this.ProductRegistarionShipment = val
+               this.ProductQuantity -= this.ProductRegistarionShipment
+            }
+
+         }
+
+         const product1 = new Product('Круасан', 10, 'шт', '"Кулиничі"', 4234421)
+         const product2 = new Product('Піцца', 10, 'шт', '"Буфет"', 4155436)
+         const product3 = new Product('Молоко', 10, 'л', '"Молочна ферма Дяді Паши"', 95892850)
+         const product4 = new Product('Сир', 10, 'кг', '"Молочна ферма Дяді Паши"', 95892850)
+
+         product1.registProduct(100)
+         product2.registProduct(50)
+         product3.registProduct(120)
+         product4.registProduct(20)
+
+         product1.shipmentProduct(20)
+         product2.shipmentProduct(10)
+         product3.shipmentProduct(40)
+         product4.shipmentProduct(5)
+
+
+         const findProduct1 = Product.filterByProductName('Круасан')
+         const findProduct2 = Product.filterByProductName('Піцца')
+         const findProductsByFirm = Product.filterByCompanyName('"Молочна ферма Дяді Паши"')
+
+
+         document.write(findProduct1)
+         document.write(findProduct2)
+         document.write(findProductsByFirm)
 
       </script>
       <a href="task4.html"> <br><br><br>Перезапустити<br> </a>

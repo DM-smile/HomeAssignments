@@ -10,13 +10,33 @@
 
    <body>
       <h1>Рішення задачі №2</h1>
-      <p></p>
+      <p>Створити службове авто (водій, марка, номер). Створити клас таким чином, щоб можна було створити тільки один
+         екземпляр цього класу.</p>
+      <p>Рішення:</p>
       <script>
          "use strict"
          // ===== BEGIN ===== //
-
+         class CompanyCar {
+            static companyCarSave
+            constructor(driver, car, number) {
+               if (CompanyCar.companyCarSave) {
+                  return CompanyCar.companyCarSave
+               } else {
+                  this.driver = driver
+                  this.car = car
+                  this.numberCar = number
+                  CompanyCar.companyCarSave = this
+               }
+            }
+            toString() {
+               return `Водій: ${this.driver}<br>Тачка: ${this.car} з номером ${this.numberCar}<br><br>`
+            }
+         }
+         const auto1 = new CompanyCar('Вася', 'BMW', 'AA1234BB')
+         const auto2 = new CompanyCar('Іван', 'AUDI', 'CC4321AA')
+         document.write(auto1)
+         document.write(auto2)
       </script>
-      <p>Рішення:</p>
       <a href="task2.html"> <br><br><br>Перезапустити<br> </a>
       <a href="../index.html"> 👈 Назад</a>
    </body>

@@ -10,12 +10,109 @@
 
    <body>
       <h1>Рішення задачі №6</h1>
-      <p></p>
-      <p>Рішення</p>
+      <p>Дано два класи MultChecker (клас для перевірки таблиці множення - рандомно генеруються числа, які треба
+         перемножати), AddChecker (клас для перевірки додавання - рандомно генеруються числа у заданому діапазоні, які
+         треба додавати). Обидва класи надсилають результати тестування об'єкту класу Hystory, який зберігає історію
+         тестування у масиві у вигляді об'єктів Приклад. testsList= [ {firstNum:1, secondNum:5,opration:’*’,
+         userAnswer:7, correctAnswer:5}, {firstNum:3, secondNum:4,opration:’+’, userAnswer:7, correctAnswer:7}, ] Можна
+         створити окремий клас TestData, який описує один такий тест і у якому будуть ці поля. Розробити клас
+         TestManager, який використовуючи ці класи за допомогою таймера періодично генерує якісь N задач (рандомно
+         вибираємо, що опитувати: додавання чи множення) і проводить опитування. Результати тестування додаються в
+         об’єкт History. Зробити так, щоб об'єкт такого класу можна було створити тільки один. Коли зроблено ці N задач
+         вивести усю історію на екран.</p>
+      <p>Рішення:</p>
       <script>
          "use strict"
          // ===== BEGIN ===== //
+         class History {
+            static testList = []
+            static counterTask = 1
+            static numCorrectAnswer = 0
+            static numIncorrectAnswer = 0
+            constructor(firstNum, operation, secondNum, userAnswer) {
+               this.firstNum = firstNum
+               this.operation = operation
+               this.secondNum = secondNum
+               this.userAnswer = userAnswer
+               if (operation === '*') this.correctAnswer = this.firstNum * this.secondNum
+               if (operation === '+') this.correctAnswer = this.firstNum + this.secondNum
+               History.testList.push(this)
+            }
+            toString() {
+               let check
+               if (this.userAnswer === this.correctAnswer) {
+                  check = '✅'
+                  History.numCorrectAnswer++
+               } else {
+                  check = `❌ (правильна відповідь : ${this.correctAnswer})`
+                  History.numIncorrectAnswer++
+               }
+               return `${this.firstNum} ${this.operation} ${this.secondNum} = 
+               ${this.userAnswer} ${check}<br><br>
+               `
+            }
+         }
+         class MultChecker {
+            constructor() {
+               const min = 2, max = 10
+               this.firstNum = min + Math.floor(Math.random() * (max - min + 1))
+               this.secondNum = min + Math.floor(Math.random() * (max - min + 1))
+               let answer = parseFloat(prompt(`Приклад №${History.counterTask}:\n${this.firstNum} * ${this.secondNum} = ?`))
+               !answer ? answer = 0 : answer
+               new History(this.firstNum, '*', this.secondNum, answer)
+               History.counterTask++
+            }
+         }
+         class AddChecker {
+            constructor() {
+               const min = 2, max = 20
+               this.firstNum = min + Math.floor(Math.random() * (max - min + 1))
+               this.secondNum = min + Math.floor(Math.random() * (max - min + 1))
+               let answer = parseFloat(prompt(`Приклад №${History.counterTask}:\n${this.firstNum} + ${this.secondNum} = ?`))
+               !answer ? answer = 0 : answer
+               new History(this.firstNum, '+', this.secondNum, answer)
+               History.counterTask++
+            }
+         }
+         class TestManager {
+            static testManagerInstance
+            constructor(quantitiTasks, time) {
+               if (TestManager.testManagerInstance) {
+                  return TestManager.testManagerInstance
+               } else {
+                  this.time = time * 1000
+                  for (let i = 1; i <= quantitiTasks; i++) {
+                     setTimeout(() => {
+                        this.generateRandomTask()
+                        if (i === quantitiTasks) this.printHistory()
+                     }, this.time * i)
+                  }
+                  TestManager.testManagerInstance = this
+               }
 
+            }
+            generateRandomTask() {
+               const randomTask = 1 + Math.floor(Math.random() * (2))
+               randomTask === 1 ? new MultChecker() : new AddChecker()
+            }
+            printHistory() {
+               History.testList.forEach(el => { document.write(el) })
+               document.write(`
+               Правильних відповідей: ${History.numCorrectAnswer}<br>
+               Неправильних відповідей: ${History.numIncorrectAnswer}<br>`)
+               document.write(buttons)
+            }
+         }
+
+
+
+         new TestManager(6, 2)
+         new TestManager(100, 1)
+
+
+         const buttons = `
+               <a href="task6.html"> <br><br><br>Перезапустити<br></a>
+               <a href="../index.html"> 👈 Назад</a>`
       </script>
       <a href="task6.html"> <br><br><br>Перезапустити<br> </a>
       <a href="../index.html"> 👈 Назад</a>

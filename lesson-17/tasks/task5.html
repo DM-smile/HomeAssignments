@@ -6,16 +6,227 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
       <title>Рішення задачі №5</title>
+      <style>
+         .line {
+            width: 100%;
+            height: 2px;
+            background-color: black;
+            margin: 15px 0 15px 0;
+         }
+      </style>
    </head>
 
    <body>
       <h1>Рішення задачі №5</h1>
-      <p></p>
-      <p>Рішення</p>
+      <p>Особиста бібліотека. Картотека домашньої бібліотеки: дані книги (автори (піб, рік народження, короткий опис),
+         назва книги, жанр, видавництво (назва, реєстраційний номер, рік засування)). Реалізувати розділи бібліотеки
+         (спеціальна література, хобі, домашнє господарство і т.д.), походження книги і наявність на даний час.
+         Організувати додавання/вилучення книг та вибір книг за назвою, за ПІБ автора, за видавництвом. </p>
+      <p>Рішення:</p>
       <script>
          "use strict"
          // ===== BEGIN ===== //
+         class BookAutor {
+            #autorName
+            get AutorName() { return this.#autorName }
+            set AutorName(value) {
+               if (value.length < 4) throw new Error("Ім'я автору закоротке!")
+               this.#autorName = value
+            }
+            #autorYearOfBirth
+            get AutorYearOfBirth() { return this.#autorYearOfBirth }
+            set AutorYearOfBirth(value) {
+               if (value < 1000 || typeof value !== 'number') throw new Error('Некоректне значення року народження автора!')
+               this.#autorYearOfBirth = value
+            }
+            #autorDescription
+            get AutorDescription() { return this.#autorDescription }
+            set AutorDescription(value) {
+               if (value.length < 5) throw new Error('Некоректний опис автора!')
+               this.#autorDescription = value
+            }
+            constructor(name, yearBirch, description) {
+               this.AutorName = name
+               this.AutorYearOfBirth = yearBirch
+               this.AutorDescription = description
+            }
+            toString() {
+               return `
+               ${this.AutorName} ${this.AutorYearOfBirth} року народження (${this.AutorDescription})
+               `
+            }
+         }
 
+         class BookHouse {
+            #bookHouseTitle
+            get BookHouseTitle() { return this.#bookHouseTitle }
+            set BookHouseTitle(value) {
+               if (value.length < 2) throw new Error('Закоротка назва видавництва!')
+               this.#bookHouseTitle = value
+            }
+            #bookHouseRegistrationNumber
+            get BookHouseRegistrationNumber() { return this.#bookHouseRegistrationNumber }
+            set BookHouseRegistrationNumber(value) {
+               if (value < 0) throw new Error('Некоректний реєстранійний номер видавництва!')
+               this.#bookHouseRegistrationNumber = value
+            }
+            #bookHouseYearOfFoundation
+            get BookHouseYearOfFoundation() { return this.#bookHouseYearOfFoundation }
+            set BookHouseYearOfFoundation(value) {
+               if (typeof value !== 'number' && value < 1000) throw new Error('Некоректно вказаний рік заснування видавництва!')
+               this.#bookHouseYearOfFoundation = value
+            }
+            constructor(title, regNum, yearRegist) {
+               this.BookHouseTitle = title
+               this.BookHouseRegistrationNumber = regNum
+               this.BookHouseYearOfFoundation = yearRegist
+            }
+            toString() {
+               return `"${this.BookHouseTitle}" заснованого в ${this.BookHouseYearOfFoundation} році (реєстраційний номер: ${this.BookHouseRegistrationNumber})
+               `
+            }
+         }
+
+         class Book {
+            static allBooks = []
+
+            static genreRealisticProse = 'Реалістична проза'
+            static genreFantasy = 'Фантастика'
+            static genreNovel = 'Роман'
+            static genreAdventures = 'Пригоди'
+
+            static autorShakespeare = 'Шекспір'
+            static autorGeorgeOrwell = 'Джордж Оруелл'
+            static autorAgathaChristie = 'Агата Крісті'
+
+            static bookHouseKnigoliub = 'Книголюб'
+            static bookHouseOsnova = 'Основа'
+
+            #bookTitle
+            get BookTitle() { return this.#bookTitle }
+            set BookTitle(value) {
+               if (value.length < 3) throw new Error('Введена некоректна назва книги!')
+               this.#bookTitle = value
+            }
+            #bookGenre
+            get BookGenre() { return this.#bookGenre }
+            set BookGenre(value) {
+               if (value.length < 3) throw new Error('Жанр книги вказано некоретно!')
+               this.#bookGenre = value
+            }
+            #originOfTheBook
+            get OriginOfTheBook() { return this.#originOfTheBook }
+            set OriginOfTheBook(value) {
+               if (value.length < 5) throw new Error('Походження книги введено закоротке!')
+               this.#originOfTheBook = value
+            }
+            #availability
+            get Availability() { return this.#availability }
+            set Availability(value) {
+               if (value !== '+' && value !== '-') throw new Error("Наявність книг вказано некоректно!")
+               if (value === '+') this.#availability = 'Є в наявності'
+               if (value === '-') this.#availability = 'Відсутня'
+
+
+            }
+            constructor(
+               autorName,
+               autorYearOfBirth,
+               autorDescription,
+               bookHouseTitle,
+               bookHouseRegistrationNumber,
+               bookHouseYearOfFoundation,
+               bookTitle,
+               bookGenre,
+               originOfTheBook,
+               bookAvailability
+            ) {
+               this.Autor = new BookAutor(autorName, autorYearOfBirth, autorDescription)
+               this.BookHouse = new BookHouse(bookHouseTitle, bookHouseRegistrationNumber, bookHouseYearOfFoundation)
+               this.BookTitle = bookTitle
+               this.BookGenre = bookGenre
+               this.OriginOfTheBook = originOfTheBook
+               this.Availability = bookAvailability
+
+               Book.allBooks.push(this)
+            }
+            toString() {
+               return `
+               <div class="line"></div>
+               Книга: "${this.BookTitle}", автора ${this.Autor}<br>
+               Видавництва ${this.BookHouse}<br>
+               Жанр: ${this.BookGenre}<br>
+               Наявність: ${this.Availability}.
+               <div class="line"></div>
+               `
+            }
+            static addBook(bookTitle, value = '+') {
+               Book.allBooks.forEach((el) => {
+                  if (el.BookTitle === bookTitle) {
+                     el.Availability = value
+                  }
+               })
+            }
+            static removeBook(bookTitle, value = '-') {
+               Book.allBooks.forEach((el) => {
+                  if (el.BookTitle === bookTitle) el.Availability = value
+               })
+            }
+            static findBookByTitle(value) {
+               Book.allBooks.forEach((el) => {
+                  if (el.BookTitle === value) document.write(el)
+               })
+            }
+            static findBookByAutor(value) {
+               Book.allBooks.forEach((el) => {
+                  if (el.Autor.AutorName === value) document.write(el)
+               })
+            }
+            static findBookByBookHouse(value) {
+               Book.allBooks.forEach((el) => {
+                  if (el.BookHouse.BookHouseTitle === value) document.write(el)
+               })
+            }
+         }
+
+         new Book(Book.autorShakespeare, 1564, 'Видатний англійський драматург', Book.bookHouseKnigoliub, '1234', 1980, 'Книга 1', Book.genreRealisticProse, 'Походження варіант 4', '+')
+
+         new Book(Book.autorGeorgeOrwell, 1903, 'Відомий англійський письменник та журналіст', Book.bookHouseKnigoliub, '1234', 1980, 'Книга 2', Book.genreNovel, 'Походження варіант 1', '+')
+
+         new Book(Book.autorAgathaChristie, 1890, 'Відома англійська письменниця детективів', Book.bookHouseOsnova, '9012', 2000, 'Книга 3', Book.genreFantasy, 'Походження варіант 3', '-')
+
+         new Book(Book.autorShakespeare, 1564, 'Видатний англійський драматург', Book.bookHouseOsnova, '9012', 2000, 'Книга 4', Book.genreRealisticProse, 'Походження варіант 2', '+')
+
+         new Book(Book.autorGeorgeOrwell, 1903, 'Відомий англійський письменник та журналіст', Book.bookHouseOsnova, '9012', 2000, 'Книга 5', Book.genreNovel, 'Походження варіант 2', '-')
+
+         new Book(Book.autorShakespeare, 1564, 'Видатний англійський драматург', Book.bookHouseKnigoliub, '1234', 1980, 'Книга 6', Book.genreAdventures, 'Походження варіант 3', '+')
+
+         new Book(Book.autorGeorgeOrwell, 1903, 'Відомий англійський письменник та журналіст', Book.bookHouseKnigoliub, '1234', 1980, 'Книга 7', Book.genreAdventures, 'Походження варіант 4', '+')
+
+         new Book(Book.autorAgathaChristie, 1890, 'Відома англійська письменниця детективів', Book.bookHouseOsnova, '9012', 2000, 'Книга 8', Book.genreRealisticProse, 'Походження варіант 2', '-')
+
+         new Book(Book.autorShakespeare, 1564, 'Видатний англійський драматург', Book.bookHouseOsnova, '9012', 2000, 'Книга 9', Book.genreAdventures, 'Походження варіант 3', '+')
+
+         new Book(Book.autorGeorgeOrwell, 1903, 'Відомий англійський письменник та журналіст', Book.bookHouseOsnova, '9012', 2000, 'Книга 10', Book.genreFantasy, 'Походження варіант 1', '-')
+
+
+         // додавання книги до наявності
+         Book.addBook('Книга 10')
+
+         // вилучити книгу з нявності
+         Book.removeBook('Книга 6')
+
+         // пошук по назві криги
+         Book.findBookByTitle('Книга 6')
+
+         // пошук по Імені автора
+         // Book.findBookByAutor('Шекспір') 
+
+         // пошук по Назві видавництва
+         Book.findBookByBookHouse('Основа')
+
+         // вивести всю бібліотеку
+         // Book.allBooks.forEach(book => document.write(book.toString()))
       </script>
       <a href="task5.html"> <br><br><br>Перезапустити<br> </a>
       <a href="../index.html"> 👈 Назад</a>
