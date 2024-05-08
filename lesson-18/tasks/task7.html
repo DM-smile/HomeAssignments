@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №7</title>
+      <script defer src="../js/script_task7.js"></script>
+      <link rel="stylesheet" href="../css/style.css">
+   </head>
+
+   <body>
+      <header>
+         <h1>Рішення задачі №7</h1>
+         <p>Подорож складається з 3 етапів. На кожному етапі користувач може вибрати один з видів транспорту (авто,
+            автобус, літак - випадаючий список), харчування (сніданок, обід, вечеря – checkbоx) та одного з 3-х
+            гідів(використати - radio buttons). Ціни визначте самі. Підрахувати загальну вартість.</p>
+         <p>Рішення:</p>
+      </header>
+      <main>
+         <section class="stage1">
+            <h2>Етап №1</h2>
+            <label for="stage1_transport">Оберіть транспорт</label>
+            <select name="stage1_transport" id="stage1_transport" required>
+               <option value="70" id="stage1_transport_car" selected>Авто</option>
+               <option value="50" id="stage1_transport_bus">Автобус</option>
+               <option value="400" id="stage1_transport_plane">Літак</option>
+            </select><br><br>
+            <span>Оберіть харчування</span>
+            <div id="block_stage1_food">
+               <input value="15" type="checkbox" id="stage1_food_breakfast">
+               <label for="stage1_food_breakfast">Сніданок</label>
+               <input value="15" type="checkbox" id="stage1_food_lunch">
+               <label for="stage1_food_lunch">Обід</label>
+               <input value="20" type="checkbox" id="stage1_food_dinner">
+               <label for="stage1_food_dinner">Вечеря</label>
+            </div><br>
+            <span>Оберіть гіда</span><br>
+            <input value="100" type="radio" id="stage1_guide_1" name="stage1_guide">
+            <label for="stage1_guide_1">Гід 1</label>
+            <input value="150" type="radio" id="stage1_guide_2" name="stage1_guide">
+            <label for="stage1_guide_2">Гід 2</label>
+            <input value="170" type="radio" id="stage1_guide_3" name="stage1_guide">
+            <label for="stage1_guide_3">Гід 3</label>
+         </section>
+         <section class="stage2">
+            <h2>Етап №2</h2>
+            <label for="stage2_transport">Оберіть транспорт</label>
+            <select name="stage2_transport" id="stage2_transport" required>
+               <option value="70" id="stage2_transport_car" selected>Авто</option>
+               <option value="50" id="stage2_transport_bus">Автобус</option>
+               <option value="400" id="stage2_transport_plane">Літак</option>
+            </select><br><br>
+            <span>Оберіть харчування</span>
+            <div id="block_stage2_food">
+               <input value="10" type="checkbox" id="stage2_food_breakfast">
+               <label for="stage2_food_breakfast">Сніданок</label>
+               <input value="10" type="checkbox" id="stage2_food_lunch">
+               <label for="stage2_food_lunch">Обід</label>
+               <input value="15" type="checkbox" id="stage2_food_dinner">
+               <label for="stage2_food_dinner">Вечеря</label>
+            </div><br>
+            <span>Оберіть гіда</span><br>
+            <input value="80" type="radio" id="stage2_guide_1" name="stage2_guide">
+            <label for="stage2_guide_1">Гід 1</label>
+            <input value="100" type="radio" id="stage2_guide_2" name="stage2_guide">
+            <label for="stage2_guide_2">Гід 2</label>
+            <input value="130" type="radio" id="stage2_guide_3" name="stage2_guide">
+            <label for="stage2_guide_3">Гід 3</label>
+         </section>
+         <section class="stage3">
+            <h2>Етап №3</h2>
+            <label for="stage3_transport">Оберіть транспорт</label>
+            <select name="stage3_transport" id="stage3_transport" required>
+               <option value="50" id="stage3_transport_car" selected>Авто</option>
+               <option value="30" id="stage3_transport_bus">Автобус</option>
+               <option value="300" id="stage3_transport_plane">Літак</option>
+            </select><br><br>
+            <span>Оберіть харчування</span>
+            <div id="block_stage3_food">
+               <input value="10" type="checkbox" id="stage3_food_breakfast">
+               <label for="stage3_food_breakfast">Сніданок</label>
+               <input value="10" type="checkbox" id="stage3_food_lunch">
+               <label for="stage3_food_lunch">Обід</label>
+               <input value="15" type="checkbox" id="stage3_food_dinner">
+               <label for="stage3_food_dinner">Вечеря</label>
+            </div><br>
+            <span>Оберіть гіда</span><br>
+            <input value="150" type="radio" id="stage3_guide_1" name="stage3_guide">
+            <label for="stage3_guide_1">Гід 1</label>
+            <input value="100" type="radio" id="stage3_guide_2" name="stage3_guide">
+            <label for="stage3_guide_2">Гід 2</label>
+            <input value="200" type="radio" id="stage3_guide_3" name="stage3_guide">
+            <label for="stage3_guide_3">Гід 3</label>
+         </section>
+         <div id="the_total_cost">
+            <h2>Загальна вартість подорожі</h2>
+            <p></p>
+            <button id="get_result">Порахувати</button>
+         </div>
+      </main>
+      <footer>
+         <a href="task7.html"> <br><br><br>Перезапустити<br> </a>
+         <a href="../index.html"> 👈 Назад</a>
+      </footer>
+   </body>
+
+</html>
