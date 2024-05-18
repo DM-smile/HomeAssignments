@@ -1,0 +1,33 @@
+body,
+main {
+   height: 100vh;
+}
+
+.button {
+   border-radius: 50%;
+   width: 200px;
+   height: 200px;
+   background-color: rgb(21, 168, 168);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 40px;
+   cursor: pointer;
+   border: 3px dashed green;
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   transition:
+      background-color 0.3s,
+      transform 10s,
+      translate 10s;
+}
+.button:hover {
+   background-color: rgb(105, 235, 235);
+   transform: scale(1.5) translate(-40%, -40%);
+}
+span {
+   font-size: 30px;
+   color: white;
+}

@@ -1,0 +1,47 @@
+.page {
+}
+.page__wrapper {
+}
+.page__body {
+   display: flex;
+   flex-wrap: wrap;
+}
+.page__item {
+   border: 1px solid grey;
+   padding: 5px;
+}
+.item {
+   padding: 5px;
+   cursor: pointer;
+}
+.item__photo {
+   transition: all 0.3s;
+}
+.item:hover .item__photo {
+   transform: scale(1.013);
+}
+.item__label {
+   background-color: orange;
+   display: inline-block;
+   color: white;
+   padding: 6px;
+   border-radius: 30px;
+   font-weight: 700;
+   margin-left: 10px;
+   font-size: 14px;
+}
+.item__name,
+.item__model {
+   font-size: 19px;
+}
+.item__price {
+   color: red;
+   font-size: 24px;
+   font-weight: 500;
+}
+.item__label--version {
+   background-color: red;
+}
+.chose {
+   outline: 5px solid green;
+}

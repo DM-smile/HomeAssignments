@@ -1,0 +1,28 @@
+main {
+   display: inline-flex;
+   gap: 10px;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+   background-color: antiquewhite;
+   border-radius: 20px;
+   margin-bottom: 30px;
+}
+div {
+   font-size: 25px;
+   cursor: pointer;
+   border: 3px solid transparent;
+   display: inline;
+   padding: 10px;
+   border-radius: 20px;
+}
+div:hover {
+   transition: all 0.1s;
+   border: 3px solid rgb(235, 0, 0);
+   transform: scale(1.1);
+}
+div:active {
+   border: 3px solid rgb(235, 0, 0);
+   transform: scale(1);
+   box-shadow: 0 0 10px rgb(235, 0, 0);
+}

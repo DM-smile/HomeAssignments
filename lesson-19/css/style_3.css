@@ -1,0 +1,31 @@
+main {
+   display: inline-flex;
+   flex-wrap: wrap;
+   background-color: rgb(220, 237, 231);
+   border-radius: 10px;
+   font-size: 18px;
+   padding: 2%;
+   justify-content: center;
+   width: 420px;
+}
+ol {
+   border: 1px solid black;
+   padding: 30px;
+   color: blue;
+   border-radius: 5px;
+}
+span {
+   background-color: rgb(8, 242, 125);
+   cursor: pointer;
+   border-radius: 10px;
+   padding: 10px;
+   height: 20px;
+   transition: all 0.2s;
+}
+span:hover {
+   transform: scale(1.08);
+   background-color: rgb(8, 172, 90);
+}
+span:not(:last-child) {
+   margin-right: 20px;
+}

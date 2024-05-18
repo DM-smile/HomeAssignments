@@ -1,0 +1,45 @@
+main {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+}
+
+.filter-wrapper {
+   display: inline-flex;
+   flex-direction: column;
+   gap: 30px;
+   border: 3px solid green;
+   padding: 30px;
+   border-radius: 10px;
+   font-size: 24px;
+   width: 400px;
+}
+.car-list {
+   border: 3px solid green;
+   padding: 15px;
+   border-radius: 10px;
+}
+select {
+   min-width: 100px;
+   height: 40px;
+   cursor: pointer;
+   font-size: 24px;
+}
+.brand-car,
+.year-product,
+.price-product {
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+}
+.filter {
+   display: flex;
+   flex-direction: column;
+   gap: 30px;
+}
+h3 {
+   margin: 0;
+}
+label {
+   cursor: pointer;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../../img/icons/favicon.png" type="image/x-icon">
+      <title>Рішення задачі №1</title>
+      <script defer src="../js/script.js"></script>
+      <link rel="stylesheet" href="../css/style.css">
+   </head>
+
+   <body>
+      <header>
+         <h1>Рішення задачі №1</h1>
+         <p>Дано список автомобілів (марка, рік випуску, ціна). Сформувати елементи для фільтрування з використанням
+            випадаючого списку (контент цих випадаючих списків сформувати у залежності від переданого списку). </p>
+         <p>Рішення:</p>
+      </header>
+      <main>
+         <div class="filter-wrapper">
+            <h3>Фільтри пошуку</h3>
+            <div class="filter">
+               <div class="brand-car">
+                  <label for="brand">Марка авто</label>
+                  <select name="brand" id="brand">
+                     <option>Не обрано</option>
+                  </select>
+               </div>
+               <div class="year-product">
+                  <label for="year">Рік випуску</label>
+                  <select name="year" id="year">
+                     <option>Не обрано</option>
+                  </select>
+               </div>
+               <div class="price-product">
+                  <label for="price">Ціна</label>
+                  <select name="price" id="price">
+                     <option>Не обрано</option>
+                  </select>
+               </div>
+            </div>
+            <div class="car-list">
+               <h3>Список авто:</h3>
+               <ol></ol>
+            </div>
+         </div>
+      </main>
+      <footer>
+         <a href=" task1.html"> <br><br><br>Перезапустити<br> </a>
+         <a href="../index.html"> 👈 Назад</a>
+      </footer>
+   </body>
+
+</html>
