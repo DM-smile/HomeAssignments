@@ -28,6 +28,10 @@ main {
    transform: scale(1.5) translate(-40%, -40%);
 }
 span {
-   font-size: 30px;
    color: white;
+   position: absolute;
+   user-select: none;
+}
+body {
+   position: relative;
 }

@@ -80,4 +80,3 @@ window.onload = () => {
 
 const mainBlock = document.getElementsByClassName('task-block')[0]
 mainBlock.addEventListener('click', bookingTransport)
-
