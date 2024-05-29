@@ -74,4 +74,4 @@ mainEl.append(f2)
 
 
 
-style(mainEl, 19, 'blue', 2, 8)
+style(mainEl, 19, 'blue', 2, 15)
