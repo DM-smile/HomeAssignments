@@ -12,6 +12,7 @@
   background-color: rgb(73, 218, 221);
   font-size: 22px;
   height: 200px;
+  width: 300px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -23,7 +24,6 @@
   transition: all 0.2s;
 }
 .checker__body {
-  width: 300px;
   height: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
