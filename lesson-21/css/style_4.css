@@ -1,0 +1,93 @@
+.checker {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: rgb(73, 218, 221);
+  font-size: 22px;
+  height: 200px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.checker__body {
+  width: 300px;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.checker__month {
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+}
+.checker__month:focus {
+  outline: 1px solid blue;
+}
+.checker__rating {
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+}
+.checker__rating:focus {
+  outline: 1px solid blue;
+}
+.checker__buton {
+  border: 1px solid black;
+  display: inline;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+@media (any-hover: hover) {
+  .checker__buton {
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+  .checker__buton:hover {
+    background-color: rgb(65, 127, 129);
+    color: #fff;
+    -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+}
+.checker__buton:active {
+  -webkit-box-shadow: 0 0 15px black;
+          box-shadow: 0 0 15px black;
+  -webkit-transform: scale(0.95);
+      -ms-transform: scale(0.95);
+          transform: scale(0.95);
+  -webkit-transition: all 0.03s;
+  transition: all 0.03s;
+}
+.checker__info {
+  text-align: center;
+  font-size: 22px;
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+}
