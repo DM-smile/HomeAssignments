@@ -217,7 +217,7 @@ checkBtn.addEventListener('click', () => checkUrl(site.value, taskResult))
 // ===================================================== //
 
 // Задача 13. Вибрати усі роки після 2021 року з отриманого повідомлення
-const messageText = '1984, 2050, 2100, 2135, 1999, 2200, 2025, 3140, 2077, 1800, 2175, 1955, 2033, 2250, 2115'
+const messageText = '1984, 2050, 2100, 2135, 1999, 2200, 2025, 3140, 2077, 2022, 1800, 2175, 1955, 2033, 2250, 2115'
 const btnOpenMessage = document.querySelector('.message__envelope')
 const blockMessage = document.querySelector('.message')
 const btnOfResult = document.createElement('button')
@@ -234,7 +234,7 @@ const openMessage = (el1, el2, el3) => {
 btnOpenMessage.addEventListener('click', () => openMessage(blockMessage, btnOfResult, resultMessage))
 
 const getResult = (text, el = resultMessage) => {
-   const list = text.match((/(\b20[2-9][0-9]|\b2[1-9][0-9][0-9]|\b[3-9][0-9][0-9][0-9]\b)/g))
+   const list = text.match((/(\b20[2-9][2-9]|\b2[1-9][0-9][0-9]|\b[3-9][0-9][0-9][0-9]\b)/g))
    el.innerText = `Отриманий список: ${list}`
 }
 
